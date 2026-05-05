@@ -1,3 +1,81 @@
-Documento di analisi
+Scheda di analisi problema Cinemax
 
-problema:
+Entità da gestire:
+    Utenti:
+      -proiezionisti
+      -clienti (loggati)
+      -guest(no login no registrazione)
+      -bigliettai
+
+    Proiezione
+    Film
+    Palinsesto
+
+---------------------------------------------------------------------------------------------------------------------------    
+
+Caratteristiche Utenti
+i dati che bisogna salvare sono:
+  Nome -> stringa
+  Cognome ->stringa
+  Username -> stringa
+  Password cifrata magari con una chiave casuale che si modifica volta per volta -> stringa
+  data di nascita(facoltativa) -> tipo data
+  Luogo di Domicilio-> non usando API string
+  Ruolo(da mettere solamente nel file di testo visto che i vari utenti saranno creati utilizzando classi)
+
+Caratteristiche film
+  i dati che bisogna salvare sono:
+    Titolo->string
+    Genere-> String/enum
+    Regista  -> String
+    Anno -> int
+    Durata -> string notazione ***min/ **h,**m
+    Età Minima int
+  
+Caratteristiche proiezioni
+  i dati che bisogna salvare sono:
+    data -> tipo data
+    ora -> controllare se esita tipo hour
+    costo ->float/double
+    +info film
+
+Caratteristiche del palinsesto
+  Nel palinsesto troveremo tutte le proiezioni presenti per il cinema Monosala
+  se si riesce mostrare il palinsesto ordinato per ora e per giorno così da mostrare un palinsesto completo      
+
+-------------------------------------------------------------------------------------------------------------------------------------  
+
+Funzionalità degli utenti:
+
+  guest:
+    -cercare proiezioni -> CercaProiezione() bisognerà creare funzioni dello stesso nome con parametri diversi
+    -visualizzare dettagli delle proiezioni-> VisualizzaProiezione() mostra i dati se scelti della proiezione
+    -Registrazione -> RegistraCliente()-> fase di registrazione dove vingono chiesti tutti i dati anche quelli non necessari
+    -login
+  
+  clienti:
+    -Inserire prenotazione-> CreaPrenotazione() permette di prenotare una proiezione
+    -Visualizzare le proprie prenotazioni-> VisualizzaPrenotazione() restituisce tutte le prenotazioni del cliente
+    -Modificare o eliminare le prenotazioni ModificaPrenotazione()/EliminaPrenotazione() portano modifiche alle proprie prenotazioni
+    -logout -> si ritorna alla fase di guest  
+
+  proiezionisti:
+    -Inserire Proiezione -> inserisce una nuova proiezione nel palinsesto
+    -Inserire Film-> InserisciFilm() inserisce un nuovo film da aggiungere ad una qualiasi proiezione
+    -Modificare data Proiezione-> ModificaProiezione() permette di modificare caratteristiche della proiezione
+    - Eliminare Proiezione-> eliminaProiezione() permette di eliminare la proiezione e quindi anche le prenotazioni su di esse
+    - Logout-> si ritorna alla fase di guest 
+    
+  bigliettai:
+    -Visualizzare prenotazioni  -> VisualizzaPrenotazione() permette di visualizzare determinate caratteristiche della prenotazione
+    -Cercare una prenotazione -> cercaPrenotazione() concetto simile di CercaProiezione
+    -Logout si ritorna alla fase di guest
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+File di testo da creare per lavorarci:
+
+  -file draft film proiezioni
+  -file utenti
+  -file prenotazioni
+
