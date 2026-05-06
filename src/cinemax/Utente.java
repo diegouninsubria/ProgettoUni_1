@@ -7,13 +7,15 @@ public abstract class Utente {
     private String username;
     private String password;
     private Date nascita;
+    private String domicilio;
 
-    public Utente(String nome, String cognome,String username,String password,Date nascita){
+    public Utente(String nome, String cognome,String username,String password,Date nascita,String domicilio){
         this.nome=nome;
         this.cognome=cognome;
         this.username=username;
         this.password=password;
         this.nascita=nascita;
+        this.domicilio=domicilio;
         //effettuare controlli di inserimento
     }
     public Utente(){}
@@ -38,6 +40,10 @@ public abstract class Utente {
 
     public void SetNascita(Date nascita){
         this.nascita=nascita;
+    }
+
+    public void SetDomicilio(String domicilio){
+        this.domicilio=domicilio;
     }
 
     //metodi get
@@ -65,11 +71,16 @@ public abstract class Utente {
             return this.nascita.toString();
     }
 
+    public String GetDomicilio(){
+        return this.domicilio;
+    }
+
     public String toString(){
         return "Nome:"+this.nome+"\n" +
                 "Cognome:"+this.cognome+"\n"+
                 "Username:"+this.username+"\n" +
                 "Password:"+this.password+"\n" +
-                "Data di nascita:"+this.nascita;
+                "Data di nascita:"+this.nascita+"\n" +
+                "Domicilio:"+this.domicilio;
     }
 }
