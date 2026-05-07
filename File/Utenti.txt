@@ -1,1 +1,2 @@
 nome,cognome,username,password,data di nascita,domicilio,ruolo
+Proserpio,Fabio,Fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,Tue Aug 07 00:00:00 CEST 3906,Carate Urio,Cliente

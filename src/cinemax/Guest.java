@@ -86,8 +86,8 @@ public class Guest extends Utente{
 
     public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
         try{
-            FileWriter writer= new FileWriter("../File/Utenti.txt",true);
-            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.toString()+","+luogo+"\n");
+            FileWriter writer= new FileWriter("File/utenti.txt",true);
+            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.toString()+","+luogo+","+ruolo+"\n");
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");
