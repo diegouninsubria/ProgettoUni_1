@@ -1,5 +1,7 @@
 package cinemax;
 import java.util.*;
+import java.io.FileWriter;
+import java.io.IOException;
 public class Guest extends Utente{
     public static char chiave='a';
     public Guest(){
@@ -17,7 +19,7 @@ public class Guest extends Utente{
         cognome=inserisciCognome(input);
         Username=inserisciUsername(input);
         Password=inserisciPassword(input);
-        //nascita=inserisciData(input);
+        nascita=new Date(2006,7,7);
         Domicilio=inserisciDomicilio(input);
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
         //scrittura su file + creazione direttamente di un oggetto cliente?
@@ -82,7 +84,38 @@ public class Guest extends Utente{
         return domicilio;
     }
 
-    public static void ScriviFile(String nome,String cognome,String username,String paasword,Date nascita, String luogo,String ruolo){
+    public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
+        try{
+            FileWriter writer= new FileWriter("../File/Utenti.txt",true);
+            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.toString()+","+luogo+"\n");
+            writer.close();
 
+            System.out.println("Scrittura avenuta con successo");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public static String EncodedPsw(String Password){
+        String encode="";
+
+        for(int i=0;i<Password.length();i++){
+             char c=Password.charAt(i);
+             c=(char)(c*chiave);
+             encode+=c;
+        }
+        return encode;
+    }
+
+    public static String DecodePsw(String Password){
+        String decode="";
+
+        for(int i=0;i<Password.length();i++){
+            char c=Password.charAt(i);
+            c=(char)(c/chiave);
+            decode+=c;
+        }
+
+        return decode;
     }
 }
