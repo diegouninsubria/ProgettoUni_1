@@ -1,2 +1,3 @@
 nome,cognome,username,password,data di nascita,domicilio,ruolo
 Proserpio,Fabio,Fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,Tue Aug 07 00:00:00 CEST 3906,Carate Urio,Cliente
+Tommaso,Demontis,TeoDemo56,┢Ⓛ⣬ⱕ┢ⱕሰᖙ,Thu May 25 00:00:00 CEST 2006,Cernobbio,Cliente

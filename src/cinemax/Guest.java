@@ -22,7 +22,6 @@ public class Guest extends Utente{
         nascita = inserisciData(input);
         Domicilio=inserisciDomicilio(input);
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
-        //scrittura su file + creazione direttamente di un oggetto cliente?
     }
     public static String inserisciNome(Scanner input) {
         String nome;
@@ -70,10 +69,16 @@ public class Guest extends Utente{
         return password;
     }
 
-   // public static String inserisciData(Scanner input){
-        //decide se è meglio usare Local data che controlla effettivamente se la data in questione vada bene o meno
-    //}
+   public static String inserisciDomicilio(Scanner input){
+        String domicilio;
 
+        do{
+            System.out.println("Inserisci il domicilio: ");
+            domicilio=input.nextLine().trim();
+        }while(domicilio.isEmpty());
+
+        return domicilio;
+   }
         //controllo data
    public static Date inserisciData(Scanner input) {
         int giorno = 0;
@@ -98,8 +103,8 @@ public class Guest extends Utente{
         }
         }
 
-       if (mese == 4 || mese == 6 || mese == 9 || mese == 11) {GM = 30} 
-       if (mese == 2) {GM = 28}
+       if (mese == 4 || mese == 6 || mese == 9 || mese == 11) {GM = 30;}
+       if (mese == 2) {GM = 28;}
        
         while (giorno < 1 || giorno > GM) {
             System.out.println("Inserisci il giorno: ");
