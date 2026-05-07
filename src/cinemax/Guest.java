@@ -1,6 +1,7 @@
 package cinemax;
 import java.util.*;
 public class Guest extends Utente{
+    public static char chiave='a';
     public Guest(){
         super();
     }
@@ -18,6 +19,7 @@ public class Guest extends Utente{
         Password=inserisciPassword(input);
         //nascita=inserisciData(input);
         Domicilio=inserisciDomicilio(input);
+        ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
         //scrittura su file + creazione direttamente di un oggetto cliente?
     }
     public static String inserisciNome(Scanner input) {
@@ -78,5 +80,9 @@ public class Guest extends Utente{
         }while(domicilio.isEmpty());
 
         return domicilio;
+    }
+
+    public static void ScriviFile(String nome,String cognome,String username,String paasword,Date nascita, String luogo,String ruolo){
+
     }
 }
