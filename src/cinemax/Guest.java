@@ -8,22 +8,24 @@ public class Guest extends Utente{
         super();
     }
     public void Registrazione(){
+        //prende in input da tastiera i dati del login, effettua i controlli sui dati e li scrive nel file apposito
         String nome;
         String cognome;
         String Username;
         String Password;
         Date nascita;
         String Domicilio;
-        Scanner input = new Scanner(System.in);
-        nome=inserisciNome(input);
-        cognome=inserisciCognome(input);
-        Username=inserisciUsername(input);
-        Password=inserisciPassword(input);
-        nascita = inserisciData(input);
-        Domicilio=inserisciDomicilio(input);
+        Scanner input = new Scanner(System.in);//creazione di oggetto per lettura da tastiera
+        nome=inserisciNome(input);//inserimento del nome
+        cognome=inserisciCognome(input);//inserimento del cognome
+        Username=inserisciUsername(input);//inserimento dell'username
+        Password=inserisciPassword(input);//inserimento della password
+        nascita = inserisciData(input);//inserimento data di nascita dell'utente
+        Domicilio=inserisciDomicilio(input);//inserimento del comicilio
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
+        //il ruole nella registrazione è solo del cliente, le altre entità hanno già le credenziali già registrate
     }
-    public static String inserisciNome(Scanner input) {
+    public static String inserisciNome(Scanner input) {//controlla che l'inserimento del nome non sia vuoto-> fare ulteriori controlli
         String nome;
 
         do {
@@ -34,7 +36,7 @@ public class Guest extends Utente{
         return nome;
     }
 
-    public static String  inserisciCognome(Scanner input){
+    public static String  inserisciCognome(Scanner input){//controlla che il campo del cognome non sia vuoto->aggiungere altri controlli
         String cognome;
 
         do{
@@ -126,17 +128,17 @@ public class Guest extends Utente{
 
     public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
         try{
-            FileWriter writer= new FileWriter("File/utenti.txt",true);
-            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.toString()+","+luogo+","+ruolo+"\n");
+            FileWriter writer= new FileWriter("File/utenti.txt",true);//apre il file
+            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.toString()+","+luogo+","+ruolo+"\n"); //scrive nel file
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");
         }
         catch (IOException e){
-            e.printStackTrace();
+            e.printStackTrace();//presenta l'errore
         }
     }
-    public static String EncodedPsw(String Password){
+    public static String EncodedPsw(String Password){//codifica la password tramite la chiave comune a tuttio gli oggetti di tipo guest
         String encode="";
 
         for(int i=0;i<Password.length();i++){
@@ -147,7 +149,7 @@ public class Guest extends Utente{
         return encode;
     }
 
-    public static String DecodePsw(String Password){
+    public static String DecodePsw(String Password){ //decodifica la password tramite la chiave comune a tutti
         String decode="";
 
         for(int i=0;i<Password.length();i++){
