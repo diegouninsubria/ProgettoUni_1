@@ -1,0 +1,18 @@
+Struttura classe prenotazione
+
+attributi:
+
+-Oggetto Proiezione
+-Oggetto Cliente
+-numero posti prenotati
+-flag scaduta
+(il costo del biglietto è già in proiezione)
+
+metodi:
+-costruttore
+-get di tutti gli attributi
+-set solamente di numero posti, del flag, del costo finale per prenotazione facendo numero posti*il get del costo in prenotazione
+
+ps. aggiungere in File, un file di testo chiamato Prenotazioni.txt
+
+poi dopo aggiungeremo gli altri metodi che ci servono
