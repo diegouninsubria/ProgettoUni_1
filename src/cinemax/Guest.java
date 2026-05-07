@@ -19,7 +19,7 @@ public class Guest extends Utente{
         cognome=inserisciCognome(input);
         Username=inserisciUsername(input);
         Password=inserisciPassword(input);
-        nascita=new Date(2006,7,7);
+        nascita = inserisciData(input);
         Domicilio=inserisciDomicilio(input);
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
         //scrittura su file + creazione direttamente di un oggetto cliente?
@@ -57,6 +57,7 @@ public class Guest extends Utente{
         return username;
     }
 
+
     public static String inserisciPassword(Scanner input){
         String password;
         System.out.println("La password deve essere lunga almeno 4 caratteri!");
@@ -73,16 +74,50 @@ public class Guest extends Utente{
         //decide se è meglio usare Local data che controlla effettivamente se la data in questione vada bene o meno
     //}
 
-    public static String inserisciDomicilio(Scanner input){
-        String domicilio;
+        //controllo data
+   public static Date inserisciData(Scanner input) {
+        int giorno = 0;
+        int mese = 0;
+        int anno = 0;
+        int GM = 31;
+        while (anno < 1900 || anno > 2026) {
+              System.out.println("Inserisci l'anno: ");
+              if (input.hasNextInt()) {
+            anno = input.nextInt();
+        } else {
+            input.next(); 
+        }
+            }
 
-        do{
-            System.out.println("inserisci domicilio: ");
-            domicilio=input.nextLine().trim();
-        }while(domicilio.isEmpty());
+            while (mese < 1 || mese > 12) {
+            System.out.println("Inserisci il mese: ");
+            if (input.hasNextInt()) {
+            mese = input.nextInt();
+        } else {
+            input.next(); 
+        }
+        }
 
-        return domicilio;
+       if (mese == 4 || mese == 6 || mese == 9 || mese == 11) {GM = 30} 
+       if (mese == 2) {GM = 28}
+       
+        while (giorno < 1 || giorno > GM) {
+            System.out.println("Inserisci il giorno: ");
+            if (input.hasNextInt()) {
+            giorno = input.nextInt();
+        } else {
+            input.next(); 
+        }
+
+        }
+
+       input.nextLine();
+
+        return new Date(anno - 1900, mese - 1, giorno);
     }
+
+        //fine controllo/inserimento data
+
 
     public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
         try{
