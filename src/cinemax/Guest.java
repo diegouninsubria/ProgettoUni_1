@@ -2,6 +2,8 @@ package cinemax;
 import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 public class Guest extends Utente{
     public static char chiave='a';
     public Guest(){
@@ -24,6 +26,13 @@ public class Guest extends Utente{
         Domicilio=inserisciDomicilio(input);//inserimento del comicilio
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
         //il ruole nella registrazione è solo del cliente, le altre entità hanno già le credenziali già registrate
+    }
+
+    public void Login(){
+        ArrayList<Utente> u=LeggiFile();
+        for(Utente c: u){
+            System.out.println(c.toString());
+        }
     }
     public static String inserisciNome(Scanner input) {//controlla che l'inserimento del nome non sia vuoto-> fare ulteriori controlli
         String nome;
@@ -120,7 +129,7 @@ public class Guest extends Utente{
 
        input.nextLine();
 
-        return new Date(anno - 1900, mese - 1, giorno);
+        return new Date(anno , mese , giorno);
     }
 
         //fine controllo/inserimento data
@@ -128,8 +137,8 @@ public class Guest extends Utente{
 
     public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
         try{
-            FileWriter writer= new FileWriter("File/utenti.txt",true);//apre il file
-            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.toString()+","+luogo+","+ruolo+"\n"); //scrive nel file
+            FileWriter writer= new FileWriter("File/Utenti.txt",true);//apre il file //effettuare controllo get di nascita
+            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDay()+","+nascita.getMonth()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");
@@ -137,6 +146,43 @@ public class Guest extends Utente{
         catch (IOException e){
             e.printStackTrace();//presenta l'errore
         }
+    }
+    public static ArrayList<Utente> LeggiFile(){
+        ArrayList<Utente> u =new ArrayList<>();
+
+        String file = "File/Utenti.txt";
+
+        try(BufferedReader br = new BufferedReader(new FileReader(file))){
+
+            br.readLine();
+            String riga;
+            while((riga = br.readLine())!=null){
+                String [] campi = riga.split(",");
+
+                int giorno = Integer.parseInt(campi[4]);
+                int mese = Integer.parseInt(campi[5]);
+                int anno = Integer.parseInt(campi[6]);
+
+                Date dataNascita = new Date(anno, mese, giorno);
+
+                switch (campi[8]){
+                    case "Cliente":
+                        u.add(new Cliente(campi[0],campi[1],campi[2],DecodePsw(campi[3]),dataNascita,campi[7]));
+                        break;
+                    case "Bigliettaio":
+                        u.add(new Bigliettaio(campi[0],campi[1],campi[2],DecodePsw(campi[3]),dataNascita,campi[7]));
+                        break;
+                    case "Proiezionista":
+                        u.add(new Proiezionista(campi[0],campi[1],campi[2],DecodePsw(campi[3]),dataNascita,campi[7]));
+                        break;
+                }
+            }
+
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return u;
     }
     public static String EncodedPsw(String Password){//codifica la password tramite la chiave comune a tuttio gli oggetti di tipo guest
         String encode="";

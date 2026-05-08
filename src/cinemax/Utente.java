@@ -8,14 +8,16 @@ public abstract class Utente {
     private String password;
     private Date nascita;
     private String domicilio;
+    private String mansione;
 
-    public Utente(String nome, String cognome,String username,String password,Date nascita,String domicilio){
+    public Utente(String nome, String cognome,String username,String password,Date nascita,String domicilio,String mansione){
         this.nome=nome;
         this.cognome=cognome;
         this.username=username;
         this.password=password;
         this.nascita=nascita;
         this.domicilio=domicilio;
+        this.mansione=mansione;
         //effettuare controlli di inserimento
     }
     public Utente(){}
