@@ -77,6 +77,8 @@ public abstract class Utente {
         return this.domicilio;
     }
 
+    public String GetMansione(){return this.mansione;}
+
     public String toString(){
         return "Nome:"+this.nome+"\n" +
                 "Cognome:"+this.cognome+"\n"+

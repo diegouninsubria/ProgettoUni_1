@@ -28,11 +28,24 @@ public class Guest extends Utente{
         //il ruole nella registrazione è solo del cliente, le altre entità hanno già le credenziali già registrate
     }
 
-    public void Login(){
+    public Utente Login(){
         ArrayList<Utente> u=LeggiFile();
+        Scanner input=new Scanner(System.in);
+        Utente ut=null;
+        boolean trovato=false;
+        String username= inserisciUsername(input);
+        String password=inserisciPassword(input);
         for(Utente c: u){
-            System.out.println(c.toString());
+            if(username.equals(c.GetUsername()) && password.equals(c.GetPassword())){
+                trovato=true;
+                ut=c;
+                break;
+            }
         }
+        if(trovato)
+            return ut;
+        else
+            return null;
     }
     public static String inserisciNome(Scanner input) {//controlla che l'inserimento del nome non sia vuoto-> fare ulteriori controlli
         String nome;
