@@ -47,6 +47,10 @@ public class Guest extends Utente{
         else
             return null;
     }
+
+   /* public ArrayList<Proiezione> CercaProiezione(String genere){
+
+    }*/
     public static String inserisciNome(Scanner input) {//controlla che l'inserimento del nome non sia vuoto-> fare ulteriori controlli
         String nome;
 

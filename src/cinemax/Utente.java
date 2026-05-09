@@ -1,6 +1,10 @@
 package cinemax;
 
+import java.time.LocalTime;
 import java.util.*;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 public abstract class Utente {
     private String nome;
     private String cognome;
@@ -78,6 +82,41 @@ public abstract class Utente {
     }
 
     public String GetMansione(){return this.mansione;}
+
+    public ArrayList<Proiezione> leggiProiezioni(){
+        ArrayList<Proiezione> pr = new ArrayList<>();
+
+        String file="File/proiezioni.csv";
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+
+            br.readLine();
+            String riga;
+            while ((riga = br.readLine()) != null) {
+                String[] campi = riga.split(",");
+                String[] dataOra = campi[0].split(" ");
+                String[] datiD=dataOra[0].split("-");
+                String[] datiO=dataOra[1].split(":");
+
+                int giorno = Integer.parseInt(datiD[2]);
+                int mese = Integer.parseInt(datiD[1]);
+                int anno = Integer.parseInt(datiD[0]);
+                Date data = new Date(anno,mese,giorno);
+
+                int ora = Integer.parseInt(datiO[0]);
+                int minuti=Integer.parseInt(datiO[1]);
+                int secondi=Integer.parseInt(datiO[2]);
+                LocalTime time = LocalTime.of(ora,minuti,secondi);
+
+                Film film= new Film(campi[1],campi[2],campi[3],Integer.parseInt(campi[4]),Integer.parseInt(campi[5]),Integer.parseInt(campi[6]));
+                Proiezione p =new Proiezione(data,time,film,Float.parseFloat(campi[7]));
+                pr.add(p);
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return pr;
+    }
 
     public String toString(){
         return "Nome:"+this.nome+"\n" +
