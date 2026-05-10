@@ -1,7 +1,10 @@
 package cinemax;
 import java.time.LocalTime;
 import java.util.*;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 public class Proiezione {
 
     Date data;
@@ -33,5 +36,32 @@ public class Proiezione {
                 "Ora: "+ora.toString()+"\n" +
                 "Film: "+film.toString()+"\n" +
                 "Costo: "+costo+"\n";
+    }
+
+    public void InserisciFilm(){
+        Scanner input= new Scanner(System.in);
+        String titolo;
+        String genere;
+        String regista;
+        int anno;
+        int durata;
+        int etaMinima;
+        titolo=inserisciTitolo(input); //inserire i controlli di inserimento
+        genere=inserisciGenere(input);
+        regista=inserisciRegista(input);
+        anno=inserisciAnno(input);
+        durata=inserisciDurata(input);
+        etaMinima=inserisciEtaMinima(input);
+
+        try{
+            FileWriter writer= new FileWriter("File/Film.txt",true);//apre il file //effettuare controllo get di nascita
+            writer.write(""+titolo+","+genere+","+regista+","+anno+","+durata+","+etaMinima); //scrive nel file
+            writer.close();
+
+            System.out.println("Scrittura avenuta con successo");
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
