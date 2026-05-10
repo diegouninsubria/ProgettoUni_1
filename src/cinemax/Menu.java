@@ -15,7 +15,7 @@ public class Menu {
         System.out.print("Scelta: ");
 
         int scelta = input.nextInt();
-        input.nextLine(); // pulizia buffer
+        input.nextLine(); 
 
         return scelta;
     }
