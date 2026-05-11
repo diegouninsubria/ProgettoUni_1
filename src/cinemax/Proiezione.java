@@ -7,10 +7,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 public class Proiezione {
 
-    Date data;
-    LocalTime ora;
-    Film film;
-    float costo;
+    private Date data;
+    private LocalTime ora;
+    private Film film;
+    private float costo;
 
     public Proiezione(Date data,LocalTime ora,Film film,float costo){
         this.data=data;

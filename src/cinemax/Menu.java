@@ -4,18 +4,83 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public int mostraMenu() {
+    public int mostraMenuIniziale() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("===== MENU CINEMAX =====");
         System.out.println("1) Login");
         System.out.println("2) Registrazione");
-        System.out.println("3) Esci");
+        System.out.println("3) Accedi come Guest");
         System.out.println("========================");
         System.out.print("Scelta: ");
 
         int scelta = input.nextInt();
         input.nextLine(); 
+
+        return scelta;
+    }
+    public int mostraMenuGuest(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("===== MENU GUEST =====\n");
+        System.out.println("1) Login\n");
+        System.out.println("2) Registrazione\n");
+        System.out.println("3) Ricerca Proiezione\n");
+        System.out.println("========================\n");
+        System.out.print("Scelta: ");
+
+        int scelta = input.nextInt();
+        input.nextLine();
+
+        return scelta;
+    }
+    public int mostraMenuCliente(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("===== MENU CLIENTE=====\n");
+        System.out.println("1) Visualliza le tue prenotazioni\n");
+        System.out.println("2) Aggiungi prenotazione\n");
+        System.out.println("3) Modifica proiezione\n");
+        System.out.println("4) Elimina proiezione\n");
+        System.out.println("5) visualizza proiezioni\n");
+        System.out.println("6) Logout\n");
+        System.out.println("========================\n");
+        System.out.print("Scelta: ");
+
+        int scelta = input.nextInt();
+        input.nextLine();
+
+        return scelta;
+    }
+    public int mostraMenuProiezionista(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("===== MENU CI =====\n");
+        System.out.println("1) Aggiungi film\n");
+        System.out.println("2) Aggiungi proiezione\n");
+        System.out.println("3) Modifica proiezione\n\n");
+        System.out.println("4) Elimina proiezione");
+        System.out.println("5) Logout\n");
+        System.out.println("========================\n");
+        System.out.print("Scelta: ");
+
+        int scelta = input.nextInt();
+        input.nextLine();
+
+        return scelta;
+    }
+
+    public int mostraMenuBigliettaio(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("===== MENU BIGLIETTAIO =====\n");
+        System.out.println("1) Cerca prenotazione\n");
+        System.out.println("2) Logout\n");
+        System.out.println("========================\n");
+        System.out.print("Scelta: ");
+
+        int scelta = input.nextInt();
+        input.nextLine();
 
         return scelta;
     }
