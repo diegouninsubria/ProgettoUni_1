@@ -4,3 +4,4 @@ Fabii,Unicci,Cacchio23,ᢡ⦮⩰⬲⨏⮓⚦Ꮄ,0,3,5,Carate Brianza,Cliente
 Carlo,Zanotti,ZanoCarl90,⩰Ⓛ⮓⫑ⱕⓁ⣬♅ኑኑ,0,2,95,Inverigo,Cliente
 Cappio,Ambrogio,cavoletto55,ᢡ⦮⩰⬲♅⚦⮓◤⚦,2,5,103,Milano,Cliente
 Nicola,Marconi,Marc23,Ṑ⣬♅Ⓛ⮓♅ኑዲፓᎴ,4,6,1988,Lambrugo,Cliente
+Valerio,Monti,ValeMonti2345,ᢡ⮓◤ἒ⨏⥍Ⓛኑዲ,3,0,1976,Como,Cliente

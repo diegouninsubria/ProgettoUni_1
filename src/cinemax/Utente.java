@@ -24,6 +24,14 @@ public abstract class Utente {
         this.mansione=mansione;
         //effettuare controlli di inserimento
     }
+    public Utente(String nome,String cognome,String username,String password,String domicilio,String mansione){
+        this.nome=nome;
+        this.cognome=cognome;
+        this.username=username;
+        this.password=password;
+        this.domicilio=domicilio;
+        this.mansione=mansione;
+    }
     public Utente(){}
     //per utente guest
 
