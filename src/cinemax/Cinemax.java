@@ -43,6 +43,12 @@ public class Cinemax {
                         break;
                 }
                 break;
+
+            case 4:
+                System.out.println("Uscita dal programma...");
+                System.exit(0);
+                break;
         }
     }
 }
+
