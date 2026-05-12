@@ -13,12 +13,13 @@ public class Menu {
             System.out.println("1) Login");
             System.out.println("2) Registrazione");
             System.out.println("3) Accedi come Guest");
+            System.out.println("4) Esci");
             System.out.println("========================");
             System.out.print("Scelta: ");
 
             scelta = input.nextInt();
             input.nextLine();
-        }while(scelta<=0 || scelta>=4);
+        }while(scelta<=0 || scelta>=5);
 
         return scelta;
     }
