@@ -4,6 +4,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+/**
+ * Rappresenta un utente Guest del sistema Cinemax.
+ * Il Guest può effettuare operazioni di registrazione e login,
+ * oltre a inserire i propri dati personali tramite input da tastiera.
+ *
+ * La classe fornisce inoltre funzionalità per la lettura e scrittura
+ * dei dati dagli utenti su file, oltre a metodi di codifica e decodifica delle password.
+ *
+ * Estende {@link Utente} utilizzando il costruttore di default.
+ */
+
 public class Guest extends Utente{
     public static char chiave='a';
     public Guest(){
