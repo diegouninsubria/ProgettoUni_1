@@ -20,7 +20,9 @@ public class Guest extends Utente{
         Scanner input = new Scanner(System.in);//creazione di oggetto per lettura da tastiera
         nome=inserisciNome(input);//inserimento del nome
         cognome=inserisciCognome(input);//inserimento del cognome
-        Username=inserisciUsername(input);//inserimento dell'username
+        do {
+            Username = inserisciUsername(input);//inserimento dell'username
+        }while(CheckUsername(Username));
         Password=inserisciPassword(input);//inserimento della password
         nascita = inserisciData(input);//inserimento data di nascita dell'utente
         Domicilio=inserisciDomicilio(input);//inserimento del comicilio
@@ -222,5 +224,15 @@ public class Guest extends Utente{
         }
 
         return decode;
+    }
+    public static boolean CheckUsername(String username){
+        ArrayList<Utente> u = LeggiFile();
+        for(Utente ut:u){
+            if(ut.GetUsername().equals(username)){
+                System.out.println("Utente già presente, utilizzare un altro username per registrarsi!\n");
+                return true;
+            }
+        }
+        return false;
     }
 }
