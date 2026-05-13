@@ -173,7 +173,7 @@ public class Menu {
 
             scelta = input.nextInt();
             input.nextLine();
-        }while(scelta<=0 ||scelta>=8);
+        }while(scelta<=0 ||scelta>=11);
 
         return scelta;
     }
