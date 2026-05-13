@@ -17,10 +17,26 @@ import java.io.FileReader;
  */
 
 public class Guest extends Utente{
+
+    /** Chiave utilizzata per la codifica e decodifica delle password */
+
     public static char chiave='a';
+
+    /**
+     * Costruttore di default che inizializza un Guest tramite il costruttore
+     * vuoto della classe {@link Utente}.
+     */
+
     public Guest(){
         super();
     }
+
+    /**
+     * Gestisce la procedura di registrazione di un nuovo utente Cliente.
+     * Richiede i dati tramite input da tastiera, effettua controlli di validità
+     * e salva le informazioni nel file degli utenti.
+     */
+
     public void Registrazione(){
         //prende in input da tastiera i dati del login, effettua i controlli sui dati e li scrive nel file apposito
         String nome;
@@ -41,6 +57,14 @@ public class Guest extends Utente{
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
         //il ruole nella registrazione è solo del cliente, le altre entità hanno già le credenziali già registrate
     }
+
+    /**
+     * Esegue la procedura di login confrontando username e password
+     * con i dati presenti nel file degli utenti.
+     *
+     * @return un oggetto {@link Utente} se le credenziali sono valide,
+     * altrimenti {@code null}
+     */
 
     public Utente Login(){
         ArrayList<Utente> u=LeggiFile();
@@ -65,6 +89,14 @@ public class Guest extends Utente{
    /* public ArrayList<Proiezione> CercaProiezione(String genere){
 
     }*/
+
+    /**
+     * Richiede e valida l'inserimento del nome da tastiera.
+     *
+     * @param input scanner per la lettura da tastiera
+     * @return nome inserito dall'utente
+     */
+
     public static String inserisciNome(Scanner input) {//controlla che l'inserimento del nome non sia vuoto-> fare ulteriori controlli
         String nome;
 
@@ -75,6 +107,13 @@ public class Guest extends Utente{
 
         return nome;
     }
+
+    /**
+     * Richiede e valida l'inserimento del cognome da tastiera.
+     *
+     * @param input scanner per la lettura da tastiera
+     * @return cognome inserito dall'utente
+     */
 
     public static String  inserisciCognome(Scanner input){//controlla che il campo del cognome non sia vuoto->aggiungere altri controlli
         String cognome;
@@ -87,6 +126,13 @@ public class Guest extends Utente{
         return cognome;
     }
 
+    /**
+     * Richiede e valida l'inserimento dell'username.
+     *
+     * @param input scanner per la lettura da tastiera
+     * @return username inserito dall'utente
+     */
+
     public static String inserisciUsername(Scanner input){
         String username;
 
@@ -98,6 +144,13 @@ public class Guest extends Utente{
         return username;
     }
 
+    /**
+     * Richiede e valida l'insserimento della password.
+     * La password deve avere almeno 4 caratteri.
+     *
+     * @param input scanner per la lettura da tastiera
+     * @return password valida inserita dall'utente
+     */
 
     public static String inserisciPassword(Scanner input){
         String password;
@@ -111,6 +164,13 @@ public class Guest extends Utente{
         return password;
     }
 
+    /**
+     * Richiede e valida l'inserimento del domicilio.
+     *
+     * @param input scanner per la lettura da tastiera
+     * @return domicilio inserito dall'utente
+     */
+
    public static String inserisciDomicilio(Scanner input){
         String domicilio;
 
@@ -121,6 +181,14 @@ public class Guest extends Utente{
 
         return domicilio;
    }
+
+    /**
+     * Richiede e valida l'inserimento della data di nascita.
+     *
+     * @param input scanner per la lettura da tastiera
+     * @return data di nascita come oggetto {@link Date}
+     */
+
         //controllo data
    public static Date inserisciData(Scanner input) {
         int giorno = 0;
@@ -165,6 +233,18 @@ public class Guest extends Utente{
 
         //fine controllo/inserimento data
 
+    /**
+     * Scrive nel file degli utenti una nuova riga contenente i dati
+     * dell'utente registrato.
+     *
+     * @param nome        nome dell'utente
+     * @param cognome     cognome dell'utente
+     * @param username    username scelto
+     * @param password    password codificata
+     * @param nascita     data di nascita
+     * @param luogo       domicilio dell'utente
+     * @param ruolo       ruolo dell'utente (Cliente, Bigliettaio, Proiezionista)
+     */
 
     public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
         try{
@@ -178,6 +258,14 @@ public class Guest extends Utente{
             e.printStackTrace();//presenta l'errore
         }
     }
+
+    /**
+     * Legge il file degli utenti e ricostruisce una lista di oggetti
+     * {@link Utente} in base al ruolo indicato nel file.
+     *
+     * @return lista degli utenti presenti nel file
+     */
+
     public static ArrayList<Utente> LeggiFile(){
         ArrayList<Utente> u =new ArrayList<>();
 
@@ -215,6 +303,14 @@ public class Guest extends Utente{
         }
         return u;
     }
+
+    /**
+     * Codifica una password utilizzando una chiave comune.
+     *
+     * @param Password password in chiaro
+     * @return password codificata
+     */
+
     public static String EncodedPsw(String Password){//codifica la password tramite la chiave comune a tuttio gli oggetti di tipo guest
         String encode="";
 
@@ -225,6 +321,13 @@ public class Guest extends Utente{
         }
         return encode;
     }
+
+    /**
+     * Decodifica password precedentemente codificata.
+     *
+     * @param Password password codificata
+     * @return password in chiaro
+     */
 
     public static String DecodePsw(String Password){ //decodifica la password tramite la chiave comune a tutti
         String decode="";
@@ -237,6 +340,14 @@ public class Guest extends Utente{
 
         return decode;
     }
+
+    /**
+     * Controlla se uno username è già presente nel file degli utenti.
+     *
+     * @param username username da verificare
+     * @return {@code true} se lo username è già utilizzato
+     */
+
     public static boolean CheckUsername(String username){
         ArrayList<Utente> u = LeggiFile();
         for(Utente ut:u){
