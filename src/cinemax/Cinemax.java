@@ -50,8 +50,25 @@ public class Cinemax {
                 switch(sceltaGuest){
                     case 1:
                         ut = g.Login();
-                        break;
+                        if(ut == null){
+                            System.out.println("Utente non presente");
+                        } else {
+                            System.out.println("Ti sei loggato come:");
+                            System.out.println(ut.toString());
 
+                            if(ut instanceof Cliente)
+                                switch (menu.mostraMenuCliente()){
+
+                                }
+                            else if(ut instanceof Bigliettaio)
+                                switch (menu.mostraMenuBigliettaio()){
+
+                                }
+                            else if(ut instanceof Proiezionista)
+                                switch (menu.mostraMenuProiezionista()){
+
+                                }
+                        }
                     case 2:
                         g.Registrazione();
                         break;
