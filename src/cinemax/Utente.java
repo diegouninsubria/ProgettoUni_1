@@ -91,7 +91,7 @@ public abstract class Utente {
 
     public String GetMansione(){return this.mansione;}
 
-    public ArrayList<Proiezione> leggiProiezioni(){
+    public static ArrayList<Proiezione> leggiProiezioni(){
         ArrayList<Proiezione> pr = new ArrayList<>();
 
         String file="File/proiezioni.csv";
@@ -126,6 +126,25 @@ public abstract class Utente {
         return pr;
     }
 
+    public ArrayList<Proiezione> CercaProiezione(){
+        ArrayList<Proiezione> p = new ArrayList<>();
+        ArrayList<Proiezione> proiezioni=leggiProiezioni();
+        Date data;
+        LocalTime ora;
+        String titolo;
+        String regista;
+        String genere;
+        int durata;
+        int anno;
+        int costo;
+        int etaMinima;
+        Menu menu= new Menu();
+        switch (menu.mostraMenuCercaProeizione()){
+
+        }
+        return p;
+    }
+
     public String toString(){
         return "Nome:"+this.nome+"\n" +
                 "Cognome:"+this.cognome+"\n"+
@@ -133,5 +152,14 @@ public abstract class Utente {
                 "Password:"+this.password+"\n" +
                 "Data di nascita:"+this.nascita+"\n" +
                 "Domicilio:"+this.domicilio;
+    }
+    public static boolean CheckString(String ins, String obj){
+        String in=ins.toLowerCase();
+        String o=obj.toLowerCase();
+        boolean flag=true;
+        for(int i=0;i<in.length();i++)
+            if(in.charAt(i) != o.charAt(i))
+                flag=false;
+        return flag;
     }
 }
