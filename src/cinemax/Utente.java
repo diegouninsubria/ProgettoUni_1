@@ -91,7 +91,7 @@ public abstract class Utente {
 
     public String GetMansione(){return this.mansione;}
 
-    public ArrayList<Proiezione> leggiProiezioni(){
+    public static ArrayList<Proiezione> leggiProiezioni(){
         ArrayList<Proiezione> pr = new ArrayList<>();
 
         String file="File/proiezioni.csv";
@@ -124,6 +124,25 @@ public abstract class Utente {
             e.printStackTrace();
         }
         return pr;
+    }
+
+    public ArrayList<Proiezione> CercaProiezione(){
+        ArrayList<Proiezione> p = new ArrayList<>();
+        ArrayList<Proiezione> proiezioni=leggiProiezioni();
+        Date data;
+        LocalTime ora;
+        String titolo;
+        String regista;
+        String genere;
+        int durata;
+        int anno;
+        int costo;
+        int etaMinima;
+        Menu menu= new Menu();
+        switch (menu.mostraMenuCercaProeizione()){
+
+        }
+        return p;
     }
 
     public String toString(){

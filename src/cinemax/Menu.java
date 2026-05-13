@@ -107,11 +107,13 @@ public class Menu {
             System.out.println("1) Ricerca per la data della Proiezione");
             System.out.println("2) Ricerca per l'ora della Proiezione");
             System.out.println("3) Ricerca per il titolo del film");
-            System.out.println("4) Ricerca per il regista del film ");
-            System.out.println("5) Ricerca per l'anno di uscita del film");
-            System.out.println("6) Ricerca per la durata del film");
-            System.out.println("7) Ricerca per l'età minima del film");
-            System.out.println("7) Ricerca combinata");
+            System.out.println("4) Ricerca per genere del film");
+            System.out.println("5) Ricerca per il regista del film ");
+            System.out.println("6) Ricerca per l'anno di uscita del film");
+            System.out.println("7) Ricerca per la durata del film");
+            System.out.println("8) Ricerca per l'età minima del film");
+            System.out.println("9) Ricerca per costo della proeizione");
+            System.out.println("10) Ricerca combinata");
 
             System.out.println("========================");
             System.out.print("Scelta: ");
