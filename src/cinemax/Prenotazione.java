@@ -1,10 +1,26 @@
 package cinemax;
 
+/**
+ * Rappresenta una prenotazione effettuata da un cliente per una specifica
+ * proiezione cinematografica.
+ * Contiene le informazioni relative all'utente, alla proiezione scelta,
+ * al numero di posti prenotati e allo stato della prenotazione (attiva o scaduta).
+ */
+
 public class Prenotazione {
     private Cliente utente;
     private Proiezione proiezione;
     private int postiPrenotati;
     private boolean scaduta;
+
+    /**
+     * Crea una nuova prenotazione con i dati specificati.
+     *
+     * @param utente            cliente che ha effettuato la prenotazione
+     * @param proiezione        proiezione scelta dal cliente
+     * @param postiPrenotati    numero di posti prenotati
+     * @param scaduta           indica se la prenotazione è scaduta
+     */
 
     public Prenotazione(Cliente utente, Proiezione proiezione, int postiPrenotati, boolean scaduta){
         this.utente=utente;
@@ -13,25 +29,63 @@ public class Prenotazione {
         this.scaduta=scaduta;
     }
 
+    /**
+     * Restituisce una rappresentazione testuale della proiezione associata.
+     *
+     * @return stringa descrittiva della proiezione
+     */
+
     public String getProiezione(){
         return proiezione.toString();
     }
+
+    /**
+     * Restituisce una rappresentazione testuale del cliente che ha
+     * effettuato la prenotazione.
+     *
+     * @return stringa descrittiva del cliente
+     */
 
     public String getCliente(){
         return getCliente().toString();
     }
 
+    /**
+     * Restituisce il numero di posti prenotati.
+     *
+     * @return numero di posti prenotati
+     */
+
     public int getPostiPrenotati(){
         return postiPrenotati;
     }
+
+    /**
+     * Modifica il numero di posti prenotati.
+     *
+     * @param numPosti nuovo numero di posti
+     */
 
     public void setPostiPrenotati(int numPosti){
         this.postiPrenotati=numPosti;
     }
 
+    /**
+     * Indica se la prenotazione è scaduta.
+     *
+     * @return {@code true} se la prenotazione è scaduta, altrimenti {@code false}
+     */
+
     public boolean getScaduta(){
         return scaduta;
     }
+
+    /**
+     * Calcola il costo totale della prenotazione in base al numero di posti
+     * prenotati e il costo del biglietto della proiezione.
+     *
+     * @return costo totale della prenotazione
+     */
 
     public float getCostoTotale(){
         return this.getPostiPrenotati()*proiezione.GetCosto();
