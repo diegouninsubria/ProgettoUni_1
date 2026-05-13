@@ -98,4 +98,28 @@ public class Menu {
 
         return scelta;
     }
+
+    public int mostraMenuCercaProeizione(){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+        do{
+            System.out.println("===MENU CERCA PRENOTAZIONE===");
+            System.out.println("1) Ricerca per la data della Proiezione");
+            System.out.println("2) Ricerca per l'ora della Proiezione");
+            System.out.println("3) Ricerca per il titolo del film");
+            System.out.println("4) Ricerca per il regista del film ");
+            System.out.println("5) Ricerca per l'anno di uscita del film");
+            System.out.println("6) Ricerca per la durata del film");
+            System.out.println("7) Ricerca per l'età minima del film");
+            System.out.println("7) Ricerca combinata");
+
+            System.out.println("========================");
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<=0 ||scelta>=8);
+
+        return scelta;
+    }
 }
