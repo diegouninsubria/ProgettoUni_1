@@ -2,7 +2,21 @@ package cinemax;
 
 import java.util.Scanner;
 
+/**
+ * Gestisce la visualizzaione dei vari menu dell'applicazione Cinemax.
+ * Ogni metodo mostra un menu specifico in base al ruolo dell'utente
+ * (Guest, Cliente, Proiezionista, Bigliettaio) e restituisce la scelta
+ * selezionata tramite input da tastiera
+ */
+
 public class Menu {
+
+    /**
+     * Mostra il menu iniziale dell'applicazione, permettendo all'utente
+     * di scegliere tra login, registrazioneaccesso come Guest o uscita.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 4)
+     */
 
     public int mostraMenuIniziale() {
         Scanner input = new Scanner(System.in);
@@ -23,6 +37,14 @@ public class Menu {
 
         return scelta;
     }
+
+    /**
+     * Mostra il menu dedicato agli utenti Guest, consentendo di effettuare
+     * login, registrazione o ricerca della proiezione.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 3)
+     */
+
     public int mostraMenuGuest(){
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -41,6 +63,14 @@ public class Menu {
         }while(scelta<=0||scelta>=4);
         return scelta;
     }
+
+    /**
+     * Mostra il menu dedicato agli utenti Cliente, permettendo di visualizzare
+     * o gestire le proprie prenotazioni e accedere alle funzioni disponibili.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 6)
+     */
+
     public int mostraMenuCliente(){
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -62,6 +92,13 @@ public class Menu {
 
         return scelta;
     }
+
+    /**
+     * Mostra il menu dedicato al Proiezionista, che può gestire film e proiezioni.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 5)
+     */
+
     public int mostraMenuProiezionista(){
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -82,6 +119,13 @@ public class Menu {
         return scelta;
     }
 
+    /**
+     * Mostra il menu edicato al Bigliettaio, che può cercare prenotazioni
+     * o effettuare il logout.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 2)
+     */
+
     public int mostraMenuBigliettaio(){
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -98,6 +142,15 @@ public class Menu {
 
         return scelta;
     }
+
+    /**
+     * Mostra il menu dedicato alla ricerca delle proiezioni, permettendo
+     * all'utente di selezionare il criterio di ricerca desiderato
+     * (data, ora, titolo, genere, regista, anno, durata, età minima,
+     * costo oppure ricerca combinata).
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 10)
+     */
 
     public int mostraMenuCercaProeizione(){
         Scanner input = new Scanner(System.in);
