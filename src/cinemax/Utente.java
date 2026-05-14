@@ -162,5 +162,14 @@ public abstract class Utente {
                 flag=false;
         return flag;
     }
+/*
+    public static boolean CheckData(Date ins,Date obj){
 
+    }
+
+    public static boolean CheckOra(LocalTime ins,LocalTime obj){
+
+    }
+
+ */
 }

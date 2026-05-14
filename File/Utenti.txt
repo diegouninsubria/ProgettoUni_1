@@ -9,3 +9,4 @@ Claudio,Bisio,claubio12,ᢡ⮓ᖙᔸ⣬⚦✇⥍,5,11,2006,Cernobbio,Cliente
 Andrea,Proserpio,Andreino75,ᢡ⦮⩰⨏⣬⥍⨏,4,2,1975,Carate Urio,Cliente
 Geltrude,Iguita,igusPocus76,ኑዲፓᎴฅ๦ᇏ༨,13,4,1956,Laglio,Cliente
 Mauro,Caputi,CaputMundi45,ᴭⓁⱕ⬲⟉♅⣬⣬⨏ፓᎴ,30,6,1967,Sagnino,Cliente
+Tommaso,Demontis,Demo1907,▃⨏⥍⨏ኑᖙሰᓗ,18,4,2006,Cernobbio,Cliente
