@@ -1,5 +1,6 @@
 package cinemax;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -26,5 +27,19 @@ public class Cliente extends Utente{
 
     public Cliente(String nome, String cognome, String username, String password, Date nascita,String domicilio){
         super(nome,cognome,username,password,nascita,domicilio,"Cliente");
+    }
+
+    public void InserisciPrenotazione(Proiezione p ){
+
+    }
+    public ArrayList<Prenotazione> LeggiPrenotazioniPersonali(){
+
+    }
+    public void modificaPrenotazione(){
+
+    }
+
+    public void eliminaPrenotazione(){
+
     }
 }

@@ -169,4 +169,11 @@ public class Proiezionista extends Utente{
         }
         return f;
     }
+
+    public void modificaProiezione(){
+
+    }
+    public void eliminaProiezione(){
+
+    }
 }
