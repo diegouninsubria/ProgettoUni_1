@@ -228,7 +228,56 @@ public class Proiezionista extends Utente{
     }
 }
 
-    public void eliminaProiezione(){
+    public void eliminaProiezione() {
+    ArrayList<Proiezione> lista = leggiProiezioni();
+    Scanner input = new Scanner(System.in);
 
+    if(lista.isEmpty()){
+        System.out.println("Nessuna proiezione presente.");
+        return;
     }
+
+    System.out.println("Seleziona la proiezione da eliminare:");
+    for(int i=0; i<lista.size(); i++){
+        System.out.println((i+1) + ") " + lista.get(i).toString());
+    }
+
+    int scelta = input.nextInt();
+    input.nextLine();
+
+    if(scelta < 1 || scelta > lista.size()){
+        System.out.println("Scelta non valida.");
+        return;
+    }
+
+    lista.remove(scelta - 1);
+
+    try {
+        FileWriter writer = new FileWriter("File/proiezioni.csv");
+        writer.write("data,genere,regista,anno,durata,eta,costo\n");
+
+        for(Proiezione pr : lista){
+            writer.write(
+                pr.GetData().getYear() + "-" +
+                pr.GetData().getMonth() + "-" +
+                pr.GetData().getDate() + " " +
+                pr.GetOra().toString() + "," +
+                pr.film.getTitolo() + "," +
+                pr.film.getGenere() + "," +
+                pr.film.getRegista() + "," +
+                pr.film.getAnno() + "," +
+                pr.film.getDurata() + "," +
+                pr.film.getEtaMinima() + "," +
+                pr.GetCosto() + "\n"
+            );
+        }
+
+        writer.close();
+        System.out.println("Proiezione eliminata con successo.");
+
+    } catch(Exception e){
+        e.printStackTrace();
+    }
+}
+
 }
