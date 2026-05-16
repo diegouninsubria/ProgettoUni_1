@@ -170,9 +170,64 @@ public class Proiezionista extends Utente{
         return f;
     }
 
-    public void modificaProiezione(){
+    public void modificaProiezione() {
+    ArrayList<Proiezione> lista = leggiProiezioni();
+    Scanner input = new Scanner(System.in);
 
+    if(lista.isEmpty()){
+        System.out.println("Nessuna proiezione presente.");
+        return;
     }
+
+    System.out.println("Seleziona la proiezione da modificare:");
+    for(int i=0; i<lista.size(); i++){
+        System.out.println((i+1) + ") " + lista.get(i).toString());
+    }
+
+    int scelta = input.nextInt();
+    input.nextLine();
+
+    if(scelta < 1 || scelta > lista.size()){
+        System.out.println("Scelta non valida.");
+        return;
+    }
+
+    Proiezione p = lista.get(scelta - 1);
+
+    System.out.println("Inserisci nuovo costo:");
+    float nuovoCosto = input.nextFloat();
+    input.nextLine();
+
+    p.SetCosto(nuovoCosto);
+
+    try {
+        FileWriter writer = new FileWriter("File/proiezioni.csv");
+        writer.write("data,genere,regista,anno,durata,eta,costo\n");
+
+        for(Proiezione pr : lista){
+            writer.write(
+                pr.GetData().getYear() + "-" +
+                pr.GetData().getMonth() + "-" +
+                pr.GetData().getDate() + " " +
+                pr.GetOra().toString() + "," +
+                pr.film.getTitolo() + "," +
+                pr.film.getGenere() + "," +
+                pr.film.getRegista() + "," +
+                pr.film.getAnno() + "," +
+                pr.film.getDurata() + "," +
+                pr.film.getEtaMinima() + "," +
+                pr.GetCosto() + "\n"
+            );
+        }
+
+        writer.close();
+        System.out.println("Proiezione modificata con successo.");
+
+    } catch(Exception e){
+        e.printStackTrace();
+    }
+}
+
     public void eliminaProiezione(){
 
     }
