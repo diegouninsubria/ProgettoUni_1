@@ -36,7 +36,7 @@ public class Cinemax {
                 } else {
                     System.out.println("Ti sei loggato come:");
                     System.out.println(ut.toString());
-                }
+                
                  if(ut instanceof Cliente){
                         int sceltaCliente = menu.mostraMenuCliente();
 
