@@ -1,5 +1,7 @@
 package cinemax;
 
+import java.util.ArrayList;
+
 /**
  * Rappresenta una prenotazione effettuata da un cliente per una specifica
  * proiezione cinematografica.
@@ -8,6 +10,7 @@ package cinemax;
  */
 
 public class Prenotazione {
+    private int id;
     private Cliente utente;
     private Proiezione proiezione;
     private int postiPrenotati;
@@ -27,6 +30,7 @@ public class Prenotazione {
         this.proiezione=proiezione;
         this.postiPrenotati=postiPrenotati;
         this.scaduta=scaduta;
+        this.id=InserisciId();
     }
 
     /**
@@ -89,6 +93,20 @@ public class Prenotazione {
 
     public float getCostoTotale(){
         return this.getPostiPrenotati()*proiezione.GetCosto();
+    }
+
+    public int getId(){return this.id;}
+
+    public static int InserisciId(){
+        int id=0;
+        ArrayList<Prenotazione> p= Bigliettaio.LeggiPrenotazioni();
+        if(p.isEmpty())
+            return 1;
+        for(Prenotazione pren : p)
+        {
+            id=pren.getId();
+        }
+        return id+1;
     }
 
 }

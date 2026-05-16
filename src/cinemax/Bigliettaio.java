@@ -28,7 +28,7 @@ public class Bigliettaio extends Utente{
         super(nome,cognome,username,password,nascita,domicilio,"Bigliettaio");
     }
 
-    public ArrayList<Proiezione> LeggiPrenotazioni(){
+    public static ArrayList<Prenotazione> LeggiPrenotazioni(){
 
     }
 }
