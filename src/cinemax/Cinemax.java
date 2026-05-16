@@ -37,6 +37,74 @@ public class Cinemax {
                     System.out.println("Ti sei loggato come:");
                     System.out.println(ut.toString());
                 }
+                 if(ut instanceof Cliente){
+                        int sceltaCliente = menu.mostraMenuCliente();
+
+                        switch(sceltaCliente){
+                            case 1:
+                                System.out.println("Visualizza prenotazioni (da implementare)");
+                                break;
+
+                            case 2:
+                                System.out.println("Aggiungi prenotazione (da implementare)");
+                                break;
+
+                            case 3:
+                                System.out.println("Modifica proiezione (da implementare)");
+                                break;
+
+                            case 4:
+                                System.out.println("Elimina proiezione (da implementare)");
+                                break;
+
+                            case 5:
+                                System.out.println("Visualizza proiezioni (da implementare)");
+                                break;
+
+                            case 6:
+                                System.out.println("Logout...");
+                                break;
+                        }
+                    }
+                    else if(ut instanceof Bigliettaio){
+                        int sceltaBig = menu.mostraMenuBigliettaio();
+
+                        switch(sceltaBig){
+                            case 1:
+                                System.out.println("Cerca prenotazione (da implementare)");
+                                break;
+
+                            case 2:
+                                System.out.println("Logout...");
+                                break;
+                        }
+                    }
+                    else if(ut instanceof Proiezionista){
+                        int sceltaP = menu.mostraMenuProiezionista();
+
+                        switch(sceltaP){
+                            case 1:
+                                System.out.println("Aggiungi film (da implementare)");
+                                break;
+
+                            case 2:
+                                System.out.println("Aggiungi proiezione (da implementare)");
+                                break;
+
+                            case 3:
+                                System.out.println("Modifica proiezione (da implementare)");
+                                break;
+
+                            case 4:
+                                System.out.println("Elimina proiezione (da implementare)");
+                                break;
+
+                            case 5:
+                                System.out.println("Logout...");
+                                break;
+                        }
+                    }
+                }
                 break;
 
             case 2: 
