@@ -36,8 +36,8 @@ public class Cinemax {
                 } else {
                     System.out.println("Ti sei loggato come:");
                     System.out.println(ut.toString());
-                
-                 if(ut instanceof Cliente){
+
+                    if(ut instanceof Cliente){
                         int sceltaCliente = menu.mostraMenuCliente();
 
                         switch(sceltaCliente){
@@ -137,6 +137,8 @@ public class Cinemax {
 
                                 }
                         }
+                        break;
+
                     case 2:
                         g.Registrazione();
                         break;
@@ -154,4 +156,5 @@ public class Cinemax {
         }
     }
 }
+
 
