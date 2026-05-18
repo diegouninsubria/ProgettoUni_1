@@ -67,4 +67,25 @@ public class Cliente extends Utente{
     public void eliminaPrenotazione(){
 
     }
+
+    public static int PostiGiaPrenoati(Proiezione p){
+        int posti = 0;
+        ArrayList<Prenotazione> prenotazioni = Bigliettaio.LeggiPrenotazioni();
+        for(Prenotazione pren: prenotazioni){
+            if(p.equals(pren.getProiezione()))
+                posti+=pren.getPostiPrenotati();
+        }
+        return posti;
+    }
+
+    public static int InserisciPosti(Scanner input){
+        int posti;
+
+        do {
+            System.out.println("Inserisci il numero di posti da prenotare");
+            posti = input.nextInt();
+        } while (posti<=0 || posti>=201);
+
+        return posti;
+    }
 }
