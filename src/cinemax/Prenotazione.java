@@ -44,17 +44,6 @@ public class Prenotazione {
     }
 
     /**
-     * Restituisce una rappresentazione testuale del cliente che ha
-     * effettuato la prenotazione.
-     *
-     * @return stringa descrittiva del cliente
-     */
-
-    public String getCliente(){
-        return getCliente().toString();
-    }
-
-    /**
      * Restituisce il numero di posti prenotati.
      *
      * @return numero di posti prenotati
@@ -96,6 +85,7 @@ public class Prenotazione {
     }
 
     public int getId(){return this.id;}
+    public Cliente getCliente(){return this.utente;}
 
     public static int InserisciId(){
         int id=0;

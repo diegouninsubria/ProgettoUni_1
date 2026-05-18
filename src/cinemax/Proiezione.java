@@ -84,6 +84,8 @@ public class Proiezione {
 
     public float GetCosto(){return this.costo;}
 
+    public Film GetFilm(){return this.film;}
+
     /**
      * Restituisce una rappresentazione testuale completa della proiezione,
      * includendo data, ora, film e costo.

@@ -210,12 +210,12 @@ public class Proiezionista extends Utente{
                 pr.GetData().getMonth() + "-" +
                 pr.GetData().getDate() + " " +
                 pr.GetOra().toString() + "," +
-                pr.film.getTitolo() + "," +
-                pr.film.getGenere() + "," +
-                pr.film.getRegista() + "," +
-                pr.film.getAnno() + "," +
-                pr.film.getDurata() + "," +
-                pr.film.getEtaMinima() + "," +
+                pr.GetFilm().getTitolo() + "," +
+                pr.GetFilm().getGenere() + "," +
+                pr.GetFilm().getRegista() + "," +
+                pr.GetFilm().getAnno()+ "," +
+                pr.GetFilm().getDurata() + "," +
+                pr.GetFilm().getEtaMinima() + "," +
                 pr.GetCosto() + "\n"
             );
         }
@@ -262,12 +262,12 @@ public class Proiezionista extends Utente{
                 pr.GetData().getMonth() + "-" +
                 pr.GetData().getDate() + " " +
                 pr.GetOra().toString() + "," +
-                pr.film.getTitolo() + "," +
-                pr.film.getGenere() + "," +
-                pr.film.getRegista() + "," +
-                pr.film.getAnno() + "," +
-                pr.film.getDurata() + "," +
-                pr.film.getEtaMinima() + "," +
+                pr.GetFilm().getTitolo() + "," +
+                pr.GetFilm().getGenere() + "," +
+                pr.GetFilm().getRegista() + "," +
+                pr.GetFilm().getAnno() + "," +
+                pr.GetFilm().getDurata() + "," +
+                pr.GetFilm().getEtaMinima() + "," +
                 pr.GetCosto() + "\n"
             );
         }

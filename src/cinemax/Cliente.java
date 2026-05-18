@@ -33,7 +33,13 @@ public class Cliente extends Utente{
 
     }
     public ArrayList<Prenotazione> LeggiPrenotazioniPersonali(){
-
+        ArrayList<Prenotazione> personali= new ArrayList<>();
+        ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
+        for(Prenotazione pren: p){
+            if(this.GetUsername().equals(pren.getCliente().GetUsername()) && this.GetPassword().equals(pren.getCliente().GetPassword()))
+                personali.add(pren);
+        }
+        return personali;
     }
     public void modificaPrenotazione(){
 
