@@ -46,8 +46,8 @@ public class Prenotazione {
      * @return stringa descrittiva della proiezione
      */
 
-    public String getProiezione(){
-        return proiezione.toString();
+    public Proiezione getProiezione(){
+        return this.proiezione;
     }
 
     /**

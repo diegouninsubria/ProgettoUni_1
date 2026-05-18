@@ -1,7 +1,10 @@
 package cinemax;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  * Rappresenta un utente di tipo Cliente all'interno del sistema Cinemax.
@@ -30,13 +33,29 @@ public class Cliente extends Utente{
     }
 
     public void InserisciPrenotazione(Proiezione p ){
+        Scanner input = new Scanner(System.in);
 
+        int numPosti = InserisciPosti(input);
+        if(numPosti + PostiGiaPrenoati(p) >200)
+            System.out.println("Numero di posti disponibili Superato!");
+        else{
+            Prenotazione pren= new Prenotazione(this,p,numPosti,false);
+            try{
+                FileWriter writer= new FileWriter("File/Prenotazioni.txt",true);//apre il file //effettuare controllo get di nascita
+                writer.write(""+pren.getId()+","+pren.getCliente().GetNome()+","+pren.getCliente().GetCognome()+","+pren.getCliente().GetUsername()+","+Guest.EncodedPsw(pren.getCliente().GetPassword())+","+pren.getProiezione().GetData().getYear()+"-"+pren.getProiezione().GetData().getMonth()+"-"+pren.getProiezione().GetData().getDay()+","+pren.getProiezione().GetOra().getHour()+":"+pren.getProiezione().GetOra().getMinute()+":"+pren.getProiezione().GetOra().getSecond()+","+pren.getProiezione().GetFilm().getTitolo()+","+numPosti+"\n"); //scrive nel file
+                writer.close();
+
+                System.out.println("Scrittura avenuta con successo");
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
     public ArrayList<Prenotazione> LeggiPrenotazioniPersonali(){
         ArrayList<Prenotazione> personali= new ArrayList<>();
         ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
         for(Prenotazione pren: p){
-            if(this.GetUsername().equals(pren.getCliente().GetUsername()) && this.GetPassword().equals(pren.getCliente().GetPassword()))
+            if(this.GetUsername().equals(pren.getCliente().GetUsername()) && this.GetPassword().equals(Guest.EncodedPsw(pren.getCliente().GetPassword())))
                 personali.add(pren);
         }
         return personali;

@@ -43,7 +43,7 @@ public class Bigliettaio extends Utente{
             String riga;
             while ((riga = br.readLine()) != null) {
                 String[] campi = riga.split(",");
-                Cliente c = SelezionaCliente(campi[1],campi[2],campi[3],campi[4]);
+                Cliente c = SelezionaCliente(campi[1],campi[2],campi[3],Guest.DecodePsw(campi[4]));
 
                 String[] datiD=campi[5].split("-");
                 String[] datiO=campi[6].split(":");
