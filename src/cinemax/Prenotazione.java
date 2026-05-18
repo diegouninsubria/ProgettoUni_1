@@ -32,6 +32,13 @@ public class Prenotazione {
         this.scaduta=scaduta;
         this.id=InserisciId();
     }
+    public Prenotazione(int id,Cliente utente, Proiezione proiezione, int postiPrenotati, boolean scaduta){
+        this.id=id;
+        this.utente=utente;
+        this.proiezione=proiezione;
+        this.postiPrenotati=postiPrenotati;
+        this.scaduta=scaduta;
+    }
 
     /**
      * Restituisce una rappresentazione testuale della proiezione associata.
