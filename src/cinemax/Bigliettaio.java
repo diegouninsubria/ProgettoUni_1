@@ -32,6 +32,54 @@ public class Bigliettaio extends Utente{
         super(nome,cognome,username,password,nascita,domicilio,"Bigliettaio");
     }
 
+    public Prenotazione RicercaPrenotazione(int id){
+        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+        for(Prenotazione pren : p){
+            if(pren.getId() == id)
+                return pren;
+        }
+        return null;
+    }
+
+    public ArrayList<Prenotazione> RicercaPrenotazione(String nome, String cognome){
+        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+        ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
+        for(Prenotazione pren : p)
+            if(pren.getCliente().GetNome().equals(nome) && pren.getCliente().GetCognome().equals(cognome))
+                prenotazioni.add(pren);
+        return prenotazioni;
+    }
+
+    public ArrayList<Prenotazione> RicercaPrenotazione(Date data){
+        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+        ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
+        for(Prenotazione pren : p)
+            if(data.compareTo(pren.getProiezione().GetData())>=0)
+                prenotazioni.add(pren);
+        return prenotazioni;
+    }
+
+    public ArrayList<Prenotazione> RicercaPrenotazione(Date data1,Date data2){
+        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+        ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
+        Date d;
+        for(Prenotazione pren : p) {
+            d = pren.getProiezione().GetData();
+            if (d.compareTo(data1) >= 0 && d.compareTo(data2) <= 0)
+                prenotazioni.add(pren);
+        }
+        return prenotazioni;
+    }
+
+    public ArrayList<Prenotazione> RicercaPrenotazioni(String titolo){
+        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+        ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
+        for(Prenotazione pren : p)
+            if(Utente.CheckString(titolo,pren.getProiezione().GetFilm().getTitolo()))
+                prenotazioni.add(pren);
+        return prenotazioni;
+    }
+
     public static ArrayList<Prenotazione> LeggiPrenotazioni(){
         ArrayList<Prenotazione> p = new ArrayList<>();
 
