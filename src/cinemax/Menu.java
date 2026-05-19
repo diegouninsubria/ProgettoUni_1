@@ -178,4 +178,24 @@ public class Menu {
         return scelta;
     }
 
+    public int sceltaBigliettaioRicerca(){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+
+        do{
+            System.out.println("===MENU CERCA PRENOTAZIONE===");
+            System.out.println("1) Ricerca per ID");
+            System.out.println("2) Ricerca nome e cognome");
+            System.out.println("3) Ricerca per titolo del film");
+            System.out.println("4) Ricerca intervallo data");
+            System.out.println("========================");
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta>4);
+
+        return scelta;
+    }
+
 }

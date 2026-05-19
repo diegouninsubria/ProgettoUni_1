@@ -93,7 +93,7 @@ public class Cliente extends Utente{
             FileWriter writer = new FileWriter("File/Prenotazioni.txt");
             writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
             for(Prenotazione preno : p){
-                writer.write(""+preno.getId()+","+preno.getCliente().GetNome()+","+preno.getCliente().GetCognome()+","+preno.getCliente().GetUsername()+","+Guest.EncodedPsw(preno.getCliente().GetPassword())+","+preno.getProiezione().GetData().getYear()+"-"+preno.getProiezione().GetData().getMonth()+"-"+preno.getProiezione().GetData().getDate()+","+preno.getProiezione().GetOra().getHour()+":"+preno.getProiezione().GetOra().getMinute()+":"+preno.getProiezione().GetOra().getSecond()+","+preno.getProiezione().GetFilm()+","+preno.getPostiPrenotati());
+                writer.write(""+preno.getId()+","+preno.getCliente().GetNome()+","+preno.getCliente().GetCognome()+","+preno.getCliente().GetUsername()+","+Guest.EncodedPsw(preno.getCliente().GetPassword())+","+preno.getProiezione().GetData().getYear()+"-"+preno.getProiezione().GetData().getMonth()+"-"+preno.getProiezione().GetData().getDate()+","+preno.getProiezione().GetOra().getHour()+":"+preno.getProiezione().GetOra().getMinute()+":"+preno.getProiezione().GetOra().getSecond()+","+preno.getProiezione().GetFilm()+","+preno.getPostiPrenotati()+"\n");
             }
 
             writer.close();
