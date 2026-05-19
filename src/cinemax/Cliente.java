@@ -65,7 +65,42 @@ public class Cliente extends Utente{
     }
 
     public void eliminaPrenotazione(){
+        ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
+        ArrayList<Prenotazione> personali = LeggiPrenotazioniPersonali();
+        Scanner input = new Scanner(System.in);
 
+        if(personali.isEmpty()){
+            System.out.println("Non ci sono prenotazioni!");
+            return;
+        }
+
+        System.out.println("Seleziona la prenotazione da eliminare: \n");
+        for(int i=0;i<personali.size();i++){
+            System.out.println((i+1)+") "+personali.get(i).toString());
+        }
+
+        int scelta = input.nextInt();
+        input.nextLine();
+
+        if(scelta < 1 || scelta > personali.size()){
+            System.out.println("Scelta non valida.");
+            return;
+        }
+        Prenotazione pren = personali.get(scelta);
+        p.remove(pren);
+
+        try{
+            FileWriter writer = new FileWriter("File/Prenotazioni.txt");
+            writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
+            for(Prenotazione preno : p){
+                writer.write(""+preno.getId()+","+preno.getCliente().GetNome()+","+preno.getCliente().GetCognome()+","+preno.getCliente().GetUsername()+","+Guest.EncodedPsw(preno.getCliente().GetPassword())+","+preno.getProiezione().GetData().getYear()+"-"+preno.getProiezione().GetData().getMonth()+"-"+preno.getProiezione().GetData().getDate()+","+preno.getProiezione().GetOra().getHour()+":"+preno.getProiezione().GetOra().getMinute()+":"+preno.getProiezione().GetOra().getSecond()+","+preno.getProiezione().GetFilm()+","+preno.getPostiPrenotati());
+            }
+
+            writer.close();
+            System.out.println("Proiezione eliminata con successo.");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public static int PostiGiaPrenoati(Proiezione p){
