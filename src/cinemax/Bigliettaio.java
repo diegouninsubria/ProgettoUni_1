@@ -32,13 +32,15 @@ public class Bigliettaio extends Utente{
         super(nome,cognome,username,password,nascita,domicilio,"Bigliettaio");
     }
 
-    public Prenotazione RicercaPrenotazione(int id){
+    public ArrayList<Prenotazione> RicercaPrenotazione(int id){
         ArrayList<Prenotazione> p = LeggiPrenotazioni();
+        ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
         for(Prenotazione pren : p){
             if(pren.getId() == id)
-                return pren;
+                prenotazioni.add(pren);
+
         }
-        return null;
+        return prenotazioni;
     }
 
     public ArrayList<Prenotazione> RicercaPrenotazione(String nome, String cognome){
@@ -78,6 +80,17 @@ public class Bigliettaio extends Utente{
             if(Utente.CheckString(titolo,pren.getProiezione().GetFilm().getTitolo()))
                 prenotazioni.add(pren);
         return prenotazioni;
+    }
+
+    public String VisualizzaPrenotazione(ArrayList<Prenotazione> p){
+        Menu m = new Menu();
+        if(p.isEmpty())
+            return "Non ci sono prenotazioni disponibili";
+        else{
+            switch(m.MenuVisualizzazioni()){
+
+            }
+        }
     }
 
     public static ArrayList<Prenotazione> LeggiPrenotazioni(){
