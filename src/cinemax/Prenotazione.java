@@ -106,4 +106,14 @@ public class Prenotazione {
         return id+1;
     }
 
+    public String VisualizzaPrenotazione(){
+        return "ID prenotazione: "+this.getId()+"\n" +
+                "Nome e Cognome Cliente: "+this.getCliente().GetNome()+" "+this.getCliente().GetCognome()+"\n" +
+                "Giorno Proiezione: "+this.getProiezione().GetData().toString()+"\n" +
+                "Ora Proiezione: "+this.getProiezione().GetOra().toString()+"\n" +
+                "Numero Biglietti: "+this.getPostiPrenotati()+"\n" +
+                "Costo Unitario: "+this.getProiezione().GetCosto()+"\n" +
+                "Importo finale: "+this.getCostoTotale()+"\n";
+    }
+
 }

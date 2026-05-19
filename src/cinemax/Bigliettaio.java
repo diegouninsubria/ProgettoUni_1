@@ -82,17 +82,6 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
-    public String VisualizzaPrenotazione(ArrayList<Prenotazione> p){
-        Menu m = new Menu();
-        if(p.isEmpty())
-            return "Non ci sono prenotazioni disponibili";
-        else{
-            switch(m.MenuVisualizzazioni()){
-
-            }
-        }
-    }
-
     public static ArrayList<Prenotazione> LeggiPrenotazioni(){
         ArrayList<Prenotazione> p = new ArrayList<>();
 
