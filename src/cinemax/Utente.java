@@ -127,22 +127,27 @@ public abstract class Utente {
     }
 
     public ArrayList<Proiezione> CercaProiezione(){
-        ArrayList<Proiezione> p = new ArrayList<>();
-        ArrayList<Proiezione> proiezioni=leggiProiezioni();
+        Scanner Input = new Scanner(System.in);
         Date data;
-        LocalTime ora;
         String titolo;
-        String regista;
         String genere;
-        int durata;
-        int anno;
         int costo;
-        int etaMinima;
         Menu menu= new Menu();
         switch (menu.mostraMenuCercaProeizione()){
+            case 1:
+                titolo = Proiezionista.inserisciTitolo(Input);
+                return RicercaPerTitolo(titolo);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
 
         }
-        return p;
     }
 
     public String toString(){
@@ -156,14 +161,33 @@ public abstract class Utente {
     public static boolean CheckString(String ins, String obj){
         return obj.toLowerCase().contains(ins.toLowerCase());
     }
-/*
-    public static boolean CheckData(Date ins,Date obj){
 
+    public static ArrayList<Proiezione> RicercaPerTitolo(String titolo){
+        ArrayList<Proiezione> p =leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+        for(Proiezione proiezione : p)
+            if(CheckString(titolo,proiezione.GetFilm().getTitolo()))
+                pro.add(proiezione);
+        return pro;
     }
 
-    public static boolean CheckOra(LocalTime ins,LocalTime obj){
-
+    public static ArrayList<Proiezione> RicercaPerOra(Date data){
+        ArrayList<Proiezione> p =leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+        for(Proiezione proiezione : p)
+            if(proiezione.GetData().compareTo(data)>=0)
+                pro.add(proiezione);
+        return pro;
     }
 
- */
+    public static ArrayList<Proiezione> RicercaPerOra(Date data1,Date data2 ){
+        ArrayList<Proiezione> p =leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+        for(Proiezione proiezione : p){
+           Date d = proiezione.GetData();
+           if(d.compareTo(data1)>=0 && d.compareTo(data2)<=0)
+               pro.add(proiezione)
+        }
+         return pro;
+    }
 }
