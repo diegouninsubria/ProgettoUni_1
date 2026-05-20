@@ -135,12 +135,15 @@ public abstract class Utente {
         Menu menu= new Menu();
         switch (menu.mostraMenuCercaProeizione()){
             case 1:
+
+                break;
+            case 2:
                 titolo = Proiezionista.inserisciTitolo(Input);
                 return RicercaPerTitolo(titolo);
                 break;
-            case 2:
-                break;
             case 3:
+                genere = Proiezionista.inserisciGenere(Input);
+                return RicercaPerGenere(genere);
                 break;
             case 4:
                 break;
@@ -189,5 +192,32 @@ public abstract class Utente {
                pro.add(proiezione);
         }
          return pro;
+    }
+
+    public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo){
+        ArrayList<Proiezione> p =leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+        for(Proiezione proiezione : p)
+            if(proiezione.GetCosto()<=prezzo)
+                pro.add(proiezione);
+        return pro;
+    }
+
+    public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo1,float prezzo2){
+        ArrayList<Proiezione> p =leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+        for(Proiezione proiezione : p)
+            if(proiezione.GetCosto()>=prezzo1 && proiezione.GetCosto()<=prezzo2)
+                pro.add(proiezione);
+        return pro;
+    }
+
+    public static ArrayList<Proiezione> RicercaPerGenere(String genere){
+        ArrayList<Proiezione> p =leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+        for(Proiezione proiezione : p)
+            if(genere.equals(proiezione.GetFilm().getGenere()))
+                pro.add(proiezione);
+        return pro;
     }
 }
