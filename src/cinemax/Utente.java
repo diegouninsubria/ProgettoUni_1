@@ -186,7 +186,7 @@ public abstract class Utente {
         for(Proiezione proiezione : p){
            Date d = proiezione.GetData();
            if(d.compareTo(data1)>=0 && d.compareTo(data2)<=0)
-               pro.add(proiezione)
+               pro.add(proiezione);
         }
          return pro;
     }
