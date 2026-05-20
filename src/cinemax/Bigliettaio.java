@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  * Rappresenta un utente di tipo Bigliettaio all'interno del sistema Cinemax.
@@ -80,6 +81,22 @@ public class Bigliettaio extends Utente{
             if(Utente.CheckString(titolo,pren.getProiezione().GetFilm().getTitolo()))
                 prenotazioni.add(pren);
         return prenotazioni;
+    }
+    public Prenotazione ScegliPrenotazione(ArrayList<Prenotazione> p){
+        int scelta;
+        Scanner input = new Scanner(System.in);
+        int i=1;
+        for(Prenotazione pren : p){
+            System.out.println(i+") "+ pren.VisualizzaPrenotazione()+"\n-------------------------------\n");
+            i++;
+        }
+        do{
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<=0 || scelta>p.size());
+        return p.get(scelta-1);
     }
 
     public static ArrayList<Prenotazione> LeggiPrenotazioni(){
