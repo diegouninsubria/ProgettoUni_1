@@ -154,13 +154,7 @@ public abstract class Utente {
                 "Domicilio:"+this.domicilio;
     }
     public static boolean CheckString(String ins, String obj){
-        String in=ins.toLowerCase();
-        String o=obj.toLowerCase();
-        boolean flag=true;
-        for(int i=0;i<in.length();i++)
-            if(in.charAt(i) != o.charAt(i))
-                flag=false;
-        return flag;
+        return obj.toLowerCase().contains(ins.toLowerCase());
     }
 /*
     public static boolean CheckData(Date ins,Date obj){
