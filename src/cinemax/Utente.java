@@ -136,21 +136,17 @@ public abstract class Utente {
         switch (menu.mostraMenuCercaProeizione()){
             case 1:
 
-                break;
             case 2:
                 titolo = Proiezionista.inserisciTitolo(Input);
                 return RicercaPerTitolo(titolo);
-                break;
             case 3:
                 genere = Proiezionista.inserisciGenere(Input);
                 return RicercaPerGenere(genere);
-                break;
             case 4:
-                break;
             case 5:
-                break;
 
         }
+        return null;
     }
 
     public String toString(){
