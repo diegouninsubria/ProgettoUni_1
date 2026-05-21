@@ -192,5 +192,31 @@ public class Menu {
 
         return scelta;
     }
+    public int MenuSceltaGenere(){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+
+        do{
+            System.out.println("===MENU SCELTA GENERE===");
+            System.out.println("1) ACTION");
+            System.out.println("2) ADVENTURE");
+            System.out.println("3) ANIMATION");
+            System.out.println("4) BIOGRAPHY");
+            System.out.println("5) COMEDY");
+            System.out.println("6) CRIME");
+            System.out.println("7) DRAMA");
+            System.out.println("8) FILM-NOIR");
+            System.out.println("9) HORROR");
+            System.out.println("10) MISTERY");
+            System.out.println("11) WESTERN");
+            System.out.println("========================");
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta>11);
+
+        return scelta;
+    }
 
 }

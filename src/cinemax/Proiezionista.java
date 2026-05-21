@@ -71,14 +71,32 @@ public class Proiezionista extends Utente{
     }
 
     public static String inserisciGenere(Scanner input){
-        String genere;
-
-        do {
-            System.out.println("Inserisci il genere del film: ");
-            genere = input.nextLine().trim();
-        } while (genere.isEmpty());
-
-        return genere;
+        Menu m = new Menu();
+        switch (m.MenuSceltaGenere()){
+            case 1:
+                return "Action";
+            case 2 :
+                return "Adventure";
+            case 3:
+                return "Animation";
+            case 4 :
+                return "Biography";
+            case 5:
+                return "Comedy";
+            case 6 :
+                return "Crime";
+            case 7:
+                return "Drama";
+            case 8 :
+                return "Film-Noir";
+            case 9:
+                return "Horror";
+            case 10 :
+                return "Mistery";
+            case 11:
+                return "Western";
+        }
+        return null;
     }
 
     public static String inserisciRegista(Scanner input){
