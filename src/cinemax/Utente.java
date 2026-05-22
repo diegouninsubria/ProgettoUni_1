@@ -128,14 +128,27 @@ public abstract class Utente {
 
     public ArrayList<Proiezione> CercaProiezione(){
         Scanner Input = new Scanner(System.in);
+        Menu m =new Menu();
         Date data;
+        Date data1;
         String titolo;
         String genere;
-        int costo;
+        float costo;
+        float costo1;
         Menu menu= new Menu();
         switch (menu.mostraMenuCercaProeizione()){
             case 1:
-
+                switch (m.MenuRicercaData()){
+                    case 1:
+                        data=Guest.inserisciData(Input);
+                        return RicercaPerData(data);
+                    case 2:
+                        data=Guest.inserisciData(Input);
+                        data1=Guest.inserisciData(Input);
+                        if(data.compareTo(data1)<=0)
+                            return RicercaPerData(data,data1);
+                        return RicercaPerData(data1,data);
+                }
             case 2:
                 titolo = Proiezionista.inserisciTitolo(Input);
                 return RicercaPerTitolo(titolo);
@@ -143,6 +156,17 @@ public abstract class Utente {
                 genere = Proiezionista.inserisciGenere(Input);
                 return RicercaPerGenere(genere);
             case 4:
+                switch (m.MenuRicercaPrezzo()){
+                    case 1:
+                        costo = Proiezionista.inserisciCosto(Input);
+                        RicercaPerPrezzo(costo);
+                    case 2:
+                        costo=Proiezionista.inserisciCosto(Input);
+                        costo1=Proiezionista.inserisciCosto(Input);
+                        if(costo>=costo1)
+                            return RicercaPerPrezzo(costo1,costo);
+                        return RicercaPerPrezzo(costo,costo1);
+                }
             case 5:
 
         }
@@ -170,7 +194,7 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerOra(Date data){
+    public static ArrayList<Proiezione> RicercaPerData(Date data){
         ArrayList<Proiezione> p =leggiProiezioni();
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
@@ -179,7 +203,7 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerOra(Date data1,Date data2 ){
+    public static ArrayList<Proiezione> RicercaPerData(Date data1,Date data2 ){
         ArrayList<Proiezione> p =leggiProiezioni();
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p){

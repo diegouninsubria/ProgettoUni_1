@@ -212,4 +212,39 @@ public class Menu {
 
         return scelta;
     }
+    public int MenuRicercaData(){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+
+        do{
+            System.out.println("=== MENU RICERCA DATA ===\n");
+            System.out.println("1) Dopo una data\n");
+            System.out.println("2) Intervallo di date\n");
+            System.out.println("========================\n");
+            System.out.print("Scelta: ");
+
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta>2);
+        return scelta;
+    }
+
+    public int MenuRicercaPrezzo(){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+
+        do{
+            System.out.println("=== MENU RICERCA PREZZO ===\n");
+            System.out.println("1) Minore di un prezzo\n");
+            System.out.println("2) Intervallo di prezzi\n");
+            System.out.println("========================\n");
+            System.out.print("Scelta: ");
+
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta>2);
+        return scelta;
+    }
 }
