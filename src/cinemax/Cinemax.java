@@ -109,6 +109,14 @@ public class Cinemax {
                 do {
                     switch (menu.mostraMenuBigliettaio()) {
                         case 1:
+                            ArrayList<Prenotazione> pren;
+                            switch (menu.sceltaBigliettaioRicerca()){
+
+                            }
+                            if(pren.isEmpty())
+                                System.out.println("Non ci sono prenotazioni con questi campi inseriti");
+                            else
+                                b.ScegliPrenotazione(pren).VisualizzaPrenotazione();
                             break;
                         case 2:
                             ut= new Guest();
@@ -120,13 +128,17 @@ public class Cinemax {
                 Proiezionista p = (Proiezionista) ut ;
                 do {
                     switch (menu.mostraMenuProiezionista()) {
-                        case 1:
+                        case 1: p.InserisciFilm();
                             break;
                         case 2:
+                            ArrayList <Film> film = Proiezionista.leggiFilm();
+                            p.InserisciProiezione(/*aggiungere la selezione del fil*/);
                             break;
                         case 3:
+                            p.modificaProiezione();
                             break;
                         case 4:
+                            p.eliminaProiezione();
                             break;
                         case 5:
                             ut= new Guest();
