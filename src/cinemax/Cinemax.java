@@ -89,8 +89,17 @@ public class Cinemax {
                 do{
                     switch (menu.mostraMenuCliente()){
                         case 1:
+                            ArrayList<Prenotazione> p = c.LeggiPrenotazioniPersonali();
+                            if(p.isEmpty())
+                                System.out.println("Non hai Prenotazioni!");
+                            else
+                                for(Prenotazione pren : p){
+                                    System.out.println(pren.VisualizzaPrenotazione()+"\n");
+                                }
                             break;
                         case 2:
+                            ArrayList<Proiezione> pro = Proiezionista.leggiProiezioni();
+                            c.InserisciPrenotazione(/*SelezionaProiezione*/);
                             break;
                         case 3:
                             break;
