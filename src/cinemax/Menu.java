@@ -51,6 +51,7 @@ public class Menu {
             System.out.println("1) Login\n");
             System.out.println("2) Registrazione\n");
             System.out.println("3) Ricerca Proiezione\n");
+            System.out.println("4) ESCI\n");
             System.out.println("========================\n");
             System.out.print("Scelta: ");
 

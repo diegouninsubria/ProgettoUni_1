@@ -1,5 +1,7 @@
 package cinemax;
 
+import java.util.ArrayList;
+
 /**
  * Classe principale dell'applicazione Cinemax.
  * Gestisce il flusso iniziale del programma mostrando il menu principale
@@ -24,7 +26,82 @@ public class Cinemax {
         Menu menu = new Menu();
         Guest g = new Guest();
         Utente ut = null;
+        int scelta;
+        boolean uscita = false;
 
+        do{
+            scelta = menu.mostraMenuIniziale();
+
+            switch (scelta){
+                case 1:
+                    ut = g.Login();
+                    if(ut == null){
+                        System.out.println("Utente non presente");
+                    } else {
+                        System.out.println("Ti sei loggato come:");
+                        System.out.println(ut.toString());
+                    }
+                    break;
+                case 2:
+                    g.Registrazione();
+                    break;
+                case 3:
+                    ut = new Guest();
+                    break;
+                case 4:
+                    System.out.println("Uscita dal programma...");
+                    System.exit(0);
+                    break;
+            }
+
+        }while (ut == null);
+        do{
+            if(ut instanceof Guest){
+                do {
+                    switch (menu.mostraMenuGuest()) {
+                        case 1:
+                            ut = g.Login();
+                            if(ut == null){
+                                System.out.println("Utente non presente");
+                            } else {
+                                System.out.println("Ti sei loggato come:");
+                                System.out.println(ut.toString());
+                            }
+                            break;
+                        case 2:
+                            g.Registrazione();
+                            break;
+                        case 3:
+                            ArrayList<Proiezione> p = ut.CercaProiezione();
+                            if(p.isEmpty())
+                                System.out.println("Non ci sono proiezioni che ripettino le scelte dell'utente!");
+                            else
+                                //selezione della proiezione e visualizzazione
+                            break;
+                        case 4:
+                            System.out.println("Uscita dal programma...");
+                            System.exit(0);
+                    }
+                }while(ut instanceof Guest);//controllare condizione
+            }
+            else if (ut instanceof Cliente){
+                switch (menu.mostraMenuCliente()){
+
+                }
+            }
+            else if(ut instanceof Bigliettaio){
+                switch (menu.mostraMenuBigliettaio()){
+
+                }
+            }
+            else{//proiezionista
+                switch (menu.mostraMenuProiezionista()){
+
+                }
+            }
+
+        }while(uscita!=true);
+        /*
         int scelta = menu.mostraMenuIniziale();
 
         switch(scelta){
@@ -154,6 +231,8 @@ public class Cinemax {
                 System.exit(0);
                 break;
         }
+
+         */
     }
 }
 
