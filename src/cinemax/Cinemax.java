@@ -85,19 +85,54 @@ public class Cinemax {
                 }while(ut instanceof Guest);//controllare condizione
             }
             else if (ut instanceof Cliente){
-                switch (menu.mostraMenuCliente()){
-
-                }
+                Cliente c = (Cliente) ut;
+                do{
+                    switch (menu.mostraMenuCliente()){
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            ut = new Guest();
+                            break;
+                    }
+                }while(ut instanceof Cliente);
             }
             else if(ut instanceof Bigliettaio){
-                switch (menu.mostraMenuBigliettaio()){
-
-                }
+                Bigliettaio b = (Bigliettaio) ut;
+                do {
+                    switch (menu.mostraMenuBigliettaio()) {
+                        case 1:
+                            break;
+                        case 2:
+                            ut= new Guest();
+                            break;
+                    }
+                }while(ut instanceof Bigliettaio);
             }
             else{//proiezionista
-                switch (menu.mostraMenuProiezionista()){
-
-                }
+                Proiezionista p = (Proiezionista) ut ;
+                do {
+                    switch (menu.mostraMenuProiezionista()) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            ut= new Guest();
+                            break;
+                    }
+                }while(ut instanceof Proiezionista);
             }
 
         }while(uscita!=true);
