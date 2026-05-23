@@ -177,6 +177,7 @@ public class Menu {
             System.out.println("2) Ricerca nome e cognome\n");
             System.out.println("3) Ricerca per titolo del film\n");
             System.out.println("4) Ricerca intervallo data\n");
+            System.out.println("5) Ricerca mista");
             System.out.println("========================\n");
             System.out.print("Scelta: ");
 
