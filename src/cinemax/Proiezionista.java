@@ -1,5 +1,7 @@
 package cinemax;
 
+import javafx.scene.Scene;
+
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.*;
@@ -297,5 +299,22 @@ public class Proiezionista extends Utente{
         e.printStackTrace();
     }
 }
+    public Film selezionaFilm(ArrayList<Film> film){
+        Scanner input = new Scanner(System.in);
+        int i=1;
+        int scelta;
+        do {
+            for (Film f : film) {
+                System.out.println(i + ") "+f.getTitolo()+"\n");
+                i++;
+            }
+            System.out.println("========================\n");
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta> film.size());
+        return film.get(scelta-1);
+    }
 
 }

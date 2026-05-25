@@ -150,7 +150,7 @@ public class Cinemax {
                             break;
                         case 2:
                             ArrayList <Film> film = Proiezionista.leggiFilm();
-                            p.InserisciProiezione(/*aggiungere la selezione del fil*/);
+                            p.InserisciProiezione(p.selezionaFilm(film));
                             break;
                         case 3:
                             p.modificaProiezione();
