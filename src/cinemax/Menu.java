@@ -167,26 +167,26 @@ public class Menu {
         return scelta;
     }
 
-    public int sceltaBigliettaioRicerca() {
-        Scanner input = new Scanner(System.in);
-        int scelta;
+   public int sceltaBigliettaioRicerca(){
+    Scanner input = new Scanner(System.in);
+    int scelta;
 
-        do {
-            System.out.println("=== MENU CERCA PRENOTAZIONE ===\n");
-            System.out.println("1) Ricerca per ID\n");
-            System.out.println("2) Ricerca nome e cognome\n");
-            System.out.println("3) Ricerca per titolo del film\n");
-            System.out.println("4) Ricerca intervallo data\n");
-            System.out.println("5) Ricerca mista");
-            System.out.println("========================\n");
-            System.out.print("Scelta: ");
+    do{
+        System.out.println("=== RICERCA PRENOTAZIONE ===");
+        System.out.println("1) Per ID");
+        System.out.println("2) Per Nome e Cognome");
+        System.out.println("3) Per Data");
+        System.out.println("4) Per Intervallo di Date");
+        System.out.println("5) Ricerca Combinata");
+        System.out.print("Scelta: ");
 
-            scelta = input.nextInt();
-            input.nextLine();
-        } while (scelta < 1 || scelta > 4);
+        scelta = input.nextInt();
+        input.nextLine();
+    }while(scelta < 1 || scelta > 5);
 
-        return scelta;
-    }
+    return scelta;
+}
+
 
     public int MenuSceltaGenere() {
         Scanner input = new Scanner(System.in);
