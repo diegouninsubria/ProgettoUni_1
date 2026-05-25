@@ -168,4 +168,77 @@ public class Bigliettaio extends Utente{
             else return false;
         else return false;
     }
+
+    public ArrayList<Prenotazione> RicercaPrenotazioneCombinata() {
+
+    Scanner input = new Scanner(System.in);
+    ArrayList<Prenotazione> tutte = LeggiPrenotazioni();
+    ArrayList<Prenotazione> risultato = new ArrayList<>();
+
+    System.out.println("=== RICERCA COMBINATA ===");
+
+    System.out.println("Vuoi filtrare per nome e cognome? (s/n)");
+    boolean filtroNome = input.nextLine().trim().equalsIgnoreCase("s");
+    String nome = "", cognome = "";
+    if(filtroNome){
+        System.out.print("Nome: ");
+        nome = input.nextLine().trim();
+        System.out.print("Cognome: ");
+        cognome = input.nextLine().trim();
+    }
+
+    System.out.println("Vuoi filtrare per titolo del film? (s/n)");
+    boolean filtroTitolo = input.nextLine().trim().equalsIgnoreCase("s");
+    String titolo = "";
+    if(filtroTitolo){
+        System.out.print("Titolo: ");
+        titolo = input.nextLine().trim();
+    }
+
+    System.out.println("Vuoi filtrare per data? (s/n)");
+    boolean filtroData = input.nextLine().trim().equalsIgnoreCase("s");
+    Date data = null;
+    if(filtroData){
+        data = Guest.inserisciData(input);
+    }
+
+    System.out.println("Vuoi filtrare per intervallo di date? (s/n)");
+    boolean filtroIntervallo = input.nextLine().trim().equalsIgnoreCase("s");
+    Date d1 = null, d2 = null;
+    if(filtroIntervallo){
+        System.out.println("Inserisci data iniziale:");
+        d1 = Guest.inserisciData(input);
+        System.out.println("Inserisci data finale:");
+        d2 = Guest.inserisciData(input);
+    }
+
+    for(Prenotazione p : tutte){
+
+        boolean ok = true;
+
+        if(filtroNome)
+            if(!(p.getCliente().GetNome().equals(nome) && p.getCliente().GetCognome().equals(cognome)))
+                ok = false;
+
+        if(filtroTitolo)
+            if(!Utente.CheckString(titolo, p.getProiezione().GetFilm().getTitolo()))
+                ok = false;
+
+        if(filtroData)
+            if(!(p.getProiezione().GetData().equals(data)))
+                ok = false;
+
+        if(filtroIntervallo){
+            Date d = p.getProiezione().GetData();
+            if(!(d.compareTo(d1) >= 0 && d.compareTo(d2) <= 0))
+                ok = false;
+        }
+
+        if(ok)
+            risultato.add(p);
+    }
+
+    return risultato;
+}
+
 }
