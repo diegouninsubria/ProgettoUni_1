@@ -114,34 +114,68 @@ public class Cinemax {
                 }while(ut instanceof Cliente);
             }
             else if(ut instanceof Bigliettaio){
-                Bigliettaio b = (Bigliettaio) ut;
-                do {
-                    switch (menu.mostraMenuBigliettaio()) {
-                        case 1:
-                            ArrayList<Prenotazione> pren;
-                            switch (menu.sceltaBigliettaioRicerca()){
-                                case 1:
-                                    break;
-                                case 2:
-                                    break;
-                                case 3:
-                                    break;
-                                case 4:
-                                    break;
-                                case 5:
-                                    break;
-                            }
-                            if(pren.isEmpty())
-                                System.out.println("Non ci sono prenotazioni con questi campi inseriti");
-                            else
-                                b.ScegliPrenotazione(pren).VisualizzaPrenotazione();
-                            break;
-                        case 2:
-                            ut= new Guest();
-                            break;
-                    }
-                }while(ut instanceof Bigliettaio);
-            }
+
+    Bigliettaio b = (Bigliettaio) ut;
+    Scanner input = new Scanner(System.in);
+
+    do {
+        switch (menu.mostraMenuBigliettaio()) {
+
+            case 1:
+
+                ArrayList<Prenotazione> pren = new ArrayList<>();
+
+                switch (menu.sceltaBigliettaioRicerca()){
+
+                    case 1:
+                        System.out.print("Inserisci ID: ");
+                        int id = input.nextInt();
+                        input.nextLine();
+                        pren = b.RicercaPrenotazione(id);
+                        break;
+
+                    case 2:
+                        System.out.print("Nome: ");
+                        String nome = input.nextLine();
+                        System.out.print("Cognome: ");
+                        String cognome = input.nextLine();
+                        pren = b.RicercaPrenotazione(nome, cognome);
+                        break;
+
+                    case 3:
+                        System.out.println("Inserisci data:");
+                        Date d = Guest.inserisciData(input);
+                        pren = b.RicercaPrenotazione(d);
+                        break;
+
+                    case 4:
+                        System.out.println("Data iniziale:");
+                        Date d1 = Guest.inserisciData(input);
+                        System.out.println("Data finale:");
+                        Date d2 = Guest.inserisciData(input);
+                        pren = b.RicercaPrenotazione(d1, d2);
+                        break;
+
+                    case 5:
+                        pren = b.RicercaPrenotazioneCombinata();
+                        break;
+                }
+
+                if(pren.isEmpty())
+                    System.out.println("Non ci sono prenotazioni con questi campi inseriti");
+                else
+                    b.ScegliPrenotazione(pren).VisualizzaPrenotazione();
+
+                break;
+
+            case 2:
+                ut = new Guest();
+                break;
+        }
+
+    }while(ut instanceof Bigliettaio);
+}
+
             else{//proiezionista
                 Proiezionista p = (Proiezionista) ut ;
                 do {
