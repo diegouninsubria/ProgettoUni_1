@@ -1,6 +1,8 @@
 package cinemax;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Date;
 
 /**
  * Classe principale dell'applicazione Cinemax.
