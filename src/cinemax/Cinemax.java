@@ -137,17 +137,27 @@ public class Cinemax {
                         break;
 
                     case 2:
-                        System.out.print("Nome: ");
-                        String nome = input.nextLine();
-                        System.out.print("Cognome: ");
-                        String cognome = input.nextLine();
+                        String nome = Guest.inserisciNome(input);
+                        String cognome = Guest.inserisciCognome(input);
                         pren = b.RicercaPrenotazione(nome, cognome);
                         break;
 
                     case 3:
-                        System.out.println("Inserisci data:");
-                        Date d = Guest.inserisciData(input);
-                        pren = b.RicercaPrenotazione(d);
+                        switch (menu.MenuRicercaData()){
+                            case 1:
+                                Date d = Guest.inserisciData(input);
+                                pren = b.RicercaPrenotazione(d);
+                                break;
+                            case 2:
+                                Date d1 = Guest.inserisciData(input);
+                                Date d2 = Guest.inserisciData(input);
+                                if(d1.compareTo(d2)<=0)
+                                    pren = b.RicercaPrenotazione(d1,d2);
+                                else
+                                    pren = b.RicercaPrenotazione(d2,d1);
+
+                                break;
+                        }
                         break;
 
                     case 4:
