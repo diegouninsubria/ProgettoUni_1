@@ -176,8 +176,7 @@ public class Menu {
         System.out.println("1) Per ID");
         System.out.println("2) Per Nome e Cognome");
         System.out.println("3) Per Data");
-        System.out.println("4) Per Intervallo di Date");
-        System.out.println("5) Ricerca Combinata");
+        System.out.println("4) Ricerca Combinata");
         System.out.print("Scelta: ");
 
         scelta = input.nextInt();
