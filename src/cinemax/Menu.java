@@ -76,8 +76,8 @@ public class Menu {
             System.out.println("===== MENU CLIENTE =====\n");
             System.out.println("1) Visualizza le tue prenotazioni\n");
             System.out.println("2) Aggiungi prenotazione\n");
-            System.out.println("3) Modifica proiezione\n");
-            System.out.println("4) Elimina proiezione\n");
+            System.out.println("3) Modifica prenotazione\n");
+            System.out.println("4) Elimina prenotazione\n");
             System.out.println("5) Visualizza proiezioni\n");
             System.out.println("6) Logout\n");
             System.out.println("========================\n");
