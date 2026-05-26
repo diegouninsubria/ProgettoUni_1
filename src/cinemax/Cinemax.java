@@ -78,7 +78,7 @@ public class Cinemax {
                             if(p.isEmpty())
                                 System.out.println("Non ci sono proiezioni che ripettino le scelte dell'utente!");
                             else
-                                //selezione della proiezione e visualizzazione
+                               ut.SelezioneProiezione(p).toString();
                             break;
                         case 4:
                             System.out.println("Uscita dal programma...");
@@ -101,7 +101,7 @@ public class Cinemax {
                             break;
                         case 2:
                             ArrayList<Proiezione> pro = Proiezionista.leggiProiezioni();
-                            c.InserisciPrenotazione(/*SelezionaProiezione*/);
+                            c.InserisciPrenotazione(c.SelezioneProiezione(pro));
                             break;
                         case 3:
                             break;
