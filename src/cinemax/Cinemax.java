@@ -76,7 +76,7 @@ public class Cinemax {
                         case 3:
                             ArrayList<Proiezione> p = ut.CercaProiezione();
                             if(p.isEmpty())
-                                System.out.println("Non ci sono proiezioni che ripettino le scelte dell'utente!");
+                                System.out.println("Non ci sono proiezioni che rispettino le scelte dell'utente!\n");
                             else
                                ut.SelezioneProiezione(p).toString();
                             break;
@@ -104,10 +104,17 @@ public class Cinemax {
                             c.InserisciPrenotazione(c.SelezioneProiezione(pro));
                             break;
                         case 3:
+                            c.modificaPrenotazione();
                             break;
                         case 4:
+                            c.eliminaPrenotazione();
                             break;
                         case 5:
+                            ArrayList<Proiezione> proiezioni = c.CercaProiezione();
+                            if(proiezioni.isEmpty())
+                                System.out.println("Non ci sono proiezioni che rispettino le scelte dell'utente!\n");
+                            else
+                                c.SelezioneProiezione(proiezioni).toString();
                             break;
                         case 6:
                             ut = new Guest();
