@@ -91,6 +91,25 @@ public abstract class Utente {
 
     public String GetMansione(){return this.mansione;}
 
+    public Proiezione SelezioneProiezione(ArrayList<Proiezione>p) {
+        int scelta;
+        Scanner input = new Scanner(System.in);
+        int i = 1;
+        do {
+            i=1;
+            for (Proiezione proiezione : p) {
+                System.out.println(i + ") " + proiezione.toString() + "\n");
+                i++;
+            }
+            System.out.println("========================\n");
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta>p.size());
+        return p.get(scelta-1);
+    }
+
     public static ArrayList<Proiezione> leggiProiezioni(){
         ArrayList<Proiezione> pr = new ArrayList<>();
 

@@ -304,6 +304,7 @@ public class Proiezionista extends Utente{
         int i=1;
         int scelta;
         do {
+            i=1;
             for (Film f : film) {
                 System.out.println(i + ") "+f.getTitolo()+"\n");
                 i++;
