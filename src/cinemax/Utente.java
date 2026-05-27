@@ -134,6 +134,7 @@ public abstract class Utente {
 
                 int giorno = Integer.parseInt(datiD[2]);
                 int mese = Integer.parseInt(datiD[1]);
+                mese=mese-1;
                 int anno = Integer.parseInt(datiD[0]);
 
                 Date data = new Date(anno, mese, giorno);
