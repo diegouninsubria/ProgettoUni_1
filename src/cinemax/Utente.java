@@ -110,38 +110,63 @@ public abstract class Utente {
         return p.get(scelta-1);
     }
 
-    public static ArrayList<Proiezione> leggiProiezioni(){
+    public static ArrayList<Proiezione> leggiProiezioni() {
         ArrayList<Proiezione> pr = new ArrayList<>();
 
-        String file="File/proiezioni.csv";
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+        String file = "File/proiezioni.csv";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
             br.readLine();
             String riga;
+
             while ((riga = br.readLine()) != null) {
-                String[] campi = riga.split(",");
+
+                String[] campi = riga.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+
+                for (int i = 0; i < campi.length; i++) {
+                    campi[i] = campi[i].replace("\"", "").trim();
+                }
+
                 String[] dataOra = campi[0].split(" ");
-                String[] datiD=dataOra[0].split("-");
-                String[] datiO=dataOra[1].split(":");
+                String[] datiD = dataOra[0].split("-");
+                String[] datiO = dataOra[1].split(":");
 
                 int giorno = Integer.parseInt(datiD[2]);
                 int mese = Integer.parseInt(datiD[1]);
                 int anno = Integer.parseInt(datiD[0]);
-                Date data = new Date(anno,mese,giorno);
+
+                Date data = new Date(anno, mese, giorno);
 
                 int ora = Integer.parseInt(datiO[0]);
-                int minuti=Integer.parseInt(datiO[1]);
-                int secondi=Integer.parseInt(datiO[2]);
-                LocalTime time = LocalTime.of(ora,minuti,secondi);
+                int minuti = Integer.parseInt(datiO[1]);
+                int secondi = Integer.parseInt(datiO[2]);
 
-                Film film= new Film(campi[1],campi[2],campi[3],Integer.parseInt(campi[4]),Integer.parseInt(campi[5]),Integer.parseInt(campi[6]));
-                Proiezione p =new Proiezione(data,time,film,Float.parseFloat(campi[7]));
+                LocalTime time = LocalTime.of(ora, minuti, secondi);
+
+                Film film = new Film(
+                        campi[1],
+                        campi[2],
+                        campi[3],
+                        Integer.parseInt(campi[4]),
+                        Integer.parseInt(campi[5]),
+                        Integer.parseInt(campi[6])
+                );
+
+                Proiezione p = new Proiezione(
+                        data,
+                        time,
+                        film,
+                        Float.parseFloat(campi[7])
+                );
+
                 pr.add(p);
             }
-        }
-        catch (IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
         return pr;
     }
 

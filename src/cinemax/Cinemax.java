@@ -78,7 +78,7 @@ public class Cinemax {
                             if(p.isEmpty())
                                 System.out.println("Non ci sono proiezioni che rispettino le scelte dell'utente!\n");
                             else
-                               ut.SelezioneProiezione(p).toString();
+                               System.out.println(ut.SelezioneProiezione(p));
                             break;
                         case 4:
                             System.out.println("Uscita dal programma...");
@@ -114,7 +114,7 @@ public class Cinemax {
                             if(proiezioni.isEmpty())
                                 System.out.println("Non ci sono proiezioni che rispettino le scelte dell'utente!\n");
                             else
-                                c.SelezioneProiezione(proiezioni).toString();
+                                System.out.println(c.SelezioneProiezione(proiezioni).toString());
                             break;
                         case 6:
                             ut = new Guest();
