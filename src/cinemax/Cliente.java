@@ -55,7 +55,7 @@ public class Cliente extends Utente{
         ArrayList<Prenotazione> personali= new ArrayList<>();
         ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
         for(Prenotazione pren: p){
-            if(this.GetUsername().equals(pren.getCliente().GetUsername()) && this.GetPassword().equals(Guest.EncodedPsw(pren.getCliente().GetPassword())))
+            if(this.GetUsername().equals(pren.getCliente().GetUsername()) && this.GetPassword().equals(pren.getCliente().GetPassword()))
                 personali.add(pren);
         }
         return personali;
