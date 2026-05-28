@@ -2,6 +2,7 @@ package cinemax;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
 import java.util.*;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -84,6 +85,9 @@ public abstract class Utente {
             return "Data di nascita non presente";
         else
             return this.nascita.toString();
+    }
+    public int GetAnni(){
+        return Period.between(this.nascita,LocalDate.now()).getYears();
     }
 
     public String GetDomicilio(){
