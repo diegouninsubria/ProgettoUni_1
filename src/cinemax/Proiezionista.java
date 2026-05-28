@@ -2,6 +2,7 @@ package cinemax;
 
 import javafx.scene.Scene;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.*;
@@ -11,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Proiezionista extends Utente{
-    public Proiezionista(String nome, String cognome, String username, String password, Date nascita,String domicilio){
+    public Proiezionista(String nome, String cognome, String username, String password, LocalDate nascita, String domicilio){
         super(nome,cognome,username,password,nascita,domicilio,"Proiezionista");
     }
     public void InserisciFilm(){
@@ -43,7 +44,7 @@ public class Proiezionista extends Utente{
 
     public void InserisciProiezione(Film film){
         Scanner input= new Scanner(System.in);
-        Date data;
+        LocalDate data;
         LocalTime ora;
         float costo;
         data=Guest.inserisciData(input);
@@ -52,7 +53,7 @@ public class Proiezionista extends Utente{
 
         try{
             FileWriter writer= new FileWriter("File/proiezioni.csv",true);
-            writer.write(""+data.getYear()+"-"+data.getMonth()+"-"+data.getDay()+" "+ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+","+film.getTitolo()+","+film.getGenere()+","+film.getRegista()+","+film.getAnno()+","+film.getDurata()+","+film.getEtaMinima());
+            writer.write(""+data.getYear()+"-"+data.getMonth()+"-"+data.getDayOfMonth()+" "+ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+","+film.getTitolo()+","+film.getGenere()+","+film.getRegista()+","+film.getAnno()+","+film.getDurata()+","+film.getEtaMinima());
             writer.close();
 
             System.out.println("Scrittura venuta con successo");
@@ -226,7 +227,7 @@ public class Proiezionista extends Utente{
 
         for(Proiezione pr : lista){
             writer.write(
-                pr.GetData().getYear() + "-" +
+                pr.GetData().getYear() + "-" + //da modificare
                 pr.GetData().getMonth() + "-" +
                 pr.GetData().getDate() + " " +
                 pr.GetOra().toString() + "," +
@@ -278,7 +279,7 @@ public class Proiezionista extends Utente{
 
         for(Proiezione pr : lista){
             writer.write(
-                pr.GetData().getYear() + "-" +
+                pr.GetData().getYear() + "-" + //da modificare
                 pr.GetData().getMonth() + "-" +
                 pr.GetData().getDate() + " " +
                 pr.GetOra().toString() + "," +
