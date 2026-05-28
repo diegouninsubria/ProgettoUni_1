@@ -1,5 +1,6 @@
 package cinemax;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.io.IOException;
@@ -10,11 +11,11 @@ public abstract class Utente {
     private String cognome;
     private String username;
     private String password;
-    private Date nascita;
+    private LocalDate nascita;
     private String domicilio;
     private String mansione;
 
-    public Utente(String nome, String cognome,String username,String password,Date nascita,String domicilio,String mansione){
+    public Utente(String nome, String cognome,String username,String password,LocalDate nascita,String domicilio,String mansione){
         this.nome=nome;
         this.cognome=cognome;
         this.username=username;
@@ -52,7 +53,7 @@ public abstract class Utente {
         this.password=password;
     }
 
-    public void SetNascita(Date nascita){
+    public void SetNascita(LocalDate nascita){
         this.nascita=nascita;
     }
 
@@ -134,10 +135,9 @@ public abstract class Utente {
 
                 int giorno = Integer.parseInt(datiD[2]);
                 int mese = Integer.parseInt(datiD[1]);
-                mese=mese-1;
                 int anno = Integer.parseInt(datiD[0]);
 
-                Date data = new Date(anno, mese, giorno);
+                LocalDate data = LocalDate.of(anno,mese,giorno);
 
                 int ora = Integer.parseInt(datiO[0]);
                 int minuti = Integer.parseInt(datiO[1]);
@@ -174,8 +174,8 @@ public abstract class Utente {
     public ArrayList<Proiezione> CercaProiezione(){
         Scanner Input = new Scanner(System.in);
         Menu m =new Menu();
-        Date data;
-        Date data1;
+        LocalDate data;
+        LocalDate data1;
         String titolo;
         String genere;
         float costo;
@@ -190,7 +190,7 @@ public abstract class Utente {
                     case 2:
                         data=Guest.inserisciData(Input);
                         data1=Guest.inserisciData(Input);
-                        if(data.compareTo(data1)<=0)
+                        if(data.isBefore(data1))
                             return RicercaPerData(data,data1);
                         return RicercaPerData(data1,data);
                 }
@@ -239,21 +239,21 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerData(Date data){
+    public static ArrayList<Proiezione> RicercaPerData(LocalDate data){
         ArrayList<Proiezione> p =leggiProiezioni();
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
-            if(proiezione.GetData().compareTo(data)>=0)
+            if(data.isBefore(proiezione.GetData()))
                 pro.add(proiezione);
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerData(Date data1,Date data2 ){
+    public static ArrayList<Proiezione> RicercaPerData(LocalDate data1,LocalDate data2 ){
         ArrayList<Proiezione> p =leggiProiezioni();
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p){
-           Date d = proiezione.GetData();
-           if(d.compareTo(data1)>=0 && d.compareTo(data2)<=0)
+           LocalDate d = proiezione.GetData();
+           if(d.isAfter(data1) && d.isBefore(data2))
                pro.add(proiezione);
         }
          return pro;
