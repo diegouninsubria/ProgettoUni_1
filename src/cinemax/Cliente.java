@@ -43,7 +43,7 @@ public class Cliente extends Utente{
             Prenotazione pren= new Prenotazione(this,p,numPosti,false);
             try{
                 FileWriter writer= new FileWriter("File/Prenotazioni.txt",true);//apre il file //effettuare controllo get di nascita
-                writer.write(""+pren.getId()+","+pren.getCliente().GetNome()+","+pren.getCliente().GetCognome()+","+pren.getCliente().GetUsername()+","+Guest.EncodedPsw(pren.getCliente().GetPassword())+","+pren.getProiezione().GetData().getYear()+"-"+pren.getProiezione().GetData().getMonth()+"-"+pren.getProiezione().GetData().getDayOfMonth()+","+pren.getProiezione().GetOra().getHour()+":"+pren.getProiezione().GetOra().getMinute()+":"+pren.getProiezione().GetOra().getSecond()+","+pren.getProiezione().GetFilm().getTitolo()+","+numPosti+"\n"); //scrive nel file
+                writer.write(""+pren.getId()+","+pren.getCliente().GetNome()+","+pren.getCliente().GetCognome()+","+pren.getCliente().GetUsername()+","+Guest.EncodedPsw(pren.getCliente().GetPassword())+","+pren.getProiezione().GetData().getYear()+"-"+pren.getProiezione().GetData().getMonthValue()+"-"+pren.getProiezione().GetData().getDayOfMonth()+","+pren.getProiezione().GetOra().getHour()+":"+pren.getProiezione().GetOra().getMinute()+":"+pren.getProiezione().GetOra().getSecond()+","+pren.getProiezione().GetFilm().getTitolo()+","+numPosti+"\n"); //scrive nel file
                 writer.close();
 
                 System.out.println("Scrittura avenuta con successo");
@@ -94,7 +94,7 @@ public class Cliente extends Utente{
             FileWriter writer = new FileWriter("File/Prenotazioni.txt");
             writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
             for(Prenotazione preno : p){
-                writer.write(""+preno.getId()+","+preno.getCliente().GetNome()+","+preno.getCliente().GetCognome()+","+preno.getCliente().GetUsername()+","+Guest.EncodedPsw(preno.getCliente().GetPassword())+","+preno.getProiezione().GetData().getYear()+"-"+preno.getProiezione().GetData().getMonth()+"-"+preno.getProiezione().GetData().getDayOfMonth()+","+preno.getProiezione().GetOra().getHour()+":"+preno.getProiezione().GetOra().getMinute()+":"+preno.getProiezione().GetOra().getSecond()+","+preno.getProiezione().GetFilm()+","+preno.getPostiPrenotati()+"\n");
+                writer.write(""+preno.getId()+","+preno.getCliente().GetNome()+","+preno.getCliente().GetCognome()+","+preno.getCliente().GetUsername()+","+Guest.EncodedPsw(preno.getCliente().GetPassword())+","+preno.getProiezione().GetData().getYear()+"-"+preno.getProiezione().GetData().getMonthValue()+"-"+preno.getProiezione().GetData().getDayOfMonth()+","+preno.getProiezione().GetOra().getHour()+":"+preno.getProiezione().GetOra().getMinute()+":"+preno.getProiezione().GetOra().getSecond()+","+preno.getProiezione().GetFilm()+","+preno.getPostiPrenotati()+"\n");
             }
 
             writer.close();

@@ -160,7 +160,7 @@ public class Guest extends Utente{
         do{
             System.out.println("Inserisci la password: ");
             password=input.nextLine().trim();
-        }while(password.isEmpty() || password.length()<4);
+        }while(password.length()<4);
 
         return password;
     }
@@ -193,7 +193,7 @@ public class Guest extends Utente{
         //controllo data
    public static LocalDate inserisciData(Scanner input) {
         int giorno = 0;
-        int mese = -1;
+        int mese = 0;
         int anno = 0;
         int GM = 31;
         while (anno < 1900 || anno > 2026) {
@@ -250,7 +250,7 @@ public class Guest extends Utente{
     public static void ScriviFile(String nome,String cognome,String username,String password,LocalDate nascita, String luogo,String ruolo){
         try{
             FileWriter writer= new FileWriter("File/Utenti.txt",true);//apre il file //effettuare controllo get di nascita
-            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDayOfMonth()+","+nascita.getMonth()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
+            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDayOfMonth()+","+nascita.getMonthValue()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");

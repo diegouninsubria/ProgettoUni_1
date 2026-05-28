@@ -119,7 +119,7 @@ public class Bigliettaio extends Utente{
                 int giorno = Integer.parseInt(datiD[2]);
                 int mese = Integer.parseInt(datiD[1]);
                 int anno = Integer.parseInt(datiD[0]);
-                Date data = new Date(anno,mese,giorno);
+                LocalDate data = LocalDate.of(anno,mese,giorno);
 
                 int ora = Integer.parseInt(datiO[0]);
                 int minuti=Integer.parseInt(datiO[1]);
@@ -147,7 +147,7 @@ public class Bigliettaio extends Utente{
         return null;
     }
 
-    public static Proiezione SelezionaProiezione(Date data, LocalTime ora,String titolo){
+    public static Proiezione SelezionaProiezione(LocalDate data, LocalTime ora,String titolo){
         ArrayList<Proiezione> proiezioni = Utente.leggiProiezioni();
 
         for( Proiezione p : proiezioni){
@@ -157,13 +157,13 @@ public class Bigliettaio extends Utente{
         return null;
     }
 
-    public static boolean CheckScaduta(Date data, LocalTime ora){
-        Date dataOdierna = new Date();
+    public static boolean CheckScaduta(LocalDate data, LocalTime ora){
+        LocalDate dataOdierna = LocalDate.now();
         LocalTime oraOdierna = LocalTime.now();
-        if(data.compareTo(dataOdierna) <0){
+        if(data.isBefore(dataOdierna)){
             return true;
         }
-        else if(data.compareTo(dataOdierna) ==0)
+        else if(data.equals(dataOdierna))
             if(ora.isBefore(oraOdierna))
                 return true;
             else return false;
