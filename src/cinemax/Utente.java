@@ -143,29 +143,32 @@ public abstract class Utente {
 
                 LocalDate data = LocalDate.of(anno,mese,giorno);
 
-                int ora = Integer.parseInt(datiO[0]);
-                int minuti = Integer.parseInt(datiO[1]);
-                int secondi = Integer.parseInt(datiO[2]);
+                if(data.isAfter(LocalDate.now())) {
 
-                LocalTime time = LocalTime.of(ora, minuti, secondi);
+                    int ora = Integer.parseInt(datiO[0]);
+                    int minuti = Integer.parseInt(datiO[1]);
+                    int secondi = Integer.parseInt(datiO[2]);
 
-                Film film = new Film(
-                        campi[1],
-                        campi[2],
-                        campi[3],
-                        Integer.parseInt(campi[4]),
-                        Integer.parseInt(campi[5]),
-                        Integer.parseInt(campi[6])
-                );
+                    LocalTime time = LocalTime.of(ora, minuti, secondi);
 
-                Proiezione p = new Proiezione(
-                        data,
-                        time,
-                        film,
-                        Float.parseFloat(campi[7])
-                );
+                    Film film = new Film(
+                            campi[1],
+                            campi[2],
+                            campi[3],
+                            Integer.parseInt(campi[4]),
+                            Integer.parseInt(campi[5]),
+                            Integer.parseInt(campi[6])
+                    );
 
-                pr.add(p);
+                    Proiezione p = new Proiezione(
+                            data,
+                            time,
+                            film,
+                            Float.parseFloat(campi[7])
+                    );
+
+                    pr.add(p);
+                }
             }
 
         } catch (IOException e) {
