@@ -1,12 +1,1 @@
 nome,cognome,username,password,giorno,mese,anno,domicilio,ruolo
-Fabio,Proserpio,Fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,5,6,106,Carate Urio,Cliente
-Fabii,Unicci,Cacchio23,ᢡ⦮⩰⬲⨏⮓⚦Ꮄ,0,3,5,Carate Brianza,Cliente
-Carlo,Zanotti,ZanoCarl90,⩰Ⓛ⮓⫑ⱕⓁ⣬♅ኑኑ,0,2,95,Inverigo,Cliente
-Cappio,Ambrogio,cavoletto55,ᢡ⦮⩰⬲♅⚦⮓◤⚦,2,5,103,Milano,Cliente
-Nicola,Marconi,Marc23,Ṑ⣬♅Ⓛ⮓♅ኑዲፓᎴ,4,6,1988,Lambrugo,Cliente
-Valerio,Monti,ValeMonti2345,ᢡ⮓◤ἒ⨏⥍Ⓛኑዲ,3,0,1976,Como,Cliente
-Claudio,Bisio,claubio12,ᢡ⮓ᖙᔸ⣬⚦✇⥍,5,11,2006,Cernobbio,Cliente
-Andrea,Proserpio,Andreino75,ᢡ⦮⩰⨏⣬⥍⨏,4,2,1975,Carate Urio,Cliente
-Geltrude,Iguita,igusPocus76,ኑዲፓᎴฅ๦ᇏ༨,13,4,1956,Laglio,Cliente
-Mauro,Caputi,CaputMundi45,ᴭⓁⱕ⬲⟉♅⣬⣬⨏ፓᎴ,30,6,1967,Sagnino,Cliente
-Tommaso,Demontis,Demo1907,▃⨏⥍⨏ኑᖙሰᓗ,18,4,2006,Cernobbio,Cliente

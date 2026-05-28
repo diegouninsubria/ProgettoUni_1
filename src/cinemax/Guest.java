@@ -351,10 +351,12 @@ public class Guest extends Utente{
 
     public static boolean CheckUsername(String username){
         ArrayList<Utente> u = LeggiFile();
-        for(Utente ut:u){
-            if(ut.GetUsername().equals(username)){
-                System.out.println("Utente già presente, utilizzare un altro username per registrarsi!\n");
-                return true;
+        if(!u.isEmpty()) {
+            for (Utente ut : u) {
+                if (ut.GetUsername().equals(username)) {
+                    System.out.println("Utente già presente, utilizzare un altro username per registrarsi!\n");
+                    return true;
+                }
             }
         }
         return false;
