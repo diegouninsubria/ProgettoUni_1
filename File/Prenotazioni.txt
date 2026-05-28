@@ -1,3 +1,1 @@
 ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati
-1,Fabio,Proserpio,Fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,2027-11-5,10:30:0,A Beautiful Mind,4
-2,Fabio,Proserpio,Fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,2018-0-2,10:30:0,Mr. Smith Goes to Washington,2
