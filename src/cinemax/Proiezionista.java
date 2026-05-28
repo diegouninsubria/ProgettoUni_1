@@ -229,7 +229,7 @@ public class Proiezionista extends Utente{
             writer.write(
                 pr.GetData().getYear() + "-" + //da modificare
                 pr.GetData().getMonth() + "-" +
-                pr.GetData().getDate() + " " +
+                pr.GetData().getDayOfMonth() + " " +
                 pr.GetOra().toString() + "," +
                 pr.GetFilm().getTitolo() + "," +
                 pr.GetFilm().getGenere() + "," +
@@ -281,7 +281,7 @@ public class Proiezionista extends Utente{
             writer.write(
                 pr.GetData().getYear() + "-" + //da modificare
                 pr.GetData().getMonth() + "-" +
-                pr.GetData().getDate() + " " +
+                pr.GetData().getDayOfMonth() + " " +
                 pr.GetOra().toString() + "," +
                 pr.GetFilm().getTitolo() + "," +
                 pr.GetFilm().getGenere() + "," +

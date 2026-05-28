@@ -1,4 +1,5 @@
 package cinemax;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.io.FileWriter;
@@ -15,7 +16,7 @@ public class Proiezione {
      * i dati della proiezione.
      */
 
-    private Date data;
+    private LocalDate data;
     private LocalTime ora;
     private Film film;
     private float costo;
@@ -29,7 +30,7 @@ public class Proiezione {
      * @param costo    costo del biglietto
      */
 
-    public Proiezione(Date data,LocalTime ora,Film film,float costo){
+    public Proiezione(LocalDate data,LocalTime ora,Film film,float costo){
         this.data=data;
         this.ora=ora;
         this.film=film;
@@ -42,7 +43,7 @@ public class Proiezione {
      * @param data    nuova data
      */
 
-    public void SetData(Date data){this.data=data;}
+    public void SetData(LocalDate data){this.data=data;}
 
     /**
      * Imposta l'orario della proiezione.
@@ -66,7 +67,7 @@ public class Proiezione {
      * @return data della proiezione
      */
 
-    public Date GetData(){return this.data;}
+    public LocalDate GetData(){return this.data;}
 
     /**
      * Restituisce l'orario della proiezione.
