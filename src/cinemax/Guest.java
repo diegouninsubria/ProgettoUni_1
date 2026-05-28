@@ -1,4 +1,5 @@
 package cinemax;
+import java.time.LocalDate;
 import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class Guest extends Utente{
         String cognome;
         String Username;
         String Password;
-        Date nascita;
+        LocalDate nascita;
         String Domicilio;
         Scanner input = new Scanner(System.in);//creazione di oggetto per lettura da tastiera
         nome=inserisciNome(input);//inserimento del nome
@@ -190,7 +191,7 @@ public class Guest extends Utente{
      */
 
         //controllo data
-   public static Date inserisciData(Scanner input) {
+   public static LocalDate inserisciData(Scanner input) {
         int giorno = 0;
         int mese = -1;
         int anno = 0;
@@ -204,17 +205,17 @@ public class Guest extends Utente{
         }
             }
 
-            while (mese < 0 || mese > 11) {
+            while (mese < 1 || mese > 12) {
             System.out.println("Inserisci il mese: ");
             if (input.hasNextInt()) {
-            mese = input.nextInt()-1;
+            mese = input.nextInt();
         } else {
             input.next(); 
         }
         }
 
-       if (mese == 3 || mese == 5 || mese == 8 || mese == 10) {GM = 30;}
-       if (mese == 1) {GM = 28;}
+       if (mese == 4 || mese == 6 || mese == 9 || mese == 11) {GM = 30;}
+       if (mese == 2) {GM = 28;}
        
         while (giorno < 1 || giorno > GM) {
             System.out.println("Inserisci il giorno: ");
@@ -228,7 +229,7 @@ public class Guest extends Utente{
 
        input.nextLine();
 
-        return new Date(anno , mese , giorno);
+        return LocalDate.of(anno,mese,giorno);
     }
 
         //fine controllo/inserimento data
@@ -246,10 +247,10 @@ public class Guest extends Utente{
      * @param ruolo       ruolo dell'utente (Cliente, Bigliettaio, Proiezionista)
      */
 
-    public static void ScriviFile(String nome,String cognome,String username,String password,Date nascita, String luogo,String ruolo){
+    public static void ScriviFile(String nome,String cognome,String username,String password,LocalDate nascita, String luogo,String ruolo){
         try{
             FileWriter writer= new FileWriter("File/Utenti.txt",true);//apre il file //effettuare controllo get di nascita
-            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDate()+","+nascita.getMonth()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
+            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDayOfMonth()+","+nascita.getMonth()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");
@@ -282,7 +283,7 @@ public class Guest extends Utente{
                 int mese = Integer.parseInt(campi[5]);
                 int anno = Integer.parseInt(campi[6]);
 
-                Date dataNascita = new Date(anno, mese, giorno);
+                LocalDate dataNascita = LocalDate.of(anno,mese,giorno);
 
                 switch (campi[8]){
                     case "Cliente":
