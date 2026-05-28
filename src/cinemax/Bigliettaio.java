@@ -3,6 +3,7 @@ package cinemax;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +30,7 @@ public class Bigliettaio extends Utente{
      * @param domicilio    indirizzo di domicilio dell'utente
      */
 
-    public Bigliettaio(String nome, String cognome, String username, String password, Date nascita,String domicilio){
+    public Bigliettaio(String nome, String cognome, String username, String password, LocalDate nascita, String domicilio){
         super(nome,cognome,username,password,nascita,domicilio,"Bigliettaio");
     }
 
@@ -53,22 +54,22 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazione(Date data){
+    public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data){
         ArrayList<Prenotazione> p = LeggiPrenotazioni();
         ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
         for(Prenotazione pren : p)
-            if(data.compareTo(pren.getProiezione().GetData())>=0)
+            if(data.isAfter(pren.getProiezione().GetData()))
                 prenotazioni.add(pren);
         return prenotazioni;
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazione(Date data1,Date data2){
+    public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data1,LocalDate data2){
         ArrayList<Prenotazione> p = LeggiPrenotazioni();
         ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
-        Date d;
+        LocalDate d;
         for(Prenotazione pren : p) {
             d = pren.getProiezione().GetData();
-            if (d.compareTo(data1) >= 0 && d.compareTo(data2) <= 0)
+            if (d.isAfter(data1) && d.isBefore(data2))
                 prenotazioni.add(pren);
         }
         return prenotazioni;
@@ -197,14 +198,14 @@ public class Bigliettaio extends Utente{
 
     System.out.println("Vuoi filtrare per data? (s/n)");
     boolean filtroData = input.nextLine().trim().equalsIgnoreCase("s");
-    Date data = null;
+    LocalDate data = null;
     if(filtroData){
         data = Guest.inserisciData(input);
     }
 
     System.out.println("Vuoi filtrare per intervallo di date? (s/n)");
     boolean filtroIntervallo = input.nextLine().trim().equalsIgnoreCase("s");
-    Date d1 = null, d2 = null;
+    LocalDate d1 = null, d2 = null;
     if(filtroIntervallo){
         System.out.println("Inserisci data iniziale:");
         d1 = Guest.inserisciData(input);
@@ -229,8 +230,8 @@ public class Bigliettaio extends Utente{
                 ok = false;
 
         if(filtroIntervallo){
-            Date d = p.getProiezione().GetData();
-            if(!(d.compareTo(d1) >= 0 && d.compareTo(d2) <= 0))
+            LocalDate d = p.getProiezione().GetData();
+            if(!(d.isAfter(d1) && d.isBefore(d2)))
                 ok = false;
         }
 

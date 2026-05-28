@@ -1,5 +1,6 @@
 package cinemax;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
@@ -152,13 +153,13 @@ public class Cinemax {
                     case 3:
                         switch (menu.MenuRicercaData()){
                             case 1:
-                                Date d = Guest.inserisciData(input);
+                                LocalDate d = Guest.inserisciData(input);
                                 pren = b.RicercaPrenotazione(d);
                                 break;
                             case 2:
-                                Date d1 = Guest.inserisciData(input);
-                                Date d2 = Guest.inserisciData(input);
-                                if(d1.compareTo(d2)<=0)
+                                LocalDate d1 = Guest.inserisciData(input);
+                                LocalDate d2 = Guest.inserisciData(input);
+                                if(d1.isBefore(d2))
                                     pren = b.RicercaPrenotazione(d1,d2);
                                 else
                                     pren = b.RicercaPrenotazione(d2,d1);
@@ -210,7 +211,7 @@ public class Cinemax {
                 }while(ut instanceof Proiezionista);
             }
 
-        }while(uscita!=true);
+        }while(!uscita);
     }
 }
 
