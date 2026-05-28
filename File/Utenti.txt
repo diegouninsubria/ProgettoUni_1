@@ -1,2 +1,3 @@
 nome,cognome,username,password,giorno,mese,anno,domicilio,ruolo
 Alice,Proserpio,Alix2008,ᢡ⦮៟ኑኑሰዲᓗᐕ,9,11,2008,Carate Urio,Cliente
+Andrea,Proserpio,andrix32,ኑዲፓᎴᐕ,11,2,1975,CarateUrio,Cliente
