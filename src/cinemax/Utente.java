@@ -180,6 +180,7 @@ public abstract class Utente {
 
     public ArrayList<Proiezione> CercaProiezione(){
         Scanner Input = new Scanner(System.in);
+        ArrayList<Proiezione> p = leggiProiezioni();
         Menu m =new Menu();
         LocalDate data;
         LocalDate data1;
@@ -187,37 +188,36 @@ public abstract class Utente {
         String genere;
         float costo;
         float costo1;
-        Menu menu= new Menu();
-        switch (menu.mostraMenuCercaProeizione()){
+        switch (m.mostraMenuCercaProeizione()){
             case 1:
                 switch (m.MenuRicercaData()){
                     case 1:
                         data=Guest.inserisciData(Input);
-                        return RicercaPerData(data);
+                        return RicercaPerData(data,p);
                     case 2:
                         data=Guest.inserisciData(Input);
                         data1=Guest.inserisciData(Input);
                         if(data.isBefore(data1))
-                            return RicercaPerData(data,data1);
-                        return RicercaPerData(data1,data);
+                            return RicercaPerData(data,data1,p);
+                        return RicercaPerData(data1,data,p);
                 }
             case 2:
                 titolo = Proiezionista.inserisciTitolo(Input);
-                return RicercaPerTitolo(titolo);
+                return RicercaPerTitolo(titolo,p);
             case 3:
                 genere = Proiezionista.inserisciGenere(Input);
-                return RicercaPerGenere(genere);
+                return RicercaPerGenere(genere,p);
             case 4:
                 switch (m.MenuRicercaPrezzo()){
                     case 1:
                         costo = Proiezionista.inserisciCosto(Input);
-                        RicercaPerPrezzo(costo);
+                        return RicercaPerPrezzo(costo,p);
                     case 2:
                         costo=Proiezionista.inserisciCosto(Input);
                         costo1=Proiezionista.inserisciCosto(Input);
                         if(costo>=costo1)
-                            return RicercaPerPrezzo(costo1,costo);
-                        return RicercaPerPrezzo(costo,costo1);
+                            return RicercaPerPrezzo(costo1,costo,p);
+                        return RicercaPerPrezzo(costo,costo1,p);
                 }
             case 5:
 
@@ -237,8 +237,7 @@ public abstract class Utente {
         return obj.toLowerCase().contains(ins.toLowerCase());
     }
 
-    public static ArrayList<Proiezione> RicercaPerTitolo(String titolo){
-        ArrayList<Proiezione> p =leggiProiezioni();
+    public static ArrayList<Proiezione> RicercaPerTitolo(String titolo,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
             if(CheckString(titolo,proiezione.GetFilm().getTitolo()))
@@ -246,8 +245,7 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerData(LocalDate data){
-        ArrayList<Proiezione> p =leggiProiezioni();
+    public static ArrayList<Proiezione> RicercaPerData(LocalDate data,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
             if(data.isBefore(proiezione.GetData()))
@@ -255,8 +253,7 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerData(LocalDate data1,LocalDate data2 ){
-        ArrayList<Proiezione> p =leggiProiezioni();
+    public static ArrayList<Proiezione> RicercaPerData(LocalDate data1,LocalDate data2,ArrayList<Proiezione> p  ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p){
            LocalDate d = proiezione.GetData();
@@ -266,8 +263,7 @@ public abstract class Utente {
          return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo){
-        ArrayList<Proiezione> p =leggiProiezioni();
+    public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
             if(proiezione.GetCosto()<=prezzo)
@@ -275,8 +271,7 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo1,float prezzo2){
-        ArrayList<Proiezione> p =leggiProiezioni();
+    public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo1,float prezzo2,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
             if(proiezione.GetCosto()>=prezzo1 && proiezione.GetCosto()<=prezzo2)
@@ -284,8 +279,7 @@ public abstract class Utente {
         return pro;
     }
 
-    public static ArrayList<Proiezione> RicercaPerGenere(String genere){
-        ArrayList<Proiezione> p =leggiProiezioni();
+    public static ArrayList<Proiezione> RicercaPerGenere(String genere,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
             if(genere.equals(proiezione.GetFilm().getGenere()))
