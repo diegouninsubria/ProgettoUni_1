@@ -34,8 +34,7 @@ public class Bigliettaio extends Utente{
         super(nome,cognome,username,password,nascita,domicilio,"Bigliettaio");
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazione(int id){
-        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+    public ArrayList<Prenotazione> RicercaPrenotazione(int id,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
         for(Prenotazione pren : p){
             if(pren.getId() == id)
@@ -45,8 +44,7 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazione(String nome, String cognome){
-        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+    public ArrayList<Prenotazione> RicercaPrenotazione(String nome, String cognome,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
         for(Prenotazione pren : p)
             if(pren.getCliente().GetNome().equals(nome) && pren.getCliente().GetCognome().equals(cognome))
@@ -54,8 +52,7 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data){
-        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+    public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
         for(Prenotazione pren : p)
             if(data.isAfter(pren.getProiezione().GetData()))
@@ -63,8 +60,7 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data1,LocalDate data2){
-        ArrayList<Prenotazione> p = LeggiPrenotazioni();
+    public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data1,LocalDate data2,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
         LocalDate d;
         for(Prenotazione pren : p) {
@@ -75,14 +71,7 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
-    public ArrayList<Prenotazione> RicercaPrenotazioni(String titolo){
-        ArrayList<Prenotazione> p = LeggiPrenotazioni();
-        ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
-        for(Prenotazione pren : p)
-            if(Utente.CheckString(titolo,pren.getProiezione().GetFilm().getTitolo()))
-                prenotazioni.add(pren);
-        return prenotazioni;
-    }
+
     public Prenotazione ScegliPrenotazione(ArrayList<Prenotazione> p){
         int scelta;
         Scanner input = new Scanner(System.in);

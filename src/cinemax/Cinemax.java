@@ -134,6 +134,7 @@ public class Cinemax {
             case 1:
 
                 ArrayList<Prenotazione> pren = new ArrayList<>();
+                ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
 
                 switch (menu.sceltaBigliettaioRicerca()){
 
@@ -141,28 +142,28 @@ public class Cinemax {
                         System.out.print("Inserisci ID: ");
                         int id = input.nextInt();
                         input.nextLine();
-                        pren = b.RicercaPrenotazione(id);
+                        pren = b.RicercaPrenotazione(id,p);
                         break;
 
                     case 2:
                         String nome = Guest.inserisciNome(input);
                         String cognome = Guest.inserisciCognome(input);
-                        pren = b.RicercaPrenotazione(nome, cognome);
+                        pren = b.RicercaPrenotazione(nome, cognome,p);
                         break;
 
                     case 3:
                         switch (menu.MenuRicercaData()){
                             case 1:
                                 LocalDate d = Guest.inserisciData(input);
-                                pren = b.RicercaPrenotazione(d);
+                                pren = b.RicercaPrenotazione(d,p);
                                 break;
                             case 2:
                                 LocalDate d1 = Guest.inserisciData(input);
                                 LocalDate d2 = Guest.inserisciData(input);
                                 if(d1.isBefore(d2))
-                                    pren = b.RicercaPrenotazione(d1,d2);
+                                    pren = b.RicercaPrenotazione(d1,d2,p);
                                 else
-                                    pren = b.RicercaPrenotazione(d2,d1);
+                                    pren = b.RicercaPrenotazione(d2,d1,p);
 
                                 break;
                         }
