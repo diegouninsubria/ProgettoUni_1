@@ -162,8 +162,7 @@ public class Bigliettaio extends Utente{
     public ArrayList<Prenotazione> RicercaPrenotazioneCombinata() {
 
     Scanner input = new Scanner(System.in);
-    ArrayList<Prenotazione> tutte = LeggiPrenotazioni();
-    ArrayList<Prenotazione> risultato = new ArrayList<>();
+    ArrayList<Prenotazione> risultato = LeggiPrenotazioni();
 
     System.out.println("=== RICERCA COMBINATA ===");
 
@@ -173,7 +172,7 @@ public class Bigliettaio extends Utente{
     if(filtroNome){
         nome = Guest.inserisciNome(input);
         cognome = Guest.inserisciCognome(input);
-        risultato = RicercaPrenotazione(nome,cognome,tutte);
+        risultato = RicercaPrenotazione(nome,cognome,risultato);
     }
 
     System.out.println("Vuoi filtrare per id della prenotazione? (s/n)");

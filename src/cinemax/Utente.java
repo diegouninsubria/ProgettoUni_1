@@ -288,7 +288,7 @@ public abstract class Utente {
     }
 
     public static ArrayList<Proiezione>RicercaCombinata(ArrayList<Proiezione> p){
-        ArrayList<Proiezione> risultato = new ArrayList<>();
+        ArrayList<Proiezione> risultato = p;
         Scanner input = new Scanner(System.in);
         System.out.println("=== RICERCA COMBINATA ===");
 
@@ -297,7 +297,7 @@ public abstract class Utente {
         LocalDate d1;
         if(filtroData){
             d1= Guest.inserisciData(input);
-            risultato = RicercaPerData(d1,p);
+            risultato = RicercaPerData(d1,risultato);
         }
 
         System.out.println("Vuoi filtrare per intervallo di date (s/n)");
