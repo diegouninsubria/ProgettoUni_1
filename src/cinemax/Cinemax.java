@@ -101,7 +101,7 @@ public class Cinemax {
                                 }
                             break;
                         case 2:
-                            ArrayList<Proiezione> pro = Proiezionista.leggiProiezioni();
+                            ArrayList<Proiezione> pro = c.ProiezioniDisponibili();
                             c.InserisciPrenotazione(c.SelezioneProiezione(pro));
                             break;
                         case 3:

@@ -104,6 +104,17 @@ public class Cliente extends Utente{
         }
     }
 
+    public ArrayList<Proiezione> ProiezioniDisponibili(){
+        ArrayList<Proiezione> p = Proiezionista.leggiProiezioni();
+        ArrayList<Proiezione> pro = new ArrayList<>();
+
+        for(Proiezione proiezione : p){
+            if(this.GetAnni()>=proiezione.GetFilm().getEtaMinima())
+                pro.add(proiezione);
+        }
+        return pro;
+    }
+
     public static int PostiGiaPrenoati(Proiezione p){
         int posti = 0;
         ArrayList<Prenotazione> prenotazioni = Bigliettaio.LeggiPrenotazioni();
