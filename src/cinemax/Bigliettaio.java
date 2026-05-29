@@ -169,20 +169,21 @@ public class Bigliettaio extends Utente{
 
     System.out.println("Vuoi filtrare per nome e cognome? (s/n)");
     boolean filtroNome = input.nextLine().trim().equalsIgnoreCase("s");
-    String nome = "", cognome = "";
+    String nome,cognome;
     if(filtroNome){
-        System.out.print("Nome: ");
-        nome = input.nextLine().trim();
-        System.out.print("Cognome: ");
-        cognome = input.nextLine().trim();
+        nome = Guest.inserisciNome(input);
+        cognome = Guest.inserisciCognome(input);
+        risultato = RicercaPrenotazione(nome,cognome,tutte);
     }
 
-    System.out.println("Vuoi filtrare per titolo del film? (s/n)");
-    boolean filtroTitolo = input.nextLine().trim().equalsIgnoreCase("s");
-    String titolo = "";
-    if(filtroTitolo){
-        System.out.print("Titolo: ");
-        titolo = input.nextLine().trim();
+    System.out.println("Vuoi filtrare per id della prenotazione? (s/n)");
+    boolean filtroId = input.nextLine().trim().equalsIgnoreCase("s");
+    int id;
+    if(filtroId){
+        System.out.print("Inserisci ID: ");
+        id = input.nextInt();
+        input.nextLine();
+        risultato = RicercaPrenotazione(id,risultato);
     }
 
     System.out.println("Vuoi filtrare per data? (s/n)");
@@ -190,6 +191,7 @@ public class Bigliettaio extends Utente{
     LocalDate data = null;
     if(filtroData){
         data = Guest.inserisciData(input);
+        risultato = RicercaPrenotazione(data,risultato);
     }
 
     System.out.println("Vuoi filtrare per intervallo di date? (s/n)");
@@ -200,32 +202,10 @@ public class Bigliettaio extends Utente{
         d1 = Guest.inserisciData(input);
         System.out.println("Inserisci data finale:");
         d2 = Guest.inserisciData(input);
-    }
-
-    for(Prenotazione p : tutte){
-
-        boolean ok = true;
-
-        if(filtroNome)
-            if(!(p.getCliente().GetNome().equals(nome) && p.getCliente().GetCognome().equals(cognome)))
-                ok = false;
-
-        if(filtroTitolo)
-            if(!Utente.CheckString(titolo, p.getProiezione().GetFilm().getTitolo()))
-                ok = false;
-
-        if(filtroData)
-            if(!(p.getProiezione().GetData().equals(data)))
-                ok = false;
-
-        if(filtroIntervallo){
-            LocalDate d = p.getProiezione().GetData();
-            if(!(d.isAfter(d1) && d.isBefore(d2)))
-                ok = false;
-        }
-
-        if(ok)
-            risultato.add(p);
+        if(d1.isAfter(d2))
+            risultato = RicercaPrenotazione(d2,d1,risultato);
+        else
+            risultato = RicercaPrenotazione(d1,d2,risultato);
     }
 
     return risultato;
