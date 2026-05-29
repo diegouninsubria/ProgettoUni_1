@@ -220,7 +220,7 @@ public abstract class Utente {
                         return RicercaPerPrezzo(costo,costo1,p);
                 }
             case 5:
-
+            return RicercaCombinata(p);
         }
         return null;
     }
@@ -285,5 +285,69 @@ public abstract class Utente {
             if(genere.equals(proiezione.GetFilm().getGenere()))
                 pro.add(proiezione);
         return pro;
+    }
+
+    public static ArrayList<Proiezione>RicercaCombinata(ArrayList<Proiezione> p){
+        ArrayList<Proiezione> risultato = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        System.out.println("=== RICERCA COMBINATA ===");
+
+        System.out.println("Vuoi filtrare per data (s/n)");
+        boolean filtroData = input.nextLine().trim().equalsIgnoreCase("s");
+        LocalDate d1;
+        if(filtroData){
+            d1= Guest.inserisciData(input);
+            risultato = RicercaPerData(d1,p);
+        }
+
+        System.out.println("Vuoi filtrare per intervallo di date (s/n)");
+        boolean filtroIntervalloData = input.nextLine().trim().equalsIgnoreCase("s");
+        LocalDate d2;
+        if(filtroIntervalloData){
+            d1= Guest.inserisciData(input);
+            d2= Guest.inserisciData(input);
+            if(d1.isAfter(d2))
+                risultato=RicercaPerData(d2,d1,risultato);
+            else
+                risultato=RicercaPerData(d1,d2,risultato);
+        }
+
+        System.out.println("Vuoi filtrare per titolo del film (s/n)");
+        boolean filtroTitolo = input.nextLine().trim().equalsIgnoreCase("s");
+        String titolo;
+        if(filtroTitolo){
+            titolo = Proiezionista.inserisciTitolo(input);
+            risultato = RicercaPerTitolo(titolo,risultato);
+        }
+
+        System.out.println("Vuoi filtrare per genere del film (s/n)");
+        boolean filtroGenere = input.nextLine().trim().equalsIgnoreCase("s");
+        String genere;
+        if(filtroGenere){
+            genere = Proiezionista.inserisciGenere(input);
+            risultato = RicercaPerGenere(genere,risultato);
+        }
+
+        System.out.println("Vuoi filtrare per prezzo della proiezione (s/n)");
+        boolean filtroPrezzo = input.nextLine().trim().equalsIgnoreCase("s");
+        float prezzo;
+        if(filtroPrezzo){
+            prezzo = Proiezionista.inserisciCosto(input);
+            risultato = RicercaPerPrezzo(prezzo,risultato);
+        }
+
+        System.out.println("Vuoi filtrare per intervallo di prezzo della proiezione(s/n)");
+        boolean filtroIntervalloPrezzo = input.nextLine().trim().equalsIgnoreCase("s");
+        float prezzo1;
+        if(filtroIntervalloPrezzo){
+            prezzo = Proiezionista.inserisciCosto(input);
+            prezzo1 = Proiezionista.inserisciCosto(input);
+            if(prezzo>prezzo1)
+                risultato = RicercaPerPrezzo(prezzo1,prezzo,risultato);
+            else
+                risultato = RicercaPerPrezzo(prezzo,prezzo1,risultato);
+        }
+
+        return risultato;
     }
 }
