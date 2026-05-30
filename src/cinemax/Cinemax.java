@@ -177,7 +177,7 @@ public class Cinemax {
                 if(pren.isEmpty())
                     System.out.println("Non ci sono prenotazioni con questi campi inseriti");
                 else
-                    b.ScegliPrenotazione(pren).VisualizzaPrenotazione();
+                    System.out.println(b.ScegliPrenotazione(pren).VisualizzaPrenotazione());
 
                 break;
 
