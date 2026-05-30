@@ -109,7 +109,7 @@ public class Cliente extends Utente{
         ArrayList<Proiezione> pro = new ArrayList<>();
 
         for(Proiezione proiezione : p){
-            if(this.GetAnni()>=proiezione.GetFilm().getEtaMinima())
+            if(this.GetAnni()>=proiezione.GetFilm().getEtaMinima() && PostiGiaPrenoati(proiezione)<200)
                 pro.add(proiezione);
         }
         return pro;
