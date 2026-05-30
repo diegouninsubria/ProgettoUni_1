@@ -77,7 +77,7 @@ public class Cliente extends Utente{
 
         System.out.println("Seleziona la prenotazione da eliminare: \n");
         for(int i=0;i<personali.size();i++){
-            System.out.println((i+1)+") "+personali.get(i).toString());
+            System.out.println((i+1)+") "+personali.get(i).VisualizzaPrenotazione());
         }
 
         int scelta = input.nextInt();
