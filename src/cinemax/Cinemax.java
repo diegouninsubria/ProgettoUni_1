@@ -146,20 +146,20 @@ public class Cinemax {
                         break;
 
                     case 2:
-                        String nome = Guest.inserisciNome(input);
-                        String cognome = Guest.inserisciCognome(input);
+                        String nome = Inserimenti.inserisciNome(input);
+                        String cognome = Inserimenti.inserisciCognome(input);
                         pren = b.RicercaPrenotazione(nome, cognome,p);
                         break;
 
                     case 3:
                         switch (menu.MenuRicercaData()){
                             case 1:
-                                LocalDate d = Guest.inserisciData(input);
+                                LocalDate d = Inserimenti.inserisciData(input);
                                 pren = b.RicercaPrenotazione(d,p);
                                 break;
                             case 2:
-                                LocalDate d1 = Guest.inserisciData(input);
-                                LocalDate d2 = Guest.inserisciData(input);
+                                LocalDate d1 = Inserimenti.inserisciData(input);
+                                LocalDate d2 = Inserimenti.inserisciData(input);
                                 if(d1.isBefore(d2))
                                     pren = b.RicercaPrenotazione(d1,d2,p);
                                 else

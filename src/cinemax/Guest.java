@@ -47,14 +47,14 @@ public class Guest extends Utente{
         LocalDate nascita;
         String Domicilio;
         Scanner input = new Scanner(System.in);//creazione di oggetto per lettura da tastiera
-        nome=inserisciNome(input);//inserimento del nome
-        cognome=inserisciCognome(input);//inserimento del cognome
+        nome=Inserimenti.inserisciNome(input);//inserimento del nome
+        cognome=Inserimenti.inserisciCognome(input);//inserimento del cognome
         do {
-            Username = inserisciUsername(input);//inserimento dell'username
+            Username = Inserimenti.inserisciUsername(input);//inserimento dell'username
         }while(CheckUsername(Username));
-        Password=inserisciPassword(input);//inserimento della password
-        nascita = inserisciData(input);//inserimento data di nascita dell'utente
-        Domicilio=inserisciDomicilio(input);//inserimento del comicilio
+        Password=Inserimenti.inserisciPassword(input);//inserimento della password
+        nascita = Inserimenti.inserisciData(input);//inserimento data di nascita dell'utente
+        Domicilio=Inserimenti.inserisciDomicilio(input);//inserimento del comicilio
         ScriviFile(nome,cognome,Username,Password,nascita,Domicilio,"Cliente");
         //il ruole nella registrazione è solo del cliente, le altre entità hanno già le credenziali già registrate
     }
@@ -72,8 +72,8 @@ public class Guest extends Utente{
         Scanner input=new Scanner(System.in);
         Utente ut=null;
         boolean trovato=false;
-        String username= inserisciUsername(input);
-        String password=inserisciPassword(input);
+        String username= Inserimenti.inserisciUsername(input);
+        String password=Inserimenti.inserisciPassword(input);
         for(Utente c: u){
             if(username.equals(c.GetUsername()) && password.equals(c.GetPassword())){
                 trovato=true;
@@ -87,152 +87,6 @@ public class Guest extends Utente{
             return null;
     }
 
-   /* public ArrayList<Proiezione> CercaProiezione(String genere){
-
-    }*/
-
-    /**
-     * Richiede e valida l'inserimento del nome da tastiera.
-     *
-     * @param input scanner per la lettura da tastiera
-     * @return nome inserito dall'utente
-     */
-
-    public static String inserisciNome(Scanner input) {//controlla che l'inserimento del nome non sia vuoto-> fare ulteriori controlli
-        String nome;
-
-        do {
-            System.out.println("Inserisci il tuo nome: ");
-            nome = input.nextLine().trim();
-        } while (nome.isEmpty());
-
-        return nome;
-    }
-
-    /**
-     * Richiede e valida l'inserimento del cognome da tastiera.
-     *
-     * @param input scanner per la lettura da tastiera
-     * @return cognome inserito dall'utente
-     */
-
-    public static String  inserisciCognome(Scanner input){//controlla che il campo del cognome non sia vuoto->aggiungere altri controlli
-        String cognome;
-
-        do{
-            System.out.println("Inserisci il tuo cognome: ");
-            cognome = input.nextLine().trim();
-        }while(cognome.isEmpty());
-
-        return cognome;
-    }
-
-    /**
-     * Richiede e valida l'inserimento dell'username.
-     *
-     * @param input scanner per la lettura da tastiera
-     * @return username inserito dall'utente
-     */
-
-    public static String inserisciUsername(Scanner input){
-        String username;
-
-        do{
-            System.out.println("Inserisci il tuo username: ");
-            username=input.nextLine().trim();
-        }while(username.isEmpty());
-
-        return username;
-    }
-
-    /**
-     * Richiede e valida l'insserimento della password.
-     * La password deve avere almeno 4 caratteri.
-     *
-     * @param input scanner per la lettura da tastiera
-     * @return password valida inserita dall'utente
-     */
-
-    public static String inserisciPassword(Scanner input){
-        String password;
-        System.out.println("La password deve essere lunga almeno 4 caratteri!");
-
-        do{
-            System.out.println("Inserisci la password: ");
-            password=input.nextLine().trim();
-        }while(password.length()<4);
-
-        return password;
-    }
-
-    /**
-     * Richiede e valida l'inserimento del domicilio.
-     *
-     * @param input scanner per la lettura da tastiera
-     * @return domicilio inserito dall'utente
-     */
-
-   public static String inserisciDomicilio(Scanner input){
-        String domicilio;
-
-        do{
-            System.out.println("Inserisci il domicilio: ");
-            domicilio=input.nextLine().trim();
-        }while(domicilio.isEmpty());
-
-        return domicilio;
-   }
-
-    /**
-     * Richiede e valida l'inserimento della data di nascita.
-     *
-     * @param input scanner per la lettura da tastiera
-     * @return data di nascita come oggetto {@link Date}
-     */
-
-        //controllo data
-   public static LocalDate inserisciData(Scanner input) {
-        int giorno = 0;
-        int mese = 0;
-        int anno = 0;
-        int GM = 31;
-        while (anno < 1900 || anno > 2026) {
-              System.out.println("Inserisci l'anno: ");
-              if (input.hasNextInt()) {
-            anno = input.nextInt();
-        } else {
-            input.next(); 
-        }
-            }
-
-            while (mese < 1 || mese > 12) {
-            System.out.println("Inserisci il mese: ");
-            if (input.hasNextInt()) {
-            mese = input.nextInt();
-        } else {
-            input.next(); 
-        }
-        }
-
-       if (mese == 4 || mese == 6 || mese == 9 || mese == 11) {GM = 30;}
-       if (mese == 2) {GM = 28;}
-       
-        while (giorno < 1 || giorno > GM) {
-            System.out.println("Inserisci il giorno: ");
-            if (input.hasNextInt()) {
-            giorno = input.nextInt();
-        } else {
-            input.next(); 
-        }
-
-        }
-
-       input.nextLine();
-
-        return LocalDate.of(anno,mese,giorno);
-    }
-
-        //fine controllo/inserimento data
 
     /**
      * Scrive nel file degli utenti una nuova riga contenente i dati

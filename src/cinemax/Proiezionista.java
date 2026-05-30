@@ -23,12 +23,12 @@ public class Proiezionista extends Utente{
         int anno;
         int durata;
         int etaMinima;
-        titolo=inserisciTitolo(input); //inserire i controlli di inserimento
-        genere=inserisciGenere(input);
-        regista=inserisciRegista(input);
-        anno=inserisciAnno(input);
-        durata=inserisciDurata(input);
-        etaMinima=inserisciEtaMinima(input);
+        titolo=Inserimenti.inserisciTitolo(input); //inserire i controlli di inserimento
+        genere=Inserimenti.inserisciGenere(input);
+        regista=Inserimenti.inserisciRegista(input);
+        anno=Inserimenti.inserisciAnno(input);
+        durata=Inserimenti.inserisciDurata(input);
+        etaMinima=Inserimenti.inserisciEtaMinima(input);
 
         try{
             FileWriter writer= new FileWriter("File/Film.txt",true);//apre il file //effettuare controllo get di nascita
@@ -46,9 +46,9 @@ public class Proiezionista extends Utente{
         Scanner input= new Scanner(System.in);
         LocalDate data;
         LocalTime ora;
-        data=Guest.inserisciData(input);
-        ora=inserisciOra(input);
-        float costo=inserisciCosto(input);
+        data=Inserimenti.inserisciData(input);
+        ora=Inserimenti.inserisciOra(input);
+        float costo=Inserimenti.inserisciCosto(input);
 
         try{
             FileWriter writer= new FileWriter("File/proiezioni.csv",true);
@@ -60,117 +60,6 @@ public class Proiezionista extends Utente{
             e.printStackTrace();
         }
     }
-
-    public static String inserisciTitolo(Scanner input){
-        String titolo;
-
-        do {
-            System.out.println("Inserisci il titolo del film: ");
-            titolo = input.nextLine().trim();
-        } while (titolo.isEmpty());
-
-        return titolo;
-    }
-
-    public static String inserisciGenere(Scanner input){
-        Menu m = new Menu();
-        switch (m.MenuSceltaGenere()){
-            case 1:
-                return "Action";
-            case 2 :
-                return "Adventure";
-            case 3:
-                return "Animation";
-            case 4 :
-                return "Biography";
-            case 5:
-                return "Comedy";
-            case 6 :
-                return "Crime";
-            case 7:
-                return "Drama";
-            case 8 :
-                return "Film-Noir";
-            case 9:
-                return "Horror";
-            case 10 :
-                return "Mistery";
-            case 11:
-                return "Western";
-        }
-        return null;
-    }
-
-    public static String inserisciRegista(Scanner input){
-        String regista;
-
-        do {
-            System.out.println("Inserisci il regista del film: ");
-            regista = input.nextLine().trim();
-        } while (regista.isEmpty());
-
-        return regista;
-    }
-
-    public static int inserisciAnno(Scanner input){
-        int anno;
-
-        do {
-            System.out.println("Inserisci l'anno del film ");
-            anno = input.nextInt();
-        } while (anno<=1950 || anno>=2026);
-
-        return anno;
-    }
-
-    public static int  inserisciDurata(Scanner input){
-        int durata;
-
-        do {
-            System.out.println("Inserisci la durata del film ");
-            durata = input.nextInt();
-        } while (durata<0 ||durata >300);
-
-        return durata;
-    }
-
-    public static int inserisciEtaMinima(Scanner input){
-        int eta;
-
-        do {
-            System.out.println("Inserisci l'eta minima per visionare il film ");
-            eta = input.nextInt();
-        } while (eta<0 || eta>19);
-
-        return eta;
-    }
-    public static LocalTime inserisciOra(Scanner input){
-        int ora,minuti;
-
-        do {
-            System.out.println("Inserisci l'ora in cui inizierà la proiezione ");
-            ora = input.nextInt();
-        } while (ora<0 || ora>=25);
-
-        do {
-            System.out.println("Inserisci il minuto in cui inizierà la proiezione ");
-            minuti = input.nextInt();
-        } while (minuti<0 || minuti>=60);
-
-        return LocalTime.of(ora,minuti,00);
-    }
-
-    public static float inserisciCosto(Scanner input){
-        float costo;
-
-        do {
-            System.out.println("Inserisci il costo per la proiezione ");
-            costo = input.nextFloat();
-        } while (costo<=0.0);
-
-        return costo;
-    }
-
     public static ArrayList<Film> leggiFilm(){
         ArrayList<Film> f = new ArrayList<>();
 

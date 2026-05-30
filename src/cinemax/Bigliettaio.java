@@ -170,8 +170,8 @@ public class Bigliettaio extends Utente{
     boolean filtroNome = input.nextLine().trim().equalsIgnoreCase("s");
     String nome,cognome;
     if(filtroNome){
-        nome = Guest.inserisciNome(input);
-        cognome = Guest.inserisciCognome(input);
+        nome = Inserimenti.inserisciNome(input);
+        cognome = Inserimenti.inserisciCognome(input);
         risultato = RicercaPrenotazione(nome,cognome,risultato);
     }
 
@@ -189,7 +189,7 @@ public class Bigliettaio extends Utente{
     boolean filtroData = input.nextLine().trim().equalsIgnoreCase("s");
     LocalDate data = null;
     if(filtroData){
-        data = Guest.inserisciData(input);
+        data = Inserimenti.inserisciData(input);
         risultato = RicercaPrenotazione(data,risultato);
     }
 
@@ -198,9 +198,9 @@ public class Bigliettaio extends Utente{
     LocalDate d1 = null, d2 = null;
     if(filtroIntervallo){
         System.out.println("Inserisci data iniziale:");
-        d1 = Guest.inserisciData(input);
+        d1 = Inserimenti.inserisciData(input);
         System.out.println("Inserisci data finale:");
-        d2 = Guest.inserisciData(input);
+        d2 = Inserimenti.inserisciData(input);
         if(d1.isAfter(d2))
             risultato = RicercaPrenotazione(d2,d1,risultato);
         else

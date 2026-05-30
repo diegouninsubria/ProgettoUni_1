@@ -36,7 +36,7 @@ public class Cliente extends Utente{
     public void InserisciPrenotazione(Proiezione p ){
         Scanner input = new Scanner(System.in);
 
-        int numPosti = InserisciPosti(input);
+        int numPosti = Inserimenti.InserisciPosti(input);
         if(numPosti + PostiGiaPrenoati(p) >200)
             System.out.println("Numero di posti disponibili Superato!");
         else{
@@ -122,17 +122,6 @@ public class Cliente extends Utente{
             if(p.equals(pren.getProiezione()))
                 posti+=pren.getPostiPrenotati();
         }
-        return posti;
-    }
-
-    public static int InserisciPosti(Scanner input){
-        int posti;
-
-        do {
-            System.out.println("Inserisci il numero di posti da prenotare");
-            posti = input.nextInt();
-        } while (posti<=0 || posti>=201);
-
         return posti;
     }
 }

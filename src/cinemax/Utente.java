@@ -192,29 +192,29 @@ public abstract class Utente {
             case 1:
                 switch (m.MenuRicercaData()){
                     case 1:
-                        data=Guest.inserisciData(Input);
+                        data=Inserimenti.inserisciData(Input);
                         return RicercaPerData(data,p);
                     case 2:
-                        data=Guest.inserisciData(Input);
-                        data1=Guest.inserisciData(Input);
+                        data=Inserimenti.inserisciData(Input);
+                        data1=Inserimenti.inserisciData(Input);
                         if(data.isBefore(data1))
                             return RicercaPerData(data,data1,p);
                         return RicercaPerData(data1,data,p);
                 }
             case 2:
-                titolo = Proiezionista.inserisciTitolo(Input);
+                titolo = Inserimenti.inserisciTitolo(Input);
                 return RicercaPerTitolo(titolo,p);
             case 3:
-                genere = Proiezionista.inserisciGenere(Input);
+                genere = Inserimenti.inserisciGenere(Input);
                 return RicercaPerGenere(genere,p);
             case 4:
                 switch (m.MenuRicercaPrezzo()){
                     case 1:
-                        costo = Proiezionista.inserisciCosto(Input);
+                        costo = Inserimenti.inserisciCosto(Input);
                         return RicercaPerPrezzo(costo,p);
                     case 2:
-                        costo=Proiezionista.inserisciCosto(Input);
-                        costo1=Proiezionista.inserisciCosto(Input);
+                        costo=Inserimenti.inserisciCosto(Input);
+                        costo1=Inserimenti.inserisciCosto(Input);
                         if(costo>=costo1)
                             return RicercaPerPrezzo(costo1,costo,p);
                         return RicercaPerPrezzo(costo,costo1,p);
@@ -296,7 +296,7 @@ public abstract class Utente {
         boolean filtroData = input.nextLine().trim().equalsIgnoreCase("s");
         LocalDate d1;
         if(filtroData){
-            d1= Guest.inserisciData(input);
+            d1= Inserimenti.inserisciData(input);
             risultato = RicercaPerData(d1,risultato);
         }
 
@@ -304,8 +304,8 @@ public abstract class Utente {
         boolean filtroIntervalloData = input.nextLine().trim().equalsIgnoreCase("s");
         LocalDate d2;
         if(filtroIntervalloData){
-            d1= Guest.inserisciData(input);
-            d2= Guest.inserisciData(input);
+            d1= Inserimenti.inserisciData(input);
+            d2= Inserimenti.inserisciData(input);
             if(d1.isAfter(d2))
                 risultato=RicercaPerData(d2,d1,risultato);
             else
@@ -316,7 +316,7 @@ public abstract class Utente {
         boolean filtroTitolo = input.nextLine().trim().equalsIgnoreCase("s");
         String titolo;
         if(filtroTitolo){
-            titolo = Proiezionista.inserisciTitolo(input);
+            titolo = Inserimenti.inserisciTitolo(input);
             risultato = RicercaPerTitolo(titolo,risultato);
         }
 
@@ -324,7 +324,7 @@ public abstract class Utente {
         boolean filtroGenere = input.nextLine().trim().equalsIgnoreCase("s");
         String genere;
         if(filtroGenere){
-            genere = Proiezionista.inserisciGenere(input);
+            genere = Inserimenti.inserisciGenere(input);
             risultato = RicercaPerGenere(genere,risultato);
         }
 
@@ -332,7 +332,7 @@ public abstract class Utente {
         boolean filtroPrezzo = input.nextLine().trim().equalsIgnoreCase("s");
         float prezzo;
         if(filtroPrezzo){
-            prezzo = Proiezionista.inserisciCosto(input);
+            prezzo = Inserimenti.inserisciCosto(input);
             risultato = RicercaPerPrezzo(prezzo,risultato);
         }
 
@@ -340,8 +340,8 @@ public abstract class Utente {
         boolean filtroIntervalloPrezzo = input.nextLine().trim().equalsIgnoreCase("s");
         float prezzo1;
         if(filtroIntervalloPrezzo){
-            prezzo = Proiezionista.inserisciCosto(input);
-            prezzo1 = Proiezionista.inserisciCosto(input);
+            prezzo = Inserimenti.inserisciCosto(input);
+            prezzo1 = Inserimenti.inserisciCosto(input);
             if(prezzo>prezzo1)
                 risultato = RicercaPerPrezzo(prezzo1,prezzo,risultato);
             else
