@@ -64,6 +64,10 @@ public class Inserimenti {
 
         do {
             System.out.println("Inserisci l'anno del film ");
+            while (!input.hasNextInt()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next();
+            }
             anno = input.nextInt();
         } while (anno<=1950 || anno>=2026);
 
@@ -75,6 +79,10 @@ public class Inserimenti {
 
         do {
             System.out.println("Inserisci la durata del film ");
+            while (!input.hasNextInt()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next();
+            }
             durata = input.nextInt();
         } while (durata<0 ||durata >300);
 
@@ -86,6 +94,10 @@ public class Inserimenti {
 
         do {
             System.out.println("Inserisci l'eta minima per visionare il film ");
+            while (!input.hasNextInt()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next();
+            }
             eta = input.nextInt();
         } while (eta<0 || eta>19);
 
@@ -96,11 +108,19 @@ public class Inserimenti {
 
         do {
             System.out.println("Inserisci l'ora in cui inizierà la proiezione ");
+            while (!input.hasNextInt()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next();
+            }
             ora = input.nextInt();
         } while (ora<0 || ora>=25);
 
         do {
             System.out.println("Inserisci il minuto in cui inizierà la proiezione ");
+            while (!input.hasNextInt()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next(); // scarta input sbagliato
+            }
             minuti = input.nextInt();
         } while (minuti<0 || minuti>=60);
 
@@ -112,6 +132,10 @@ public class Inserimenti {
 
         do {
             System.out.println("Inserisci il costo per la proiezione ");
+            while (!input.hasNextFloat()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next();
+            }
             costo = input.nextFloat();
         } while (costo<=0.0);
 
@@ -266,6 +290,10 @@ public class Inserimenti {
 
         do {
             System.out.println("Inserisci il numero di posti da prenotare");
+            while (!input.hasNextInt()) {
+                System.out.println("Errore: devi inserire un numero!");
+                input.next();
+            }
             posti = input.nextInt();
         } while (posti<=0 || posti>=201);
 
