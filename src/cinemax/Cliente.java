@@ -61,9 +61,94 @@ public class Cliente extends Utente{
         }
         return personali;
     }
-    public void modificaPrenotazione(){
+    public void modificaPrenotazione() {
 
+    ArrayList<Prenotazione> tutte = Bigliettaio.LeggiPrenotazioni();
+    ArrayList<Prenotazione> personali = LeggiPrenotazioniPersonali();
+    Scanner input = new Scanner(System.in);
+
+    if(personali.isEmpty()){
+        System.out.println("Non hai prenotazioni da modificare!");
+        return;
     }
+
+    System.out.println("Seleziona la prenotazione da modificare:\n");
+    for(int i=0; i<personali.size(); i++){
+        System.out.println((i+1) + ") " + personali.get(i).VisualizzaPrenotazione());
+    }
+
+    int scelta = input.nextInt();
+    input.nextLine();
+
+    if(scelta < 1 || scelta > personali.size()){
+        System.out.println("Scelta non valida.");
+        return;
+    }
+
+    Prenotazione pren = personali.get(scelta - 1);
+
+    System.out.println("\n=== MODIFICA PRENOTAZIONE ===");
+    System.out.println("1) Modifica proiezione");
+    System.out.println("2) Modifica numero posti");
+    System.out.println("3) Annulla");
+    System.out.print("Scelta: ");
+
+    int sceltaMod = input.nextInt();
+    input.nextLine();
+
+    switch(sceltaMod){
+
+        case 1: // modifica proiezione
+            ArrayList<Proiezione> disponibili = ProiezioniDisponibili();
+            if(disponibili.isEmpty()){
+                System.out.println("Non ci sono proiezioni disponibili.");
+                return;
+            }
+
+            Proiezione nuova = SelezioneProiezione(disponibili);
+            pren.setProiezione(nuova);
+            break;
+
+        case 2: // modifica posti
+            int nuoviPosti = Inserimenti.InserisciPosti(input);
+            pren.setPostiPrenotati(nuoviPosti);
+            break;
+
+        case 3:
+            System.out.println("Modifica annullata.");
+            return;
+    }
+
+    try{
+        FileWriter writer = new FileWriter("File/Prenotazioni.txt");
+        writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
+
+        for(Prenotazione p : tutte){
+            writer.write(
+                p.getId() + "," +
+                p.getCliente().GetNome() + "," +
+                p.getCliente().GetCognome() + "," +
+                p.getCliente().GetUsername() + "," +
+                Guest.EncodedPsw(p.getCliente().GetPassword()) + "," +
+                p.getProiezione().GetData().getYear() + "-" +
+                p.getProiezione().GetData().getMonthValue() + "-" +
+                p.getProiezione().GetData().getDayOfMonth() + "," +
+                p.getProiezione().GetOra().getHour() + ":" +
+                p.getProiezione().GetOra().getMinute() + ":" +
+                p.getProiezione().GetOra().getSecond() + "," +
+                p.getProiezione().GetFilm().getTitolo() + "," +
+                p.getPostiPrenotati() + "\n"
+            );
+        }
+
+        writer.close();
+        System.out.println("Prenotazione modificata con successo!");
+
+    }catch(IOException e){
+        e.printStackTrace();
+    }
+}
+
 
     public void eliminaPrenotazione(){
         ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
