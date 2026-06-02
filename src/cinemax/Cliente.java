@@ -65,6 +65,7 @@ public class Cliente extends Utente{
 
     ArrayList<Prenotazione> tutte = Bigliettaio.LeggiPrenotazioni();
     ArrayList<Prenotazione> personali = LeggiPrenotazioniPersonali();
+    Menu m = new Menu();
     Scanner input = new Scanner(System.in);
 
     if(personali.isEmpty()){
@@ -87,16 +88,7 @@ public class Cliente extends Utente{
 
     Prenotazione pren = personali.get(scelta - 1);
 
-    System.out.println("\n=== MODIFICA PRENOTAZIONE ===");
-    System.out.println("1) Modifica proiezione");
-    System.out.println("2) Modifica numero posti");
-    System.out.println("3) Annulla");
-    System.out.print("Scelta: ");
-
-    int sceltaMod = input.nextInt();
-    input.nextLine();
-
-    switch(sceltaMod){
+    switch(m.MenuModificaPrenotazione()){
 
         case 1: // modifica proiezione
             ArrayList<Proiezione> disponibili = ProiezioniDisponibili();
@@ -106,7 +98,8 @@ public class Cliente extends Utente{
             }
 
             Proiezione nuova = SelezioneProiezione(disponibili);
-            pren.setProiezione(nuova);
+            //fare tutti i set del caso
+            //poi manca il passo di rimettere questa lista nella lista madre
             break;
 
         case 2: // modifica posti
@@ -172,7 +165,7 @@ public class Cliente extends Utente{
             System.out.println("Scelta non valida.");
             return;
         }
-        Prenotazione pren = personali.get(scelta);
+        Prenotazione pren = personali.get(scelta-1);
         p.remove(pren);
 
         try{

@@ -248,4 +248,23 @@ public class Menu {
         }while(scelta<1 || scelta>2);
         return scelta;
     }
+
+    public int MenuModificaPrenotazione(){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+
+        do{
+            System.out.println("\n=== MODIFICA PRENOTAZIONE ===");
+            System.out.println("1) Modifica proiezione\n");
+            System.out.println("2) Modifica numero posti\n");
+            System.out.println("3) Annulla\n");
+            System.out.print("Scelta: ");
+
+            scelta = input.nextInt();
+            input.nextLine();
+
+        }while(scelta<1 || scelta>3);
+
+        return scelta;
+    }
 }
