@@ -98,8 +98,7 @@ public class Cliente extends Utente{
             }
 
             Proiezione nuova = SelezioneProiezione(disponibili);
-            //fare tutti i set del caso
-            //poi manca il passo di rimettere questa lista nella lista madre
+
             break;
 
         case 2: // modifica posti

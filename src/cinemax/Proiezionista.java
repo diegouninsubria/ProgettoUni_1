@@ -108,7 +108,8 @@ public class Proiezionista extends Utente{
     input.nextLine();
 
     p.SetCosto(nuovoCosto);
-
+    lista.remove(scelta-1);
+    lista.add(p);
     try {
         FileWriter writer = new FileWriter("File/proiezioni.csv");
         writer.write("data,genere,regista,anno,durata,eta,costo\n");
