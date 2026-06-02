@@ -97,13 +97,16 @@ public class Cliente extends Utente{
                 return;
             }
 
-            Proiezione nuova = SelezioneProiezione(disponibili);
-
+            Prenotazione nuova = new Prenotazione(pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
+            tutte.remove(scelta-1);
+            tutte.add(nuova);
             break;
 
         case 2: // modifica posti
             int nuoviPosti = Inserimenti.InserisciPosti(input);
             pren.setPostiPrenotati(nuoviPosti);
+            tutte.remove(scelta-1);
+            tutte.add(pren);
             break;
 
         case 3:
