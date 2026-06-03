@@ -118,7 +118,7 @@ public abstract class Utente {
     public static ArrayList<Proiezione> leggiProiezioni() {
         ArrayList<Proiezione> pr = new ArrayList<>();
 
-        String file = "File/proiezioni.csv";
+        String file = "data/proiezioni.csv";
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
