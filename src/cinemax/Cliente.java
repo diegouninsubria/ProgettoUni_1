@@ -108,8 +108,28 @@ public class Cliente extends Utente{
             tutte.remove(scelta-1);
             tutte.add(pren);
             break;
-
         case 3:
+            LocalDate oggi = LocalDate.now();
+            if(pren.getProiezione().GetData().isBefore(oggi)){
+                System.out.println("non è possibile modificare la prenotazione!");
+                return;
+            }
+            LocalDate nuovaData = NuovaData(pren);
+            if(nuovaData == null){
+                System.out.println("Non ci sono altre proiezioni disponibili per tale film!");
+            }
+            else {
+                if (nuovaData.isBefore(oggi)) {
+                    System.out.println("non è possibile modificare la prenotazione!");
+                    return;
+                }
+                pren.getProiezione().SetData(nuovaData);
+                tutte.remove(scelta - 1);
+                tutte.add(pren);
+            }
+            break;
+
+        case 4:
             System.out.println("Modifica annullata.");
             return;
     }
@@ -210,5 +230,26 @@ public class Cliente extends Utente{
                 posti+=pren.getPostiPrenotati();
         }
         return posti;
+    }
+    public static  LocalDate NuovaData(Prenotazione p){
+        Scanner input = new Scanner(System.in);
+        int scelta;
+        ArrayList<Proiezione> pro= leggiProiezioni();
+        ArrayList<Proiezione> filtro = new ArrayList<>();
+        for(Proiezione proiezione : pro)
+            if(proiezione.GetFilm().getTitolo().equals(p.getProiezione().GetFilm().getTitolo()))
+                filtro.add(proiezione);
+        if(filtro.isEmpty()){
+            return  null;
+        }
+        do {
+            System.out.println("Seleziona la proiezione: \n");
+            for (int i = 0; i < filtro.size(); i++) {
+                System.out.println((i + 1) + ") " + filtro.get(i).toString());
+            }
+            scelta = input.nextInt();
+            input.nextLine();
+        }while(scelta<1 || scelta>filtro.size());
+        return filtro.get(scelta-1).GetData();
     }
 }

@@ -254,10 +254,11 @@ public class Menu {
         int scelta;
 
         do{
-            System.out.println("\n=== MODIFICA PRENOTAZIONE ===");
+            System.out.println("\n=== MODIFICA PRENOTAZIONE ===\n");
             System.out.println("1) Modifica proiezione\n");
             System.out.println("2) Modifica numero posti\n");
-            System.out.println("3) Annulla\n");
+            System.out.println("3) Modifica la data\n");
+            System.out.println("4) Annulla\n");
             System.out.print("Scelta: ");
 
             scelta = input.nextInt();
