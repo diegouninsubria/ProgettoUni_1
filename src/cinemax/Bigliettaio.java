@@ -92,7 +92,7 @@ public class Bigliettaio extends Utente{
     public static ArrayList<Prenotazione> LeggiPrenotazioni(){
         ArrayList<Prenotazione> p = new ArrayList<>();
 
-        String file = "File/Prenotazioni.txt";
+        String file = "data/Prenotazioni.txt";
 
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
 
