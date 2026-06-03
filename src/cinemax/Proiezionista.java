@@ -102,39 +102,41 @@ public class Proiezionista extends Utente{
     }
 
     Proiezione p = lista.get(scelta - 1);
+    if(Cliente.PostiGiaPrenoati(p)>0){
+        System.out.println("impossibile modificare la proiezione, presenza di prenotazioni!\n");
+    }
+    else {
+        System.out.println("Inserisci la nuova data:");
+        LocalDate data = Inserimenti.inserisciData(input);
+        p.SetData(data);
+        lista.remove(scelta - 1);
+        lista.add(p);
+        try {
+            FileWriter writer = new FileWriter("File/proiezioni.csv");
+            writer.write("data,genere,regista,anno,durata,eta,costo\n");
 
-    System.out.println("Inserisci nuovo costo:");
-    float nuovoCosto = input.nextFloat();
-    input.nextLine();
+            for (Proiezione pr : lista) {
+                writer.write(
+                            pr.GetData().getYear() + "-" +
+                                pr.GetData().getMonthValue() + "-" +
+                                pr.GetData().getDayOfMonth() + " " +
+                                pr.GetOra().toString() + "," +
+                                pr.GetFilm().getTitolo() + "," +
+                                pr.GetFilm().getGenere() + "," +
+                                pr.GetFilm().getRegista() + "," +
+                                pr.GetFilm().getAnno() + "," +
+                                pr.GetFilm().getDurata() + "," +
+                                pr.GetFilm().getEtaMinima() + "," +
+                                pr.GetCosto() + "\n"
+                );
+            }
 
-    p.SetCosto(nuovoCosto);
-    lista.remove(scelta-1);
-    lista.add(p);
-    try {
-        FileWriter writer = new FileWriter("File/proiezioni.csv");
-        writer.write("data,genere,regista,anno,durata,eta,costo\n");
+            writer.close();
+            System.out.println("Proiezione modificata con successo.");
 
-        for(Proiezione pr : lista){
-            writer.write(
-                pr.GetData().getYear() + "-" + //da modificare
-                pr.GetData().getMonthValue() + "-" +
-                pr.GetData().getDayOfMonth() + " " +
-                pr.GetOra().toString() + "," +
-                pr.GetFilm().getTitolo() + "," +
-                pr.GetFilm().getGenere() + "," +
-                pr.GetFilm().getRegista() + "," +
-                pr.GetFilm().getAnno()+ "," +
-                pr.GetFilm().getDurata() + "," +
-                pr.GetFilm().getEtaMinima() + "," +
-                pr.GetCosto() + "\n"
-            );
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        writer.close();
-        System.out.println("Proiezione modificata con successo.");
-
-    } catch(Exception e){
-        e.printStackTrace();
     }
 }
 
@@ -159,7 +161,7 @@ public class Proiezionista extends Utente{
         System.out.println("Scelta non valida.");
         return;
     }
-    if(Cliente.PostiGiaPrenoati(lista.get(scelta-1))==0){
+    if(Cliente.PostiGiaPrenoati(lista.get(scelta-1))>0){
         System.out.println("Impossibile eliminare la proiezione, prenotazioni già presenti!");
     }
     else {
