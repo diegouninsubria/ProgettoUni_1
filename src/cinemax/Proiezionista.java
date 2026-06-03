@@ -159,34 +159,38 @@ public class Proiezionista extends Utente{
         System.out.println("Scelta non valida.");
         return;
     }
+    if(Cliente.PostiGiaPrenoati(lista.get(scelta-1))==0){
+        System.out.println("Impossibile eliminare la proiezione, prenotazioni già presenti!");
+    }
+    else {
+        lista.remove(scelta - 1);
 
-    lista.remove(scelta - 1);
+        try {
+            FileWriter writer = new FileWriter("File/proiezioni.csv");
+            writer.write("data,genere,regista,anno,durata,eta,costo\n");
 
-    try {
-        FileWriter writer = new FileWriter("File/proiezioni.csv");
-        writer.write("data,genere,regista,anno,durata,eta,costo\n");
+            for (Proiezione pr : lista) {
+                writer.write(
+                        pr.GetData().getYear() + "-" + //da modificare
+                                pr.GetData().getMonthValue() + "-" +
+                                pr.GetData().getDayOfMonth() + " " +
+                                pr.GetOra().toString() + "," +
+                                pr.GetFilm().getTitolo() + "," +
+                                pr.GetFilm().getGenere() + "," +
+                                pr.GetFilm().getRegista() + "," +
+                                pr.GetFilm().getAnno() + "," +
+                                pr.GetFilm().getDurata() + "," +
+                                pr.GetFilm().getEtaMinima() + "," +
+                                pr.GetCosto() + "\n"
+                );
+            }
 
-        for(Proiezione pr : lista){
-            writer.write(
-                pr.GetData().getYear() + "-" + //da modificare
-                pr.GetData().getMonthValue() + "-" +
-                pr.GetData().getDayOfMonth() + " " +
-                pr.GetOra().toString() + "," +
-                pr.GetFilm().getTitolo() + "," +
-                pr.GetFilm().getGenere() + "," +
-                pr.GetFilm().getRegista() + "," +
-                pr.GetFilm().getAnno() + "," +
-                pr.GetFilm().getDurata() + "," +
-                pr.GetFilm().getEtaMinima() + "," +
-                pr.GetCosto() + "\n"
-            );
+            writer.close();
+            System.out.println("Proiezione eliminata con successo.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        writer.close();
-        System.out.println("Proiezione eliminata con successo.");
-
-    } catch(Exception e){
-        e.printStackTrace();
     }
 }
     public Film selezionaFilm(ArrayList<Film> film){
