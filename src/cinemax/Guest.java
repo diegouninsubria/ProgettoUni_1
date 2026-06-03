@@ -103,7 +103,7 @@ public class Guest extends Utente{
 
     public static void ScriviFile(String nome,String cognome,String username,String password,LocalDate nascita, String luogo,String ruolo){
         try{
-            FileWriter writer= new FileWriter("File/Utenti.txt",true);//apre il file //effettuare controllo get di nascita
+            FileWriter writer= new FileWriter("data/Utenti.txt",true);//apre il file //effettuare controllo get di nascita
             writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDayOfMonth()+","+nascita.getMonthValue()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
             writer.close();
 
@@ -124,7 +124,7 @@ public class Guest extends Utente{
     public static ArrayList<Utente> LeggiFile(){
         ArrayList<Utente> u =new ArrayList<>();
 
-        String file = "File/Utenti.txt";
+        String file = "data/Utenti.txt";
 
         try(BufferedReader br = new BufferedReader(new FileReader(file))){
 
