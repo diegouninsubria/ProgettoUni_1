@@ -167,20 +167,27 @@ public class Cliente extends Utente{
             System.out.println("Scelta non valida.");
             return;
         }
+        LocalDate oggi = LocalDate.now();
         Prenotazione pren = personali.get(scelta-1);
-        p.remove(pren);
+        if(pren.getProiezione().GetData().isAfter(oggi))
+        {
+            System.out.println("non è possibile eliminare la prenotazione!");
+        }
+        else {
+            p.remove(pren);
 
-        try{
-            FileWriter writer = new FileWriter("File/Prenotazioni.txt");
-            writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
-            for(Prenotazione preno : p){
-                writer.write(""+preno.getId()+","+preno.getCliente().GetNome()+","+preno.getCliente().GetCognome()+","+preno.getCliente().GetUsername()+","+Guest.EncodedPsw(preno.getCliente().GetPassword())+","+preno.getProiezione().GetData().getYear()+"-"+preno.getProiezione().GetData().getMonthValue()+"-"+preno.getProiezione().GetData().getDayOfMonth()+","+preno.getProiezione().GetOra().getHour()+":"+preno.getProiezione().GetOra().getMinute()+":"+preno.getProiezione().GetOra().getSecond()+","+preno.getProiezione().GetFilm()+","+preno.getPostiPrenotati()+"\n");
+            try {
+                FileWriter writer = new FileWriter("File/Prenotazioni.txt");
+                writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
+                for (Prenotazione preno : p) {
+                    writer.write("" + preno.getId() + "," + preno.getCliente().GetNome() + "," + preno.getCliente().GetCognome() + "," + preno.getCliente().GetUsername() + "," + Guest.EncodedPsw(preno.getCliente().GetPassword()) + "," + preno.getProiezione().GetData().getYear() + "-" + preno.getProiezione().GetData().getMonthValue() + "-" + preno.getProiezione().GetData().getDayOfMonth() + "," + preno.getProiezione().GetOra().getHour() + ":" + preno.getProiezione().GetOra().getMinute() + ":" + preno.getProiezione().GetOra().getSecond() + "," + preno.getProiezione().GetFilm() + "," + preno.getPostiPrenotati() + "\n");
+                }
+
+                writer.close();
+                System.out.println("Proiezione eliminata con successo.");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            writer.close();
-            System.out.println("Proiezione eliminata con successo.");
-        }catch (IOException e){
-            e.printStackTrace();
         }
     }
 
