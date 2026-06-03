@@ -31,7 +31,7 @@ public class Proiezionista extends Utente{
         etaMinima=Inserimenti.inserisciEtaMinima(input);
 
         try{
-            FileWriter writer= new FileWriter("File/Film.txt",true);//apre il file //effettuare controllo get di nascita
+            FileWriter writer= new FileWriter("data/Film.txt",true);//apre il file //effettuare controllo get di nascita
             writer.write(""+titolo+","+genere+","+regista+","+anno+","+durata+","+etaMinima); //scrive nel file
             writer.close();
 
@@ -51,7 +51,7 @@ public class Proiezionista extends Utente{
         float costo=Inserimenti.inserisciCosto(input);
 
         try{
-            FileWriter writer= new FileWriter("File/proiezioni.csv",true);
+            FileWriter writer= new FileWriter("data/proiezioni.csv",true);
             writer.write(""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "+ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+","+film.getTitolo()+","+film.getGenere()+","+film.getRegista()+","+film.getAnno()+","+film.getDurata()+","+film.getEtaMinima()+","+costo);
             writer.close();
 
@@ -63,7 +63,7 @@ public class Proiezionista extends Utente{
     public static ArrayList<Film> leggiFilm(){
         ArrayList<Film> f = new ArrayList<>();
 
-        String file= "File/Film.txt";
+        String file= "data/Film.txt";
 
         try(BufferedReader br = new BufferedReader(new FileReader(file))){
             br.readLine();
@@ -112,7 +112,7 @@ public class Proiezionista extends Utente{
         lista.remove(scelta - 1);
         lista.add(p);
         try {
-            FileWriter writer = new FileWriter("File/proiezioni.csv");
+            FileWriter writer = new FileWriter("data/proiezioni.csv");
             writer.write("data,genere,regista,anno,durata,eta,costo\n");
 
             for (Proiezione pr : lista) {
@@ -168,7 +168,7 @@ public class Proiezionista extends Utente{
         lista.remove(scelta - 1);
 
         try {
-            FileWriter writer = new FileWriter("File/proiezioni.csv");
+            FileWriter writer = new FileWriter("data/proiezioni.csv");
             writer.write("data,genere,regista,anno,durata,eta,costo\n");
 
             for (Proiezione pr : lista) {
