@@ -96,7 +96,6 @@ public class Cliente extends Utente{
                 System.out.println("Non ci sono proiezioni disponibili.");
                 return;
             }
-
             Prenotazione nuova = new Prenotazione(pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
             tutte.remove(scelta-1);
             tutte.add(nuova);
@@ -114,7 +113,7 @@ public class Cliente extends Utente{
                 System.out.println("non è possibile modificare la prenotazione!");
                 return;
             }
-            LocalDate nuovaData = NuovaData(pren);
+            LocalDate nuovaData = NuovaData(pren,pren.getPostiPrenotati());
             if(nuovaData == null){
                 System.out.println("Non ci sono altre proiezioni disponibili per tale film!");
             }
@@ -231,13 +230,13 @@ public class Cliente extends Utente{
         }
         return posti;
     }
-    public static  LocalDate NuovaData(Prenotazione p){
+    public static  LocalDate NuovaData(Prenotazione p,int posti){
         Scanner input = new Scanner(System.in);
         int scelta;
         ArrayList<Proiezione> pro= leggiProiezioni();
         ArrayList<Proiezione> filtro = new ArrayList<>();
         for(Proiezione proiezione : pro)
-            if(proiezione.GetFilm().getTitolo().equals(p.getProiezione().GetFilm().getTitolo()))
+            if(proiezione.GetFilm().getTitolo().equals(p.getProiezione().GetFilm().getTitolo()) && (posti + Cliente.PostiGiaPrenoati(proiezione)<=200))
                 filtro.add(proiezione);
         if(filtro.isEmpty()){
             return  null;
