@@ -87,6 +87,7 @@ public class Cliente extends Utente{
     }
 
     Prenotazione pren = personali.get(scelta - 1);
+    Prenotazione nuova;
 
     switch(m.MenuModificaPrenotazione()){
 
@@ -96,19 +97,21 @@ public class Cliente extends Utente{
                 System.out.println("Non ci sono proiezioni disponibili.");
                 return;
             }
-            Prenotazione nuova = new Prenotazione(pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
-            tutte.remove(scelta-1);
+            nuova = new Prenotazione(pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
+            tutte.remove(pren);
             tutte.add(nuova);
             break;
 
         case 2: // modifica posti
             int nuoviPosti = Inserimenti.InserisciPosti(input);
-            pren.setPostiPrenotati(nuoviPosti);
-            tutte.remove(scelta-1);
-            tutte.add(pren);
+            nuova = pren;
+            nuova.setPostiPrenotati(nuoviPosti);
+            tutte.remove(pren);
+            tutte.add(nuova);
             break;
         case 3:
             LocalDate oggi = LocalDate.now();
+            nuova=pren;
             if(pren.getProiezione().GetData().isBefore(oggi)){
                 System.out.println("non è possibile modificare la prenotazione!");
                 return;
@@ -122,9 +125,9 @@ public class Cliente extends Utente{
                     System.out.println("non è possibile modificare la prenotazione!");
                     return;
                 }
-                pren.getProiezione().SetData(nuovaData);
-                tutte.remove(scelta - 1);
-                tutte.add(pren);
+                nuova.getProiezione().SetData(nuovaData);
+                tutte.remove(pren);
+                tutte.add(nuova);
             }
             break;
 
