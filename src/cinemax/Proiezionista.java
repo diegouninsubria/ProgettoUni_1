@@ -58,7 +58,7 @@ public class Proiezionista extends Utente{
 
         try{
             FileWriter writer= new FileWriter("data/proiezioni.csv",true);
-            writer.write("\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
+            writer.write("\n\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
                     +ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+"\","
                     +"\""+film.getTitolo()+"\","
                     +film.getGenere()+","
