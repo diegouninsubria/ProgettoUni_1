@@ -58,7 +58,15 @@ public class Proiezionista extends Utente{
 
         try{
             FileWriter writer= new FileWriter("data/proiezioni.csv",true);
-            writer.write(""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "+ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+","+film.getTitolo()+","+film.getGenere()+","+film.getRegista()+","+film.getAnno()+","+film.getDurata()+","+film.getEtaMinima()+","+costo);
+            writer.write("\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
+                    +ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+"\","
+                    +"\""+film.getTitolo()+"\","
+                    +film.getGenere()+","
+                    +"\""+film.getRegista()+"\","
+                    +film.getAnno()+","
+                    +film.getDurata()+","
+                    +film.getEtaMinima()+","
+                    +costo);
             writer.close();
 
             System.out.println("Scrittura venuta con successo");
