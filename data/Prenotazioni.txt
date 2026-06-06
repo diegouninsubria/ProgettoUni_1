@@ -1,2 +1,2 @@
 ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati
-1,Andrea,Proserpio,andrix32,ኑዲፓᎴᐕ,2027-11-21,10:0:0,Cool Hand Luke,3
+2,Alice,Proserpio,Alix2008,ᢡ⦮៟ኑኑሰዲᓗᐕ,2026-7-8,10:30:0,Vizontele,4

@@ -97,8 +97,8 @@ public class Cliente extends Utente{
                 System.out.println("Non ci sono proiezioni disponibili.");
                 return;
             }
-            nuova = new Prenotazione(pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
-            tutte.remove(pren);
+            nuova = new Prenotazione(pren.getId(),pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
+            tutte.remove(RicercaPrenotazione(pren,tutte));
             tutte.add(nuova);
             break;
 
@@ -106,7 +106,7 @@ public class Cliente extends Utente{
             int nuoviPosti = Inserimenti.InserisciPosti(input);
             nuova = pren;
             nuova.setPostiPrenotati(nuoviPosti);
-            tutte.remove(pren);
+            tutte.remove(RicercaPrenotazione(pren,tutte));
             tutte.add(nuova);
             break;
         case 3:
@@ -126,7 +126,7 @@ public class Cliente extends Utente{
                     return;
                 }
                 nuova.getProiezione().SetData(nuovaData);
-                tutte.remove(pren);
+                tutte.remove(RicercaPrenotazione(pren,tutte));
                 tutte.add(nuova);
             }
             break;
@@ -253,5 +253,12 @@ public class Cliente extends Utente{
             input.nextLine();
         }while(scelta<1 || scelta>filtro.size());
         return filtro.get(scelta-1).GetData();
+    }
+
+    public static Prenotazione RicercaPrenotazione(Prenotazione p,ArrayList<Prenotazione> tutte ){
+        for(Prenotazione prenotazione : tutte)
+            if(p.getProiezione().GetData().equals(prenotazione.getProiezione().GetData()) && p.getProiezione().GetOra().equals(prenotazione.getProiezione().GetOra()) && p.getProiezione().GetFilm().getTitolo().equals(prenotazione.getProiezione().GetFilm().getTitolo()))
+                return prenotazione;
+        return null;
     }
 }
