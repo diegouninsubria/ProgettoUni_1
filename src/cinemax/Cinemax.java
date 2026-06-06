@@ -84,6 +84,7 @@ public class Cinemax {
                         case 4:
                             System.out.println("Uscita dal programma...");
                             System.exit(0);
+                            break;
                     }
                 }while(ut instanceof Guest);//controllare condizione
             }
