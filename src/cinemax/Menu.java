@@ -57,7 +57,7 @@ public class Menu {
 
             scelta = input.nextInt();
             input.nextLine();
-        } while (scelta <= 0 || scelta >= 4);
+        } while (scelta <= 0 || scelta > 4);
 
         return scelta;
     }
