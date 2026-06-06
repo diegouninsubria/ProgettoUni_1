@@ -58,7 +58,7 @@ public class Proiezionista extends Utente{
 
         try{
             FileWriter writer= new FileWriter("data/proiezioni.csv",true);
-            writer.write("\n\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
+            writer.write("\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
                     +ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+"\","
                     +"\""+film.getTitolo()+"\","
                     +film.getGenere()+","
@@ -131,13 +131,17 @@ public class Proiezionista extends Utente{
 
             for (Proiezione pr : lista) {
                 writer.write(
-                            pr.GetData().getYear() + "-" +
+                        "\"" +
+                                pr.GetData().getYear() + "-" +
                                 pr.GetData().getMonthValue() + "-" +
                                 pr.GetData().getDayOfMonth() + " " +
-                                pr.GetOra().toString() + "," +
-                                pr.GetFilm().getTitolo() + "," +
+                                pr.GetOra().toString() +
+                                "\"," +
+
+                                "\"" + pr.GetFilm().getTitolo() + "\"," +
                                 pr.GetFilm().getGenere() + "," +
-                                pr.GetFilm().getRegista() + "," +
+                                "\"" + pr.GetFilm().getRegista() + "\"," +
+
                                 pr.GetFilm().getAnno() + "," +
                                 pr.GetFilm().getDurata() + "," +
                                 pr.GetFilm().getEtaMinima() + "," +
@@ -187,13 +191,17 @@ public class Proiezionista extends Utente{
 
             for (Proiezione pr : lista) {
                 writer.write(
-                        pr.GetData().getYear() + "-" + //da modificare
+                        "\"" +
+                                pr.GetData().getYear() + "-" +
                                 pr.GetData().getMonthValue() + "-" +
                                 pr.GetData().getDayOfMonth() + " " +
-                                pr.GetOra().toString() + "," +
-                                pr.GetFilm().getTitolo() + "," +
+                                pr.GetOra().toString() +
+                                "\"," +
+
+                                "\"" + pr.GetFilm().getTitolo() + "\"," +
                                 pr.GetFilm().getGenere() + "," +
-                                pr.GetFilm().getRegista() + "," +
+                                "\"" + pr.GetFilm().getRegista() + "\"," +
+
                                 pr.GetFilm().getAnno() + "," +
                                 pr.GetFilm().getDurata() + "," +
                                 pr.GetFilm().getEtaMinima() + "," +
