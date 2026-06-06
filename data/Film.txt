@@ -1,1 +1,111 @@
 titolo,genere,regista,anno,durata,etaMinima
+The Dark Knight,Action,Christopher Nolan,2008,152,13
+Gladiator,Action,Ridley Scott,2000,155,16
+Mad Max: Fury Road,Action,George Miller,2015,120,16
+John Wick,Action,Chad Stahelski,2014,101,18
+Die Hard,Action,John McTiernan,1988,132,16
+Mission Impossible Fallout,Action,Christopher McQuarrie,2018,147,13
+Top Gun Maverick,Action,Joseph Kosinski,2022,131,10
+The Avengers,Action,Joss Whedon,2012,143,10
+Casino Royale,Action,Martin Campbell,2006,144,13
+The Batman,Action,Matt Reeves,2022,176,14
+Indiana Jones and the Last Crusade,Adventure,Steven Spielberg,1989,127,10
+Jurassic Park,Adventure,Steven Spielberg,1993,127,10
+Jumanji,Adventure,Joe Johnston,1995,104,6
+Pirates of the Caribbean,Adventure,Gore Verbinski,2003,143,10
+The Revenant,Adventure,Alejandro González Iñárritu,2015,156,16
+Life of Pi,Adventure,Ang Lee,2012,127,10
+King Kong,Adventure,Peter Jackson,2005,187,13
+The Mummy,Adventure,Stephen Sommers,1999,124,10
+Uncharted,Adventure,Ruben Fleischer,2022,116,10
+Journey to the Center of the Earth,Adventure,Eric Brevig,2008,93,6
+Toy Story,Animation,John Lasseter,1995,81,3
+Finding Nemo,Animation,Andrew Stanton,2003,100,3
+Frozen,Animation,Chris Buck,2013,102,3
+Shrek,Animation,Andrew Adamson,2001,90,6
+Coco,Animation,Lee Unkrich,2017,105,6
+Up,Animation,Pete Docter,2009,96,3
+Cars,Animation,John Lasseter,2006,117,3
+Inside Out,Animation,Pete Docter,2015,95,3
+Ratatouille,Animation,Brad Bird,2007,111,3
+The Lion King,Animation,Roger Allers,1994,88,3
+Bohemian Rhapsody,Biography,Bryan Singer,2018,134,10
+Elvis,Biography,Baz Luhrmann,2022,159,13
+Oppenheimer,Biography,Christopher Nolan,2023,180,16
+The Social Network,Biography,David Fincher,2010,120,13
+A Beautiful Mind,Biography,Ron Howard,2001,135,13
+The Wolf of Wall Street,Biography,Martin Scorsese,2013,180,18
+Lincoln,Biography,Steven Spielberg,2012,150,13
+Steve Jobs,Biography,Danny Boyle,2015,122,13
+Rocketman,Biography,Dexter Fletcher,2019,121,14
+Ford v Ferrari,Biography,James Mangold,2019,152,10
+The Mask,Comedy,Chuck Russell,1994,101,10
+Ace Ventura,Comedy,Tom Shadyac,1994,86,10
+Home Alone,Comedy,Chris Columbus,1990,103,3
+Mrs Doubtfire,Comedy,Chris Columbus,1993,125,6
+Superbad,Comedy,Greg Mottola,2007,113,16
+The Hangover,Comedy,Todd Phillips,2009,100,18
+Yes Man,Comedy,Peyton Reed,2008,104,6
+Free Guy,Comedy,Shawn Levy,2021,115,10
+Bruce Almighty,Comedy,Tom Shadyac,2003,101,6
+Dumb and Dumber,Comedy,Peter Farrelly,1994,107,10
+The Godfather,Crime,Francis Ford Coppola,1972,175,16
+Goodfellas,Crime,Martin Scorsese,1990,145,18
+Scarface,Crime,Brian De Palma,1983,170,18
+Pulp Fiction,Crime,Quentin Tarantino,1994,154,18
+The Departed,Crime,Martin Scorsese,2006,151,16
+Heat,Crime,Michael Mann,1995,170,16
+Casino,Crime,Martin Scorsese,1995,178,18
+American Gangster,Crime,Ridley Scott,2007,157,16
+The Irishman,Crime,Martin Scorsese,2019,209,16
+Training Day,Crime,Antoine Fuqua,2001,122,16
+Forrest Gump,Drama,Robert Zemeckis,1994,142,10
+Fight Club,Drama,David Fincher,1999,139,18
+Whiplash,Drama,Damien Chazelle,2014,106,14
+The Green Mile,Drama,Frank Darabont,1999,189,16
+The Shawshank Redemption,Drama,Frank Darabont,1994,142,13
+Rocky,Drama,John G Avildsen,1976,120,10
+Creed,Drama,Ryan Coogler,2015,133,10
+Cast Away,Drama,Robert Zemeckis,2000,143,10
+Titanic,Drama,James Cameron,1997,195,13
+The Pursuit of Happyness,Drama,Gabriele Muccino,2006,117,10
+Double Indemnity,Film-Noir,Billy Wilder,1944,107,13
+The Maltese Falcon,Film-Noir,John Huston,1941,100,13
+Sunset Boulevard,Film-Noir,Billy Wilder,1950,110,13
+Touch of Evil,Film-Noir,Orson Welles,1958,111,13
+Laura,Film-Noir,Otto Preminger,1944,88,13
+The Big Sleep,Film-Noir,Howard Hawks,1946,114,13
+Out of the Past,Film-Noir,Jacques Tourneur,1947,97,13
+Gilda,Film-Noir,Charles Vidor,1946,110,13
+Mildred Pierce,Film-Noir,Michael Curtiz,1945,111,13
+The Killing,Film-Noir,Stanley Kubrick,1956,85,13
+The Conjuring,Horror,James Wan,2013,112,16
+It,Horror,Andy Muschietti,2017,135,16
+Saw,Horror,James Wan,2004,103,18
+The Nun,Horror,Corin Hardy,2018,96,16
+Annabelle,Horror,John R Leonetti,2014,99,16
+The Exorcist,Horror,William Friedkin,1973,122,18
+Halloween,Horror,John Carpenter,1978,91,16
+A Nightmare on Elm Street,Horror,Wes Craven,1984,91,18
+Scream,Horror,Wes Craven,1996,111,16
+Insidious,Horror,James Wan,2010,103,16
+Se7en,Mistery,David Fincher,1995,127,18
+Shutter Island,Mistery,Martin Scorsese,2010,138,16
+Memento,Mistery,Christopher Nolan,2000,113,16
+Gone Girl,Mistery,David Fincher,2014,149,16
+The Prestige,Mistery,Christopher Nolan,2006,130,13
+Prisoners,Mistery,Denis Villeneuve,2013,153,16
+Zodiac,Mistery,David Fincher,2007,157,16
+Knives Out,Mistery,Rian Johnson,2019,130,10
+The Sixth Sense,Mistery,M Night Shyamalan,1999,107,13
+Sherlock Holmes,Mistery,Guy Ritchie,2009,128,10
+Django Unchained,Western,Quentin Tarantino,2012,165,18
+The Good the Bad and the Ugly,Western,Sergio Leone,1966,178,13
+Once Upon a Time in the West,Western,Sergio Leone,1968,165,13
+True Grit,Western,Joel Coen,2010,110,13
+Unforgiven,Western,Clint Eastwood,1992,130,16
+The Magnificent Seven,Western,Antoine Fuqua,2016,132,13
+3 10 to Yuma,Western,James Mangold,2007,122,16
+The Hateful Eight,Western,Quentin Tarantino,2015,168,18
+High Noon,Western,Fred Zinnemann,1952,85,10
+Rio Bravo,Western,Howard Hawks,1959,141,10
