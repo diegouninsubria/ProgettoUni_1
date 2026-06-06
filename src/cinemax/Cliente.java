@@ -77,7 +77,7 @@ public class Cliente extends Utente{
     for(int i=0; i<personali.size(); i++){
         System.out.println((i+1) + ") " + personali.get(i).VisualizzaPrenotazione());
     }
-
+    System.out.println("SCELTA: ");
     int scelta = input.nextInt();
     input.nextLine();
 
@@ -181,7 +181,7 @@ public class Cliente extends Utente{
         for(int i=0;i<personali.size();i++){
             System.out.println((i+1)+") "+personali.get(i).VisualizzaPrenotazione());
         }
-
+        System.out.println("SCELTA: ");
         int scelta = input.nextInt();
         input.nextLine();
 

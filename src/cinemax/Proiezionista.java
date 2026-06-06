@@ -106,7 +106,7 @@ public class Proiezionista extends Utente{
     for(int i=0; i<lista.size(); i++){
         System.out.println((i+1) + ") " + lista.get(i).toString());
     }
-
+    System.out.println("SCELTA: ");
     int scelta = input.nextInt();
     input.nextLine();
 
@@ -171,6 +171,7 @@ public class Proiezionista extends Utente{
     for(int i=0; i<lista.size(); i++){
         System.out.println((i+1) + ") " + lista.get(i).toString());
     }
+    System.out.println("SCELTA: ");
 
     int scelta = input.nextInt();
     input.nextLine();
