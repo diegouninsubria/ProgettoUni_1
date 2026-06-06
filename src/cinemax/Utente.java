@@ -147,9 +147,8 @@ public abstract class Utente {
 
                     int ora = Integer.parseInt(datiO[0]);
                     int minuti = Integer.parseInt(datiO[1]);
-                    int secondi = Integer.parseInt(datiO[2]);
 
-                    LocalTime time = LocalTime.of(ora, minuti, secondi);
+                    LocalTime time = LocalTime.of(ora, minuti,0);
 
                     Film film = new Film(
                             campi[1],
