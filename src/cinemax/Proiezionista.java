@@ -32,7 +32,7 @@ public class Proiezionista extends Utente{
 
         try{
             FileWriter writer= new FileWriter("data/Film.txt",true);//apre il file //effettuare controllo get di nascita
-            writer.write(""+titolo+","+genere+","+regista+","+anno+","+durata+","+etaMinima); //scrive nel file
+            writer.write("\n"+titolo+","+genere+","+regista+","+anno+","+durata+","+etaMinima); //scrive nel file
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");
