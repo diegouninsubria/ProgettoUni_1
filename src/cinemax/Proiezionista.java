@@ -24,6 +24,12 @@ public class Proiezionista extends Utente{
         int durata;
         int etaMinima;
         titolo=Inserimenti.inserisciTitolo(input); //inserire i controlli di inserimento
+        if(!ControllaFilm(titolo)){
+            do{
+                System.out.println("Film già presente nell'archivio");
+                titolo=Inserimenti.inserisciTitolo(input);
+            }while(!ControllaFilm(titolo));
+        }
         genere=Inserimenti.inserisciGenere(input);
         regista=Inserimenti.inserisciRegista(input);
         anno=Inserimenti.inserisciAnno(input);
@@ -212,6 +218,15 @@ public class Proiezionista extends Utente{
             input.nextLine();
         }while(scelta<1 || scelta> film.size());
         return film.get(scelta-1);
+    }
+
+    public static boolean ControllaFilm(String Titolo){
+        ArrayList<Film> f = leggiFilm();
+        for(Film film : f){
+            if(Titolo.toLowerCase().trim().equals(film.getTitolo().toLowerCase().trim()))
+                return false;
+        }
+        return true;
     }
 
 }
