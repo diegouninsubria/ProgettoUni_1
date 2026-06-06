@@ -58,7 +58,7 @@ public class Proiezionista extends Utente{
 
         try{
             FileWriter writer= new FileWriter("data/proiezioni.csv",true);
-            writer.write("\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
+            writer.write("\n\""+data.getYear()+"-"+data.getMonthValue()+"-"+data.getDayOfMonth()+" "
                     +ora.getHour()+":"+ora.getMinute()+":"+ora.getSecond()+"\","
                     +"\""+film.getTitolo()+"\","
                     +film.getGenere()+","
@@ -127,11 +127,11 @@ public class Proiezionista extends Utente{
         lista.add(p);
         try {
             FileWriter writer = new FileWriter("data/proiezioni.csv");
-            writer.write("data,genere,regista,anno,durata,eta,costo\n");
+            writer.write("data,genere,regista,anno,durata,eta,costo");
 
             for (Proiezione pr : lista) {
                 writer.write(
-                        "\"" +
+                        "\n\"" +
                                 pr.GetData().getYear() + "-" +
                                 pr.GetData().getMonthValue() + "-" +
                                 pr.GetData().getDayOfMonth() + " " +
@@ -145,7 +145,7 @@ public class Proiezionista extends Utente{
                                 pr.GetFilm().getAnno() + "," +
                                 pr.GetFilm().getDurata() + "," +
                                 pr.GetFilm().getEtaMinima() + "," +
-                                pr.GetCosto() + "\n"
+                                pr.GetCosto()
                 );
             }
 
@@ -187,11 +187,11 @@ public class Proiezionista extends Utente{
 
         try {
             FileWriter writer = new FileWriter("data/proiezioni.csv");
-            writer.write("data,genere,regista,anno,durata,eta,costo\n");
+            writer.write("data,genere,regista,anno,durata,eta,costo");
 
             for (Proiezione pr : lista) {
                 writer.write(
-                        "\"" +
+                        "\n\"" +
                                 pr.GetData().getYear() + "-" +
                                 pr.GetData().getMonthValue() + "-" +
                                 pr.GetData().getDayOfMonth() + " " +
@@ -205,7 +205,7 @@ public class Proiezionista extends Utente{
                                 pr.GetFilm().getAnno() + "," +
                                 pr.GetFilm().getDurata() + "," +
                                 pr.GetFilm().getEtaMinima() + "," +
-                                pr.GetCosto() + "\n"
+                                pr.GetCosto()
                 );
             }
 

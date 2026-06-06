@@ -43,7 +43,7 @@ public class Cliente extends Utente{
             Prenotazione pren= new Prenotazione(this,p,numPosti,false);
             try{
                 FileWriter writer= new FileWriter("data/Prenotazioni.txt",true);//apre il file //effettuare controllo get di nascita
-                writer.write(""+pren.getId()+","+pren.getCliente().GetNome()+","+pren.getCliente().GetCognome()+","+pren.getCliente().GetUsername()+","+Guest.EncodedPsw(pren.getCliente().GetPassword())+","+pren.getProiezione().GetData().getYear()+"-"+pren.getProiezione().GetData().getMonthValue()+"-"+pren.getProiezione().GetData().getDayOfMonth()+","+pren.getProiezione().GetOra().getHour()+":"+pren.getProiezione().GetOra().getMinute()+":"+pren.getProiezione().GetOra().getSecond()+","+pren.getProiezione().GetFilm().getTitolo()+","+numPosti+"\n"); //scrive nel file
+                writer.write("\n"+pren.getId()+","+pren.getCliente().GetNome()+","+pren.getCliente().GetCognome()+","+pren.getCliente().GetUsername()+","+Guest.EncodedPsw(pren.getCliente().GetPassword())+","+pren.getProiezione().GetData().getYear()+"-"+pren.getProiezione().GetData().getMonthValue()+"-"+pren.getProiezione().GetData().getDayOfMonth()+","+pren.getProiezione().GetOra().getHour()+":"+pren.getProiezione().GetOra().getMinute()+":"+pren.getProiezione().GetOra().getSecond()+","+pren.getProiezione().GetFilm().getTitolo()+","+numPosti); //scrive nel file
                 writer.close();
 
                 System.out.println("Scrittura avenuta con successo");
@@ -138,11 +138,11 @@ public class Cliente extends Utente{
 
     try{
         FileWriter writer = new FileWriter("data/Prenotazioni.txt");
-        writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
+        writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati");
 
         for(Prenotazione p : tutte){
             writer.write(
-                p.getId() + "," +
+                "\n"+p.getId() + "," +
                 p.getCliente().GetNome() + "," +
                 p.getCliente().GetCognome() + "," +
                 p.getCliente().GetUsername() + "," +
@@ -154,7 +154,7 @@ public class Cliente extends Utente{
                 p.getProiezione().GetOra().getMinute() + ":" +
                 p.getProiezione().GetOra().getSecond() + "," +
                 p.getProiezione().GetFilm().getTitolo() + "," +
-                p.getPostiPrenotati() + "\n"
+                p.getPostiPrenotati()
             );
         }
 
@@ -200,9 +200,9 @@ public class Cliente extends Utente{
 
             try {
                 FileWriter writer = new FileWriter("data/Prenotazioni.txt");
-                writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati\n");
+                writer.write("ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati");
                 for (Prenotazione preno : p) {
-                    writer.write("" + preno.getId() + "," + preno.getCliente().GetNome() + "," + preno.getCliente().GetCognome() + "," + preno.getCliente().GetUsername() + "," + Guest.EncodedPsw(preno.getCliente().GetPassword()) + "," + preno.getProiezione().GetData().getYear() + "-" + preno.getProiezione().GetData().getMonthValue() + "-" + preno.getProiezione().GetData().getDayOfMonth() + "," + preno.getProiezione().GetOra().getHour() + ":" + preno.getProiezione().GetOra().getMinute() + ":" + preno.getProiezione().GetOra().getSecond() + "," + preno.getProiezione().GetFilm() + "," + preno.getPostiPrenotati() + "\n");
+                    writer.write("\n" + preno.getId() + "," + preno.getCliente().GetNome() + "," + preno.getCliente().GetCognome() + "," + preno.getCliente().GetUsername() + "," + Guest.EncodedPsw(preno.getCliente().GetPassword()) + "," + preno.getProiezione().GetData().getYear() + "-" + preno.getProiezione().GetData().getMonthValue() + "-" + preno.getProiezione().GetData().getDayOfMonth() + "," + preno.getProiezione().GetOra().getHour() + ":" + preno.getProiezione().GetOra().getMinute() + ":" + preno.getProiezione().GetOra().getSecond() + "," + preno.getProiezione().GetFilm() + "," + preno.getPostiPrenotati());
                 }
 
                 writer.close();

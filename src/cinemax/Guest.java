@@ -104,7 +104,7 @@ public class Guest extends Utente{
     public static void ScriviFile(String nome,String cognome,String username,String password,LocalDate nascita, String luogo,String ruolo){
         try{
             FileWriter writer= new FileWriter("data/Utenti.txt",true);//apre il file //effettuare controllo get di nascita
-            writer.write(""+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDayOfMonth()+","+nascita.getMonthValue()+","+nascita.getYear()+","+luogo+","+ruolo+"\n"); //scrive nel file
+            writer.write("\n"+nome+","+cognome+","+username+","+EncodedPsw(password)+","+nascita.getDayOfMonth()+","+nascita.getMonthValue()+","+nascita.getYear()+","+luogo+","+ruolo); //scrive nel file
             writer.close();
 
             System.out.println("Scrittura avenuta con successo");

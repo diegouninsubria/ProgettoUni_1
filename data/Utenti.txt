@@ -4,3 +4,5 @@ Andrea,Proserpio,andrix32,ኑዲፓᎴᐕ,11,2,1975,CarateUrio,Cliente
 Alberto,Demontis,Albericoxx,ᢡ⥍⩰⦮⣬,12,12,1995,Cernobbio,Cliente
 Ernesto,Piantacorta,admin1,ᢡ⦮៟ኑኑሰዲᓗᐕ,7,7,2006,Como,Bigliettaio
 Alessandro,Blanco,admin2,ᢡ⦮៟ኑኑሰዲᓗᐕ,31,3,1993,Arcore,Proiezionista
+Noemi,Ancora,noem21,ᢡ⣬⥍⦮⨏⩰,4,12,1996,Pero,Cliente
+Emma,Gandola,gando06,᫧Ⓛ⦮◤⨏ሰᑶ,8,7,2006,Lezzeno,Cliente
