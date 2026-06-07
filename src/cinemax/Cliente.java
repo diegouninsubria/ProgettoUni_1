@@ -3,6 +3,7 @@ package cinemax;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -87,6 +88,7 @@ public class Cliente extends Utente{
     }
 
     Prenotazione pren = personali.get(scelta - 1);
+    tutte.remove(RicercaPrenotazione(pren,tutte));
     Prenotazione nuova;
 
     switch(m.MenuModificaPrenotazione()){
@@ -98,7 +100,6 @@ public class Cliente extends Utente{
                 return;
             }
             nuova = new Prenotazione(pren.getId(),pren.getCliente(),SelezioneProiezione(disponibili),pren.getPostiPrenotati(),false);
-            tutte.remove(RicercaPrenotazione(pren,tutte));
             tutte.add(nuova);
             break;
 
@@ -106,7 +107,6 @@ public class Cliente extends Utente{
             int nuoviPosti = Inserimenti.InserisciPosti(input);
             nuova = pren;
             nuova.setPostiPrenotati(nuoviPosti);
-            tutte.remove(RicercaPrenotazione(pren,tutte));
             tutte.add(nuova);
             break;
         case 3:
@@ -116,19 +116,8 @@ public class Cliente extends Utente{
                 System.out.println("non è possibile modificare la prenotazione!");
                 return;
             }
-            LocalDate nuovaData = NuovaData(pren,pren.getPostiPrenotati());
-            if(nuovaData == null){
-                System.out.println("Non ci sono altre proiezioni disponibili per tale film!");
-            }
-            else {
-                if (nuovaData.isBefore(oggi)) {
-                    System.out.println("non è possibile modificare la prenotazione!");
-                    return;
-                }
-                nuova.getProiezione().SetData(nuovaData);
-                tutte.remove(RicercaPrenotazione(pren,tutte));
-                tutte.add(nuova);
-            }
+            NuovaData(pren,pren.getPostiPrenotati(),nuova);
+            tutte.add(nuova);
             break;
 
         case 4:
@@ -233,7 +222,8 @@ public class Cliente extends Utente{
         }
         return posti;
     }
-    public static  LocalDate NuovaData(Prenotazione p,int posti){
+
+    public static void NuovaData(Prenotazione p, int posti, Prenotazione nuova){
         Scanner input = new Scanner(System.in);
         int scelta;
         ArrayList<Proiezione> pro= leggiProiezioni();
@@ -242,17 +232,25 @@ public class Cliente extends Utente{
             if(proiezione.GetFilm().getTitolo().equals(p.getProiezione().GetFilm().getTitolo()) && (posti + Cliente.PostiGiaPrenoati(proiezione)<=200))
                 filtro.add(proiezione);
         if(filtro.isEmpty()){
-            return  null;
+            System.out.println("non ci sono proiezioni disponibili");
         }
-        do {
-            System.out.println("Seleziona la proiezione: \n");
-            for (int i = 0; i < filtro.size(); i++) {
-                System.out.println((i + 1) + ") " + filtro.get(i).toString());
+        else {
+            do {
+                System.out.println("Seleziona la proiezione: \n");
+                for (int i = 0; i < filtro.size(); i++) {
+                    System.out.println((i + 1) + ") " + filtro.get(i).toString());
+                }
+                scelta = input.nextInt();
+                input.nextLine();
+            } while (scelta < 1 || scelta > filtro.size());
+            if(filtro.get(scelta-1).GetData().isBefore(LocalDate.now()))
+                System.out.println("Non è possibile cambiare data");
+            else {
+                nuova.getProiezione().SetData(filtro.get(scelta - 1).GetData());
+                nuova.getProiezione().SetCosto(filtro.get(scelta - 1).GetCosto());
+                nuova.getProiezione().SetOra(filtro.get(scelta - 1).GetOra());
             }
-            scelta = input.nextInt();
-            input.nextLine();
-        }while(scelta<1 || scelta>filtro.size());
-        return filtro.get(scelta-1).GetData();
+        }
     }
 
     public static Prenotazione RicercaPrenotazione(Prenotazione p,ArrayList<Prenotazione> tutte ){
