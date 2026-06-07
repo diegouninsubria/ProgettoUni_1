@@ -240,6 +240,7 @@ public class Cliente extends Utente{
                 for (int i = 0; i < filtro.size(); i++) {
                     System.out.println((i + 1) + ") " + filtro.get(i).toString());
                 }
+                System.out.println("SCELTA: ");
                 scelta = input.nextInt();
                 input.nextLine();
             } while (scelta < 1 || scelta > filtro.size());
