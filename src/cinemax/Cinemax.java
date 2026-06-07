@@ -6,22 +6,26 @@ import java.util.Scanner;
 import java.util.Date;
 
 /**
- * Classe principale dell'applicazione Cinemax.
+ * Classe principale dell'applicazione CinemaX.
  * Gestisce il flusso iniziale del programma mostrando il menu principale
  * e permettendo all'utente di effettuare il login, la registrazione
  * oppure accedere come Guest.
  *
  * Il metodo {@link Cinemax#main(String[])} rappresenta il punto d'ingresso
- * dell'applicazione e coordina le interazioni tra {@link Menu}, {@link Guest}
- * e {@link Utente}.
+ * dell'applicazione e coordina le interazioni tra {@link Menu}, {@link Guest},
+ * {@link Cliente}, {@link Bigliettaio} e {@link Proiezionista}.
  */
 
 public class Cinemax {
 
     /**
-     * Avvia l'applicazione Cinemax mostrando il menù iniziale e gestendo
+     * Avvia l'applicazione CinemaX mostrando il menu iniziale e gestendo
      * le scelte dell'utente, come login, registrazione o accesso come Guest.
-     * @param args    argomenti passati da linea di comando non utilizzati.
+     * Una volta effettuato l'accesso, il metodo instrada l'utente verso
+     * il menu corrispondente al proprio ruolo (Guest, Cliente, Bigliettaio,
+     * Proiezionista).
+     *
+     * @param args argomenti passati da linea di comando (non utilizzati)
      */
 
     public static void main(String args[]) {
