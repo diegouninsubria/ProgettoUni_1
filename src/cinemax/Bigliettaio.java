@@ -118,7 +118,7 @@ public class Bigliettaio extends Utente{
         Scanner input = new Scanner(System.in);
         int i=1;
         for(Prenotazione pren : p){
-            System.out.println(i+") "+ pren.getProiezione().GetFilm().getTitolo()+" , +"+pren.getCliente().GetUsername()+"\n-------------------------------\n");//decidere
+            System.out.println(i+") "+ pren.getProiezione().GetFilm().getTitolo()+" , "+pren.getCliente().GetUsername()+"\n-------------------------------\n");//decidere
             i++;
         }
         do{
