@@ -1,3 +1,2 @@
 ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati
-1,Alice,Proserpio,Alix2008,ᢡ⦮៟ኑኑሰዲᓗᐕ,2026-6-8,13:30:0,Spoorloos,3
-2,Tommaso,Demontis,tommydemo,▃⨏⥍⨏ኑᖙሰᓗ,2026-7-26,13:30:0,Badlands,5
+2,Tommaso,Demontis,tommydemo,▃⨏⥍⨏ኑᖙሰᓗ,2026-6-9,10:0:0,28 Days Later...,3
