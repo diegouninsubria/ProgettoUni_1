@@ -3,7 +3,7 @@ package cinemax;
 /**
  *Rappresenta un film presente nel sistema Cinemax.
  * Contiene le informazioni principali relative all'opera cinematografica,
- * come titolo, genere, regista, anno di nascita, durata e età minima consigliata.
+ * come titolo, genere, regista, anno di uscita, durata ed età minima consigliata.
  *
  * La classe fornisce i metodi getter e setter per accedere e modificare
  * le informazioni del film.
@@ -25,7 +25,7 @@ public class Film {
      * @param regista      nome del regista
      * @param anno         anno di uscita del film
      * @param durata       durata del film in minuti
-     * @param etaMinima    età minima consiglliata per la visione
+     * @param etaMinima    età minima consigliata per la visione
      */
 
     public Film(String titolo,String genere,String regista,int anno,int durata,int etaMinima){
@@ -70,7 +70,7 @@ public class Film {
     }
 
     /**
-     * Imposta l'anno di usicta del film
+     * Imposta l'anno di uscita del film
      *
      * @param anno    nuovo anno di uscita
      */
@@ -152,7 +152,7 @@ public class Film {
     }
 
     /**
-     * Restituisce l'età minima consigliata della visione
+     * Restituisce l'età minima consigliata per la visione
      *
      * @return età minima
      */
@@ -163,7 +163,7 @@ public class Film {
 
     /**
      * Restituisce una rappresentazione testuale del fim,
-     * contente tutte le sue informazioni principali.
+     * contenente tutte le sue informazioni principali.
      *
      * @return stringa descrittiva del film
      */

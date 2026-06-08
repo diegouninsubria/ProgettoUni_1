@@ -8,6 +8,20 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 public abstract class Utente {
+
+    /**
+     * Classe astratta che rappresenta un utente del sistema Cinemax.
+     * Contiene le informazioni anagrafiche e di accesso comuni a tutte
+     * le tipologie di utenti (Cliente, Proiezionista, Bigliettaio, Guest).
+     *
+     * La classe fornisce metodi getter e setter per la gestione dei dati
+     * personali, oltre a funzionalità condivise come la selezione di una
+     * proiezione e la lettura delle proiezioni disponibili dal file.
+     *
+     * Le classi derivate estendono questa struttura aggiungendo comportamenti
+     * specifici in base al ruolo dell’utente.
+     */
+
     private String nome;
     private String cognome;
     private String username;
@@ -15,6 +29,18 @@ public abstract class Utente {
     private LocalDate nascita;
     private String domicilio;
     private String mansione;
+
+    /**
+     * Crea un nuovo utente con tutti i dati anagrafici e di accesso.
+     *
+     * @param nome       nome dell'utente
+     * @param cognome    cognome dell'utente
+     * @param username   username per l'accesso
+     * @param password   password dell'account
+     * @param nascita    data di nascita
+     * @param domicilio  domicilio dell'utente
+     * @param mansione   ruolo dell'utente nel sistema (Cliente, Proiezionista, ecc.)
+     */
 
     public Utente(String nome, String cognome,String username,String password,LocalDate nascita,String domicilio,String mansione){
         this.nome=nome;
@@ -26,6 +52,19 @@ public abstract class Utente {
         this.mansione=mansione;
         //effettuare controlli di inserimento
     }
+
+    /**
+     * Crea un utente senza specificare la data di nascita.
+     * Utilizzato principalmente per utenti Guest o dati parziali.
+     *
+     * @param nome       nome dell'utente
+     * @param cognome    cognome dell'utente
+     * @param username   username per l'accesso
+     * @param password   password dell'account
+     * @param domicilio  domicilio dell'utente
+     * @param mansione   ruolo dell'utente nel sistema
+     */
+
     public Utente(String nome,String cognome,String username,String password,String domicilio,String mansione){
         this.nome=nome;
         this.cognome=cognome;
@@ -34,29 +73,71 @@ public abstract class Utente {
         this.domicilio=domicilio;
         this.mansione=mansione;
     }
+
+    /**
+     * Costruttore vuoto utilizzato per creare un utente non inizializzato.
+     */
+
     public Utente(){}
     //per utente guest
 
     //metodi set
+
+    /**
+     * Imposta il nome dell'utente.
+     *
+     * @param nome nuovo nome
+     */
+
     public void SetNome(String nome){
         this.nome=nome;
     }
+
+    /**
+     * Imposta il cognome dell'utente.
+     *
+     * @param cognome nuovo cognome
+     */
 
     public void SetCognome(String cognome){
         this.cognome=cognome;
     }
 
+    /**
+     * Imposta lo username dell'utente.
+     *
+     * @param username nuovo username
+     */
+
     public void SetUsername(String username){
         this.username=username;
     }
+
+    /**
+     * Imposta la password dell'utente.
+     *
+     * @param password nuova password
+     */
 
     public void SetPassword(String password){
         this.password=password;
     }
 
+    /**
+     * Imposta la data di nascita dell'utente.
+     *
+     * @param nascita nuova data di nascita
+     */
+
     public void SetNascita(LocalDate nascita){
         this.nascita=nascita;
     }
+
+    /**
+     * Imposta il domicilio dell'utente.
+     *
+     * @param domicilio nuovo domicilio
+     */
 
     public void SetDomicilio(String domicilio){
         this.domicilio=domicilio;
@@ -64,21 +145,52 @@ public abstract class Utente {
 
     //metodi get
 
+    /**
+     * Restituisce il nome dell'utente.
+     *
+     * @return nome dell'utente
+     */
+
     public String GetNome(){
         return this.nome;
     }
+
+    /**
+     * Restituisce il cognome dell'utente.
+     *
+     * @return cognome dell'utente
+     */
 
     public String GetCognome(){
         return this.cognome;
     }
 
+    /**
+     * Restituisce lo username dell'utente.
+     *
+     * @return username dell'utente
+     */
+
     public String GetUsername(){
         return this.username;
     }
 
+    /**
+     * Restituisce la password dell'utente.
+     *
+     * @return password dell'utente
+     */
+
     public String GetPassword(){
         return this.password;
     }
+
+    /**
+     * Restituisce la data di nascita come stringa.
+     * Se la data non è presente, restituisce un messaggio informativo.
+     *
+     * @return data di nascita o messaggio alternativo
+     */
 
     public String GetNascita(){
         if(this.nascita==null)
@@ -86,15 +198,42 @@ public abstract class Utente {
         else
             return this.nascita.toString();
     }
+
+    /**
+     * Calcola e restituisce l'età dell'utente in anni.
+     *
+     * @return età dell'utente
+     */
+
     public int GetAnni(){
         return Period.between(this.nascita,LocalDate.now()).getYears();
     }
+
+    /**
+     * Restituisce il domicilio dell'utente.
+     *
+     * @return domicilio dell'utente
+     */
 
     public String GetDomicilio(){
         return this.domicilio;
     }
 
+    /**
+     * Restituisce la mansione dell'utente (ruolo nel sistema).
+     *
+     * @return mansione dell'utente
+     */
+
     public String GetMansione(){return this.mansione;}
+
+    /**
+     * Mostra all'utente l'elenco delle proiezioni disponibili e permette
+     * di selezionarne una tramite input da tastiera.
+     *
+     * @param p lista delle proiezioni disponibili
+     * @return proiezione selezionata dall'utente
+     */
 
     public Proiezione SelezioneProiezione(ArrayList<Proiezione>p) {
         int scelta;
@@ -114,6 +253,13 @@ public abstract class Utente {
         }while(scelta<1 || scelta>p.size());
         return p.get(scelta-1);
     }
+
+    /**
+     * Legge il file delle proiezioni e ricostruisce la lista delle proiezioni
+     * future, ignorando quelle già passate.
+     *
+     * @return lista delle proiezioni future presenti nel file
+     */
 
     public static ArrayList<Proiezione> leggiProiezioni() {
         ArrayList<Proiezione> pr = new ArrayList<>();
@@ -177,6 +323,13 @@ public abstract class Utente {
         return pr;
     }
 
+    /**
+     * Permette all'utente di cercare proiezioni in base a diversi criteri:
+     * data, intervallo di date, titolo, genere, prezzo o combinazione di essi.
+     *
+     * @return lista delle proiezioni che soddisfano i criteri di ricerca
+     */
+
     public ArrayList<Proiezione> CercaProiezione(){
         Scanner Input = new Scanner(System.in);
         ArrayList<Proiezione> p = leggiProiezioni();
@@ -224,6 +377,12 @@ public abstract class Utente {
         return null;
     }
 
+    /**
+     * Restituisce una rappresentazione testuale dei dati dell'utente.
+     *
+     * @return stringa descrittiva dell'utente
+     */
+
     public String toString(){
         return "Nome:"+this.nome+"\n" +
                 "Cognome:"+this.cognome+"\n"+
@@ -232,9 +391,26 @@ public abstract class Utente {
                 "Data di nascita:"+this.nascita+"\n" +
                 "Domicilio:"+this.domicilio;
     }
+
+    /**
+     * Verifica se una stringa è contenuta in un'altra, ignorando le maiuscole.
+     *
+     * @param ins stringa da cercare
+     * @param obj stringa in cui effettuare la ricerca
+     * @return {@code true} se la stringa è contenuta, altrimenti {@code false}
+     */
+
     public static boolean CheckString(String ins, String obj){
         return obj.toLowerCase().contains(ins.toLowerCase());
     }
+
+    /**
+     * Cerca le proiezioni il cui titolo contiene la stringa specificata.
+     *
+     * @param titolo titolo da cercare
+     * @param p lista delle proiezioni
+     * @return lista delle proiezioni corrispondenti
+     */
 
     public static ArrayList<Proiezione> RicercaPerTitolo(String titolo,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
@@ -244,6 +420,14 @@ public abstract class Utente {
         return pro;
     }
 
+    /**
+     * Cerca le proiezioni successive alla data indicata.
+     *
+     * @param data data di riferimento
+     * @param p lista delle proiezioni
+     * @return lista delle proiezioni trovate
+     */
+
     public static ArrayList<Proiezione> RicercaPerData(LocalDate data,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
@@ -251,6 +435,15 @@ public abstract class Utente {
                 pro.add(proiezione);
         return pro;
     }
+
+    /**
+     * Cerca le proiezioni comprese tra due date.
+     *
+     * @param data1 data iniziale
+     * @param data2 data finale
+     * @param p lista delle proiezioni
+     * @return lista delle proiezioni trovate
+     */
 
     public static ArrayList<Proiezione> RicercaPerData(LocalDate data1,LocalDate data2,ArrayList<Proiezione> p  ){
         ArrayList<Proiezione> pro = new ArrayList<>();
@@ -262,6 +455,14 @@ public abstract class Utente {
          return pro;
     }
 
+    /**
+     * Cerca le proiezioni con costo minore o uguale al prezzo indicato.
+     *
+     * @param prezzo prezzo massimo
+     * @param p lista delle proiezioni
+     * @return lista delle proiezioni trovate
+     */
+
     public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
@@ -269,6 +470,15 @@ public abstract class Utente {
                 pro.add(proiezione);
         return pro;
     }
+
+    /**
+     * Cerca le proiezioni con costo compreso tra due valori.
+     *
+     * @param prezzo1 prezzo minimo
+     * @param prezzo2 prezzo massimo
+     * @param p lista delle proiezioni
+     * @return lista delle proiezioni trovate
+     */
 
     public static ArrayList<Proiezione> RicercaPerPrezzo(float prezzo1,float prezzo2,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
@@ -278,6 +488,14 @@ public abstract class Utente {
         return pro;
     }
 
+    /**
+     * Cerca le proiezioni appartenenti al genere specificato.
+     *
+     * @param genere genere da cercare
+     * @param p lista delle proiezioni
+     * @return lista delle proiezioni trovate
+     */
+
     public static ArrayList<Proiezione> RicercaPerGenere(String genere,ArrayList<Proiezione> p ){
         ArrayList<Proiezione> pro = new ArrayList<>();
         for(Proiezione proiezione : p)
@@ -285,6 +503,14 @@ public abstract class Utente {
                 pro.add(proiezione);
         return pro;
     }
+
+    /**
+     * Permette di applicare più filtri di ricerca in sequenza:
+     * data, intervallo di date, titolo, genere, prezzo o intervallo di prezzo.
+     *
+     * @param p lista delle proiezioni da filtrare
+     * @return lista delle proiezioni che soddisfano tutti i filtri applicati
+     */
 
     public static ArrayList<Proiezione>RicercaCombinata(ArrayList<Proiezione> p){
         ArrayList<Proiezione> risultato = p;

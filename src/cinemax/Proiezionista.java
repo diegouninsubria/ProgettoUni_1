@@ -12,9 +12,42 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Proiezionista extends Utente{
+
+    /**
+     * Rappresenta un utente con ruolo di Proiezionista nel sistema Cinemax.
+     * Il Proiezionista è responsabile della gestione dei film e delle proiezioni,
+     * potendo inserire nuovi film, programmare proiezioni, modificarle o eliminarle.
+     *
+     * La classe fornisce inoltre metodi per leggere i film dal file,
+     * selezionare un film dall’elenco e verificare l’esistenza di un titolo
+     * già presente nell’archivio.
+     *
+     * Estende {@link Utente} ereditando le informazioni anagrafiche e le
+     * credenziali di accesso.
+     */
+
+
+    /**
+     * Crea un nuovo Proiezionista con i dati specificati.
+     *
+     * @param nome       nome dell'utente
+     * @param cognome    cognome dell'utente
+     * @param username   username per l'accesso
+     * @param password   password dell'account
+     * @param nascita    data di nascita
+     * @param domicilio  domicilio dell'utente
+     */
+
     public Proiezionista(String nome, String cognome, String username, String password, LocalDate nascita, String domicilio){
         super(nome,cognome,username,password,nascita,domicilio,"Proiezionista");
     }
+
+    /**
+     * Permette al Proiezionista di inserire un nuovo film nel sistema.
+     * Richiede i dati tramite input da tastiera, verifica che il titolo
+     * non sia già presente e salva il film nel file dedicato.
+     */
+
     public void InserisciFilm(){
         Scanner input= new Scanner(System.in);
         String titolo;
@@ -48,6 +81,14 @@ public class Proiezionista extends Utente{
         }
     }
 
+    /**
+     * Inserisce una nuova proiezione per il film specificato,
+     * richiedendo data, orario e costo del biglietto.
+     * La proiezione viene salvata nel file delle proiezioni.
+     *
+     * @param film film per cui creare la proiezione
+     */
+
     public void InserisciProiezione(Film film){
         Scanner input= new Scanner(System.in);
         LocalDate data;
@@ -74,6 +115,14 @@ public class Proiezionista extends Utente{
             e.printStackTrace();
         }
     }
+
+    /**
+     * Legge il file dei film e ricostruisce la lista completa
+     * degli oggetti {@link Film} presenti nell'archivio.
+     *
+     * @return lista dei film caricati dal file
+     */
+
     public static ArrayList<Film> leggiFilm(){
         ArrayList<Film> f = new ArrayList<>();
 
@@ -92,6 +141,12 @@ public class Proiezionista extends Utente{
         }
         return f;
     }
+
+    /**
+     * Permette al Proiezionista di modificare la data di una proiezione esistente.
+     * La modifica è consentita solo se non sono presenti prenotazioni associate.
+     * Al termine, il file delle proiezioni viene riscritto con i dati aggiornati.
+     */
 
     public void modificaProiezione() {
     ArrayList<Proiezione> lista = leggiProiezioni();
@@ -158,6 +213,12 @@ public class Proiezionista extends Utente{
     }
 }
 
+    /**
+     * Permette al Proiezionista di eliminare una proiezione esistente.
+     * L'eliminazione è consentita solo se non sono presenti prenotazioni
+     * per quella proiezione. Il file delle proiezioni viene aggiornato di conseguenza.
+     */
+
     public void eliminaProiezione() {
     ArrayList<Proiezione> lista = leggiProiezioni();
     Scanner input = new Scanner(System.in);
@@ -218,6 +279,14 @@ public class Proiezionista extends Utente{
         }
     }
 }
+
+    /**
+     * Mostra all'utente l'elenco dei film disponibili e permette di selezionarne uno.
+     *
+     * @param film lista dei film tra cui scegliere
+     * @return film selezionato dall'utente
+     */
+
     public Film selezionaFilm(ArrayList<Film> film){
         Scanner input = new Scanner(System.in);
         int i=1;
@@ -236,6 +305,13 @@ public class Proiezionista extends Utente{
         }while(scelta<1 || scelta> film.size());
         return film.get(scelta-1);
     }
+
+    /**
+     * Verifica se un film con il titolo specificato è già presente nell'archivio.
+     *
+     * @param Titolo titolo del film da controllare
+     * @return {@code true} se il film NON è presente, {@code false} se esiste già
+     */
 
     public static boolean ControllaFilm(String Titolo){
         ArrayList<Film> f = leggiFilm();

@@ -12,7 +12,7 @@ import java.io.FileReader;
  * oltre a inserire i propri dati personali tramite input da tastiera.
  *
  * La classe fornisce inoltre funzionalità per la lettura e scrittura
- * dei dati dagli utenti su file, oltre a metodi di codifica e decodifica delle password.
+ * dei dati degli utenti su file, oltre a metodi di codifica e decodifica delle password.
  *
  * Estende {@link Utente} utilizzando il costruttore di default.
  */
@@ -95,7 +95,7 @@ public class Guest extends Utente{
      * @param nome        nome dell'utente
      * @param cognome     cognome dell'utente
      * @param username    username scelto
-     * @param password    password codificata
+     * @param password    password in chiaro (verrà codificata)
      * @param nascita     data di nascita
      * @param luogo       domicilio dell'utente
      * @param ruolo       ruolo dell'utente (Cliente, Bigliettaio, Proiezionista)

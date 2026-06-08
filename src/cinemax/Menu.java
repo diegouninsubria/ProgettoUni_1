@@ -3,19 +3,21 @@ package cinemax;
 import java.util.Scanner;
 
 /**
- * Gestisce la visualizzaione dei vari menu dell'applicazione Cinemax.
+ * Gestisce la visualizzazione dei vari menu dell'applicazione Cinemax.
  * Ogni metodo mostra un menu specifico in base al ruolo dell'utente
  * (Guest, Cliente, Proiezionista, Bigliettaio) e restituisce la scelta
- * selezionata tramite input da tastiera
+ * selezionata tramite input da tastiera.
  */
+
 public class Menu {
 
     /**
      * Mostra il menu iniziale dell'applicazione, permettendo all'utente
-     * di scegliere tra login, registrazione accesso come Guest o uscita.
+     * di scegliere tra login, registrazione, accesso come Guest o uscita.
      *
      * @return scelta selezionata dall'utente (valore compreso tra 1 e 4)
      */
+
     public int mostraMenuIniziale() {
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -40,8 +42,9 @@ public class Menu {
      * Mostra il menu dedicato agli utenti Guest, consentendo di effettuare
      * login, registrazione o ricerca della proiezione.
      *
-     * @return scelta selezionata dall'utente (valore compreso tra 1 e 3)
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 4)
      */
+
     public int mostraMenuGuest() {
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -68,6 +71,7 @@ public class Menu {
      *
      * @return scelta selezionata dall'utente (valore compreso tra 1 e 6)
      */
+
     public int mostraMenuCliente() {
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -95,6 +99,7 @@ public class Menu {
      *
      * @return scelta selezionata dall'utente (valore compreso tra 1 e 5)
      */
+
     public int mostraMenuProiezionista() {
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -122,6 +127,7 @@ public class Menu {
      *
      * @return scelta selezionata dall'utente (valore compreso tra 1 e 2)
      */
+
     public int mostraMenuBigliettaio() {
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -146,6 +152,7 @@ public class Menu {
      *
      * @return scelta selezionata dall'utente (valore compreso tra 1 e 5)
      */
+
     public int mostraMenuCercaProeizione() {
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -167,7 +174,15 @@ public class Menu {
         return scelta;
     }
 
-   public int sceltaBigliettaioRicerca(){
+    /**
+     * Mostra il menu delle opzioni di ricerca per il Bigliettaio,
+     * permettendo di scegliere il criterio con cui filtrare le prenotazioni
+     * (per ID, nome e cognome, data o ricerca combinata).
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 4)
+     */
+
+    public int sceltaBigliettaioRicerca(){
     Scanner input = new Scanner(System.in);
     int scelta;
 
@@ -186,6 +201,12 @@ public class Menu {
     return scelta;
 }
 
+    /**
+     * Mostra il menu per la scelta del genere cinematografico,
+     * elencando le categorie disponibili.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 11)
+     */
 
     public int MenuSceltaGenere() {
         Scanner input = new Scanner(System.in);
@@ -213,6 +234,15 @@ public class Menu {
 
         return scelta;
     }
+
+    /**
+     * Mostra il menu per la ricerca delle proiezioni in base alla data,
+     * permettendo di scegliere tra ricerca dopo una data
+     * o in un intervallo di date.
+     *
+     * @return scelta selezionata dall'utente (1 = dopo una data, 2 = intervallo di date)
+     */
+
     public int MenuRicercaData(){
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -231,6 +261,14 @@ public class Menu {
         return scelta;
     }
 
+    /**
+     * Mostra il menu per la ricerca delle proiezioni in base al prezzo,
+     * permettendo di scegliere tra ricerca per prezzo massimo
+     * o per intervallo di prezzi.
+     *
+     * @return scelta selezionata dall'utente (1 = minore di un prezzo, 2 = intervallo di prezzi)
+     */
+
     public int MenuRicercaPrezzo(){
         Scanner input = new Scanner(System.in);
         int scelta;
@@ -248,6 +286,14 @@ public class Menu {
         }while(scelta<1 || scelta>2);
         return scelta;
     }
+
+    /**
+     * Mostra il menu dedicato alla modifica di una prenotazione,
+     * consentendo di cambiare proiezione, numero di posti o data,
+     * oppure annullare l'operazione.
+     *
+     * @return scelta selezionata dall'utente (valore compreso tra 1 e 4)
+     */
 
     public int MenuModificaPrenotazione(){
         Scanner input = new Scanner(System.in);

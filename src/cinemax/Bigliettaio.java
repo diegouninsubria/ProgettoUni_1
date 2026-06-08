@@ -14,7 +14,7 @@ import java.util.Scanner;
  * Il Bigliettaio è responsabile della gestione dei biglietti, come emissione,
  * controllo e operazioni correlate alla vendita.
  *
- * Questa classe estende {@link Utente} e imposta il ruolo dell'utente coe "Bigliettaio".
+ * Questa classe estende {@link Utente} e imposta il ruolo dell'utente come "Bigliettaio".
  */
 
 public class Bigliettaio extends Utente{

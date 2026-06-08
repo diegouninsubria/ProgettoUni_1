@@ -14,7 +14,7 @@ import java.util.Scanner;
  * registrazione, il login e l'interazione con le funzionalità dedicate
  * alla consultazione e prenotazione.
  *
- * Queste classe estende {@link Utente} e imposta automaticamente il ruolo dell'utente come "Cliente".
+ * Questa classe estende {@link Utente} e imposta automaticamente il ruolo dell'utente come "Cliente".
  */
 
 public class Cliente extends Utente{
@@ -265,6 +265,17 @@ public class Cliente extends Utente{
         }
         return posti;
     }
+
+    /**
+     * Permette di selezionare una nuova proiezione per una prenotazione esistente,
+     * mostrando all'utente tutte le proiezioni dello stesso film che dispongono
+     * di posti sufficienti. Se la nuova proiezione è valida, aggiorna data, ora
+     * e costo della prenotazione indicata.
+     *
+     * @param p      prenotazione originale da modificare
+     * @param posti  numero di posti richiesti
+     * @param nuova  prenotazione da aggiornare con la nuova proiezione scelta
+     */
 
     public static void NuovaData(Prenotazione p, int posti, Prenotazione nuova){
         Scanner input = new Scanner(System.in);

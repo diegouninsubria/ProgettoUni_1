@@ -12,7 +12,7 @@ public class Proiezione {
      * Rappresenta una proiezione cinematografica nel sistema Cinemax.
      * Contiene le informazioni relative alla data, all'orario, al film
      * proiettato e al costo del biglietto.
-     * La classe fornisce i metodi getter e setter per accedere e odificare
+     * La classe fornisce i metodi getter e setter per accedere e modificare
      * i dati della proiezione.
      */
 
@@ -48,7 +48,7 @@ public class Proiezione {
     /**
      * Imposta l'orario della proiezione.
      *
-     * @param ora    nuova orario
+     * @param ora    nuovo orario
      */
 
     public void SetOra(LocalTime ora){this.ora=ora;}
@@ -84,6 +84,12 @@ public class Proiezione {
      */
 
     public float GetCosto(){return this.costo;}
+
+    /**
+     * Restituisce il film associato alla proiezione.
+     *
+     * @return oggetto {@link Film} proiettato
+     */
 
     public Film GetFilm(){return this.film;}
 

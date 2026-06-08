@@ -266,7 +266,7 @@ public class   Inserimenti {
     }
 
     /**
-     * Richiede e valida l'insserimento della password.
+     * Richiede e valida l'inserimento della password.
      * La password deve avere almeno 4 caratteri.
      *
      * @param input scanner per la lettura da tastiera
@@ -307,7 +307,7 @@ public class   Inserimenti {
      * Richiede e valida l'inserimento della data di nascita.
      *
      * @param input scanner per la lettura da tastiera
-     * @return data di nascita come oggetto {@link Date}
+     * @return data di nascita come oggetto {@link LocalDate}
      */
 
     //controllo data

@@ -32,6 +32,18 @@ public class Prenotazione {
         this.scaduta=scaduta;
         this.id=InserisciId();
     }
+
+    /**
+     * Crea una prenotazione utilizzando un ID già esistente, tipicamente
+     * ricostruita da file o da una sorgente esterna.
+     *
+     * @param id              identificativo univoco della prenotazione
+     * @param utente          cliente che ha effettuato la prenotazione
+     * @param proiezione      proiezione scelta dal cliente
+     * @param postiPrenotati  numero di posti prenotati
+     * @param scaduta         indica se la prenotazione è scaduta
+     */
+
     public Prenotazione(int id,Cliente utente, Proiezione proiezione, int postiPrenotati, boolean scaduta){
         this.id=id;
         this.utente=utente;
@@ -41,9 +53,9 @@ public class Prenotazione {
     }
 
     /**
-     * Restituisce una rappresentazione testuale della proiezione associata.
+     * Restituisce la proiezione associata alla prenotazione.
      *
-     * @return stringa descrittiva della proiezione
+     * @return oggetto {@link Proiezione} relativo alla prenotazione
      */
 
     public Proiezione getProiezione(){
@@ -91,8 +103,28 @@ public class Prenotazione {
         return this.getPostiPrenotati()*proiezione.GetCosto();
     }
 
+    /**
+     * Restituisce l'identificativo univoco della prenotazione.
+     *
+     * @return ID della prenotazione
+     */
+
     public int getId(){return this.id;}
+
+    /**
+     * Restituisce il cliente che ha effettuato la prenotazione.
+     *
+     * @return oggetto {@link Cliente} associato alla prenotazione
+     */
+
     public Cliente getCliente(){return this.utente;}
+
+    /**
+     * Genera automaticamente un nuovo ID per la prenotazione,
+     * basandosi sull'ultimo ID presente nel file delle prenotazioni.
+     *
+     * @return nuovo ID incrementale
+     */
 
     public static int InserisciId(){
         int id=0;
@@ -105,6 +137,14 @@ public class Prenotazione {
         }
         return id+1;
     }
+
+    /**
+     * Restituisce una rappresentazione testuale completa della prenotazione,
+     * includendo informazioni sul cliente, sulla proiezione, sui posti prenotati
+     * e sul costo totale.
+     *
+     * @return stringa descrittiva della prenotazione
+     */
 
     public String VisualizzaPrenotazione(){
         return "ID prenotazione: "+this.getId()+"\n" +
