@@ -14,7 +14,7 @@ import java.util.Scanner;
  * registrazione, il login e l'interazione con le funzionalità dedicate
  * alla consultazione e prenotazione.
  *
- * Queste classe estente {@link Utente} e imposta automaticamente il ruolo dell'utente come "Cliente".
+ * Queste classe estende {@link Utente} e imposta automaticamente il ruolo dell'utente come "Cliente".
  */
 
 public class Cliente extends Utente{
@@ -33,6 +33,14 @@ public class Cliente extends Utente{
     public Cliente(String nome, String cognome, String username, String password, LocalDate nascita, String domicilio){
         super(nome,cognome,username,password,nascita,domicilio,"Cliente");
     }
+
+    /**
+     * Inserisce una nuova prenotazione per la proiezione indicata,
+     * richiedendo il numero di posti e verificando la disponibilità.
+     * In caso positivo, la prenotazione viene salvata nel file dedicato.
+     *
+     * @param p proiezione scelta dal cliente
+     */
 
     public void InserisciPrenotazione(Proiezione p ){
         Scanner input = new Scanner(System.in);
@@ -53,6 +61,14 @@ public class Cliente extends Utente{
             }
         }
     }
+
+    /**
+     * Restituisce tutte le prenotazioni effettuate dal cliente corrente,
+     * confrontando username e password con quelle presenti nel file.
+     *
+     * @return lista delle prenotazioni personali del cliente
+     */
+
     public ArrayList<Prenotazione> LeggiPrenotazioniPersonali(){
         ArrayList<Prenotazione> personali= new ArrayList<>();
         ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
@@ -62,6 +78,13 @@ public class Cliente extends Utente{
         }
         return personali;
     }
+
+    /**
+     * Permette al cliente di modificare una propria prenotazione,
+     * scegliendo se cambiare proiezione, numero di posti o data,
+     * quando consentito.
+     */
+
     public void modificaPrenotazione() {
 
     ArrayList<Prenotazione> tutte = Bigliettaio.LeggiPrenotazioni();
@@ -155,6 +178,10 @@ public class Cliente extends Utente{
     }
 }
 
+    /**
+     * Permette al cliente di eliminare una propria prenotazione,
+     * se la proiezione non è ancora avvenuta.
+     */
 
     public void eliminaPrenotazione(){
         ArrayList<Prenotazione> p = Bigliettaio.LeggiPrenotazioni();
@@ -202,6 +229,14 @@ public class Cliente extends Utente{
         }
     }
 
+    /**
+     * Restituisce tutte le proiezioni disponibili per il cliente,
+     * filtrando in base all'età minima richiesta e alla disponibilità
+     * dei posti.
+     *
+     * @return lista delle proiezioni disponibili
+     */
+
     public ArrayList<Proiezione> ProiezioniDisponibili(){
         ArrayList<Proiezione> p = Proiezionista.leggiProiezioni();
         ArrayList<Proiezione> pro = new ArrayList<>();
@@ -212,6 +247,14 @@ public class Cliente extends Utente{
         }
         return pro;
     }
+
+    /**
+     * Calcola il numero totale di posti già prenotati per una determinata
+     * proiezione.
+     *
+     * @param p proiezione da analizzare
+     * @return numero di posti già prenotati
+     */
 
     public static int PostiGiaPrenoati(Proiezione p){
         int posti = 0;
@@ -253,6 +296,15 @@ public class Cliente extends Utente{
             }
         }
     }
+
+    /**
+     * Ricerca una prenotazione specifica all'interno di una lista,
+     * confrontando data, ora e titolo del film.
+     *
+     * @param p      prenotazione da cercare
+     * @param tutte  lista completa delle prenotazioni
+     * @return la prenotazione corrispondente, oppure {@code null} se non trovata
+     */
 
     public static Prenotazione RicercaPrenotazione(Prenotazione p,ArrayList<Prenotazione> tutte ){
         for(Prenotazione prenotazione : tutte)

@@ -34,6 +34,14 @@ public class Bigliettaio extends Utente{
         super(nome,cognome,username,password,nascita,domicilio,"Bigliettaio");
     }
 
+    /**
+     * Ricerca una prenotazione tramite il suo identificativo.
+     *
+     * @param id identificativo della prenotazione
+     * @param p  lista delle prenotazioni disponibili
+     * @return lista delle prenotazioni che corrispondono all'id indicato
+     */
+
     public ArrayList<Prenotazione> RicercaPrenotazione(int id,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
         for(Prenotazione pren : p){
@@ -44,6 +52,15 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
+    /**
+     * Ricerca prenotazioni tramite nome e cognome del cliente.
+     *
+     * @param nome     nome del cliente
+     * @param cognome  cognome del cliente
+     * @param p        lista delle prenotazioni disponibili
+     * @return lista delle prenotazioni trovate
+     */
+
     public ArrayList<Prenotazione> RicercaPrenotazione(String nome, String cognome,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
         for(Prenotazione pren : p)
@@ -52,6 +69,14 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
+    /**
+     * Ricerca prenotazioni successive a una determinata data.
+     *
+     * @param data data da cui iniziare la ricerca
+     * @param p    lista delle prenotazioni disponibili
+     * @return lista delle prenotazioni trovate
+     */
+
     public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni= new ArrayList<>();
         for(Prenotazione pren : p)
@@ -59,6 +84,15 @@ public class Bigliettaio extends Utente{
                 prenotazioni.add(pren);
         return prenotazioni;
     }
+
+    /**
+     * Ricerca prenotazioni comprese tra due date.
+     *
+     * @param data1 data iniziale
+     * @param data2 data finale
+     * @param p     lista delle prenotazioni disponibili
+     * @return lista delle prenotazioni trovate
+     */
 
     public ArrayList<Prenotazione> RicercaPrenotazione(LocalDate data1,LocalDate data2,ArrayList<Prenotazione> p){
         ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
@@ -71,6 +105,13 @@ public class Bigliettaio extends Utente{
         return prenotazioni;
     }
 
+    /**
+     * Permette al Bigliettaio di selezionare una prenotazione da una lista,
+     * mostrando le informazioni principali e richiedendo una scelta numerica.
+     *
+     * @param p lista delle prenotazioni disponibili
+     * @return la prenotazione selezionata dall'utente
+     */
 
     public Prenotazione ScegliPrenotazione(ArrayList<Prenotazione> p){
         int scelta;
@@ -88,6 +129,13 @@ public class Bigliettaio extends Utente{
         }while(scelta<=0 || scelta>p.size());
         return p.get(scelta-1);
     }
+
+    /**
+     * Legge tutte le prenotazioni dal file dedicato e ricostruisce gli oggetti
+     * {@link Prenotazione}, {@link Cliente} e {@link Proiezione} necessari.
+     *
+     * @return lista completa delle prenotazioni presenti nel file
+     */
 
     public static ArrayList<Prenotazione> LeggiPrenotazioni(){
         ArrayList<Prenotazione> p = new ArrayList<>();
@@ -126,6 +174,17 @@ public class Bigliettaio extends Utente{
         return  p;
     }
 
+    /**
+     * Seleziona un cliente in base ai dati forniti, confrontandoli con quelli
+     * presenti nel file degli utenti.
+     *
+     * @param nome      nome del cliente
+     * @param cognome   cognome del cliente
+     * @param username  username del cliente
+     * @param password  password del cliente
+     * @return il cliente corrispondente, oppure {@code null} se non trovato
+     */
+
     public static Cliente SelezionaCliente(String nome,String cognome,String username,String password){
         ArrayList<Utente> utenti = Guest.LeggiFile();
         for(Utente u: utenti){
@@ -136,6 +195,15 @@ public class Bigliettaio extends Utente{
         return null;
     }
 
+    /**
+     * Seleziona una proiezione in base a data, ora e titolo del film.
+     *
+     * @param data   data della proiezione
+     * @param ora    ora della proiezione
+     * @param titolo titolo del film
+     * @return la proiezione corrispondente, oppure {@code null} se non trovata
+     */
+
     public static Proiezione SelezionaProiezione(LocalDate data, LocalTime ora,String titolo){
         ArrayList<Proiezione> proiezioni = Utente.leggiProiezioni();
 
@@ -145,6 +213,15 @@ public class Bigliettaio extends Utente{
         }
         return null;
     }
+
+    /**
+     * Verifica se una proiezione è già avvenuta confrontando data e ora
+     * con quelle attuali.
+     *
+     * @param data data della proiezione
+     * @param ora  ora della proiezione
+     * @return {@code true} se la proiezione è scaduta, altrimenti {@code false}
+     */
 
     public static boolean CheckScaduta(LocalDate data, LocalTime ora){
         LocalDate dataOdierna = LocalDate.now();
@@ -158,6 +235,13 @@ public class Bigliettaio extends Utente{
             else return false;
         else return false;
     }
+
+    /**
+     * Esegue una ricerca combinata sulle prenotazioni, permettendo di filtrare
+     * per nome e cognome, id, data o intervallo di date.
+     *
+     * @return lista delle prenotazioni che soddisfano i criteri selezionati
+     */
 
     public ArrayList<Prenotazione> RicercaPrenotazioneCombinata() {
 

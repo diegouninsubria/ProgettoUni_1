@@ -5,9 +5,26 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Inserimenti {
+ /**
+        * Classe di utilità che raccoglie tutti i metodi dedicati all'inserimento
+        * e alla validazione dei dati forniti dall'utente tramite tastiera.
+        *
+        * I metodi gestiscono l'inserimento di informazioni relative ai film,
+        * alle proiezioni e agli utenti, garantendo che i valori inseriti
+ * rispettino i vincoli richiesti dal sistema CinemaX.
+ */
+
+public class   Inserimenti {
 
     //inserimenti per film
+
+     /**
+      * Richiede e valida l'inserimento del titolo di un film.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return titolo del film
+      */
+
     public static String inserisciTitolo(Scanner input){
         String titolo;
 
@@ -18,6 +35,13 @@ public class Inserimenti {
 
         return titolo;
     }
+
+     /**
+      * Permette di selezionare il genere del film tramite menu dedicato.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return genere selezionato
+      */
 
     public static String inserisciGenere(Scanner input){
         Menu m = new Menu();
@@ -48,6 +72,13 @@ public class Inserimenti {
         return null;
     }
 
+     /**
+      * Richiede e valida l'inserimento del nome del regista.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return nome del regista
+      */
+
     public static String inserisciRegista(Scanner input){
         String regista;
 
@@ -58,6 +89,13 @@ public class Inserimenti {
 
         return regista;
     }
+
+     /**
+      * Richiede e valida l'anno di uscita del film.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return anno del film
+      */
 
     public static int inserisciAnno(Scanner input){
         int anno;
@@ -74,6 +112,13 @@ public class Inserimenti {
         return anno;
     }
 
+     /**
+      * Richiede e valida la durata del film in minuti.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return durata del film
+      */
+
     public static int  inserisciDurata(Scanner input){
         int durata;
 
@@ -89,6 +134,13 @@ public class Inserimenti {
         return durata;
     }
 
+     /**
+      * Richiede e valida l'età minima per la visione del film.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return età minima richiesta
+      */
+
     public static int inserisciEtaMinima(Scanner input){
         int eta;
 
@@ -103,6 +155,14 @@ public class Inserimenti {
 
         return eta;
     }
+
+     /**
+      * Richiede e valida l'orario di inizio della proiezione.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return orario della proiezione
+      */
+
     public static LocalTime inserisciOra(Scanner input){
         int ora,minuti;
 
@@ -126,6 +186,13 @@ public class Inserimenti {
 
         return LocalTime.of(ora,minuti,00);
     }
+
+     /**
+      * Richiede e valida il costo della proiezione.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return costo della proiezione
+      */
 
     public static float inserisciCosto(Scanner input){
         float costo;
@@ -284,6 +351,13 @@ public class Inserimenti {
 
         return LocalDate.of(anno,mese,giorno);
     }
+
+     /**
+      * Richiede e valida il numero di posti da prenotare.
+      *
+      * @param input scanner per la lettura da tastiera
+      * @return numero di posti richiesti
+      */
 
     public static int InserisciPosti(Scanner input){
         int posti;
