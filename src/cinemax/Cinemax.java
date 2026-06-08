@@ -217,6 +217,3 @@ public class Cinemax {
         }while(!uscita);
     }
 }
-
-
-
