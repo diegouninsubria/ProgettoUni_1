@@ -110,6 +110,7 @@ public class Cinemax {
                             c.InserisciPrenotazione(c.SelezioneProiezione(pro));
                             break;
                         case 3:
+                            System.out.println("Caricamento...\n");
                             c.modificaPrenotazione();
                             break;
                         case 4:

@@ -264,7 +264,7 @@ public class Menu {
             scelta = input.nextInt();
             input.nextLine();
 
-        }while(scelta<1 || scelta>3);
+        }while(scelta<1 || scelta>4);
 
         return scelta;
     }
