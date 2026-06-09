@@ -106,6 +106,7 @@ public class Cinemax {
                                 }
                             break;
                         case 2:
+                            System.out.println("caricamento...\n");
                             ArrayList<Proiezione> pro = c.ProiezioniDisponibili();
                             c.InserisciPrenotazione(c.SelezioneProiezione(pro));
                             break;
