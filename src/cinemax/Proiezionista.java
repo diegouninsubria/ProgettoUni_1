@@ -1,7 +1,5 @@
 package cinemax;
 
-import javafx.scene.Scene;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
