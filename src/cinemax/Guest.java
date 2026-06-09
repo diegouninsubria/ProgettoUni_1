@@ -1,3 +1,8 @@
+/*
+Fabio Proserpio 765841 CO
+Tommaso Demontis 764582 CO
+Diego Piantalunga 765613 CO
+*/
 package cinemax;
 import java.time.LocalDate;
 import java.util.*;
