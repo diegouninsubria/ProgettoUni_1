@@ -1,3 +1,6 @@
 ID,Nome,Cognome,Username,Password,data,ora,film,posti prenotati
 2,Alice,Proserpio,Alix2008,ᢡ⦮៟ኑኑሰዲᓗᐕ,2027-12-26,13:0:0,Good Will Hunting,4
 1,Alice,Proserpio,Alix2008,ᢡ⦮៟ኑኑሰዲᓗᐕ,2027-5-5,10:0:0,Kakushi-toride no san-akunin,3
+2,Fabio,Proserpio,fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,2027-9-14,10:0:0,Kal Ho Naa Ho,2
+3,Fabio,Proserpio,fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,2027-2-28,10:0:0,The Notebook,8
+4,Fabio,Proserpio,fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,2026-11-14,10:30:0,Majo no takkyûbin,7

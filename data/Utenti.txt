@@ -12,3 +12,4 @@ Eleonora,Bussoli,bigliettaio2,Ⓛ◤⥍⟉⦮ዲᎴሰᎴ,21,6,1967,Carate Urio,
 Enrico,Vitta,bigliettaio3,ᢡ⦮៟ኑኑሰዲᓗᐕ,20,4,1955,Menaggio,Bigliettaio
 Arianna,Dangelo,bigliettaio4,᪆Ⓛ⦮⯴Ⓛ⮓⟉ⓁᔸᔸṐ,1,12,2001,Moltrasio,Bigliettaio
 Alessandro,Blanco,bigliettaio5,᳌ⱕ▃♅။ኑᖙᎴ,12,8,1993,Arcore,Bigliettaio
+Fabio,Proserpio,fabietto06,ᢡ⦮៟ኑኑሰዲᓗᐕ,7,7,2006,Carate Urio,Cliente
