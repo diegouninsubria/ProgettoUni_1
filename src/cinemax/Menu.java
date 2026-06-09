@@ -153,7 +153,7 @@ public class Menu {
      * @return scelta selezionata dall'utente (valore compreso tra 1 e 5)
      */
 
-    public int mostraMenuCercaProeizione() {
+    public int mostraMenuCercaProiezione() {
         Scanner input = new Scanner(System.in);
         int scelta;
 

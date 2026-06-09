@@ -340,7 +340,7 @@ public abstract class Utente {
         String genere;
         float costo;
         float costo1;
-        switch (m.mostraMenuCercaProeizione()){
+        switch (m.mostraMenuCercaProiezione()){
             case 1:
                 switch (m.MenuRicercaData()){
                     case 1:
