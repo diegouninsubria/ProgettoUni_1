@@ -117,6 +117,7 @@ public class Cliente extends Utente{
     switch(m.MenuModificaPrenotazione()){
 
         case 1: // modifica proiezione
+            System.out.println("caricamento...");
             ArrayList<Proiezione> disponibili = ProiezioniDisponibili();
             if(disponibili.isEmpty()){
                 System.out.println("Non ci sono proiezioni disponibili.");
