@@ -49,6 +49,7 @@ public class Cinemax {
                     ut = g.Login();
                     if(ut == null){
                         System.out.println("Utente non presente");
+                        ut=new Guest();
                     } else {
                         System.out.println("Ti sei loggato come:");
                         System.out.println(ut.toString());
@@ -75,6 +76,7 @@ public class Cinemax {
                             ut = g.Login();
                             if(ut == null){
                                 System.out.println("Utente non presente");
+                                ut=new Guest();
                             } else {
                                 System.out.println("Ti sei loggato come:");
                                 System.out.println(ut.toString());
