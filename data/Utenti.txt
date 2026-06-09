@@ -5,10 +5,10 @@ Alberto,Demontis,Albericoxx,ᢡ⥍⩰⦮⣬,12,12,1995,Cernobbio,Cliente
 Noemi,Ancora,noem21,ᢡ⣬⥍⦮⨏⩰,4,12,1996,Pero,Cliente
 Emma,Gandola,gando06,᫧Ⓛ⦮◤⨏ሰᑶ,8,7,2006,Lezzeno,Cliente
 Tommaso,Demontis,tommydemo,▃⨏⥍⨏ኑᖙሰᓗ,18,5,2006,Cernobbio,Cliente
-Mario,Albenga,proiezionista1,ᥣ⨏⥍⨏ᥣ⟉⦮♅⥍Ⓛኑ,12,9,2000,Como,Cliente
-Luigi,Castaldo,proiezionista2,Ⓛ◤⥍⟉⦮ፓᎴᐕ,30,1,1975,Como,Cliente
-Marisa,Caldi,bigliettaio1,ᥣ⨏⥍⨏ᥣ⟉⦮♅⥍Ⓛዲ,7,7,2003,Cernobbio,Cliente
-Eleonora,Bussoli,bigliettaio2,Ⓛ◤⥍⟉⦮ዲᎴሰᎴ,21,6,1967,Carate Urio,Cliente
-Enrico,Vitta,bigliettaio3,ᢡ⦮៟ኑኑሰዲᓗᐕ,20,4,1955,Menaggio,Cliente
-Arianna,Dangelo,bigliettaio4,᪆Ⓛ⦮⯴Ⓛ⮓⟉ⓁᔸᔸṐ,1,12,2001,Moltrasio,Cliente
-Alessandro,Blanco,bigliettaio5,᳌ⱕ▃♅။ኑᖙᎴ,12,8,1993,Arcore,Cliente
+Mario,Albenga,proiezionista1,ᥣ⨏⥍⨏ᥣ⟉⦮♅⥍Ⓛኑ,12,9,2000,Como,Proiezionista
+Luigi,Castaldo,proiezionista2,Ⓛ◤⥍⟉⦮ፓᎴᐕ,30,1,1975,Como,Proiezionista
+Marisa,Caldi,bigliettaio1,ᥣ⨏⥍⨏ᥣ⟉⦮♅⥍Ⓛዲ,7,7,2003,Cernobbio,Bigliettaio
+Eleonora,Bussoli,bigliettaio2,Ⓛ◤⥍⟉⦮ዲᎴሰᎴ,21,6,1967,Carate Urio,Bigliettaio
+Enrico,Vitta,bigliettaio3,ᢡ⦮៟ኑኑሰዲᓗᐕ,20,4,1955,Menaggio,Bigliettaio
+Arianna,Dangelo,bigliettaio4,᪆Ⓛ⦮⯴Ⓛ⮓⟉ⓁᔸᔸṐ,1,12,2001,Moltrasio,Bigliettaio
+Alessandro,Blanco,bigliettaio5,᳌ⱕ▃♅။ኑᖙᎴ,12,8,1993,Arcore,Bigliettaio
