@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: cinemax.Cinemax
+Class-Path: C:\Users\fabio\Desktop\calc\ProgettoUni_1\src\cinemax\Cinema
+ x.java
+
