@@ -9,13 +9,16 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ *Rappresenta un utente con ruolo di Proiezionista nel sistema Cinemax.
+ *Il Proiezionista è responsabile della gestione dei film e delle proiezioni,
+ *potendo inserire nuovi film, programmare proiezioni, modificarle o eliminarle.
+ *
+ */
+
 public class Proiezionista extends Utente{
 
     /**
-     * Rappresenta un utente con ruolo di Proiezionista nel sistema Cinemax.
-     * Il Proiezionista è responsabile della gestione dei film e delle proiezioni,
-     * potendo inserire nuovi film, programmare proiezioni, modificarle o eliminarle.
-     *
      * La classe fornisce inoltre metodi per leggere i film dal file,
      * selezionare un film dall’elenco e verificare l’esistenza di un titolo
      * già presente nell’archivio.

@@ -7,13 +7,15 @@ import java.util.*;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+/**
+ *Classe astratta che rappresenta un utente del sistema Cinemax.
+ *Contiene le informazioni anagrafiche e di accesso comuni a tutte
+ *le tipologie di utenti (Cliente, Proiezionista, Bigliettaio, Guest).
+ */
 public abstract class Utente {
 
     /**
-     * Classe astratta che rappresenta un utente del sistema Cinemax.
-     * Contiene le informazioni anagrafiche e di accesso comuni a tutte
-     * le tipologie di utenti (Cliente, Proiezionista, Bigliettaio, Guest).
-     *
      * La classe fornisce metodi getter e setter per la gestione dei dati
      * personali, oltre a funzionalità condivise come la selezione di una
      * proiezione e la lettura delle proiezioni disponibili dal file.

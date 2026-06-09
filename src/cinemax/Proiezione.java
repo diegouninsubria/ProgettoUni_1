@@ -6,12 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+/**
+ *Rappresenta una proiezione cinematografica nel sistema Cinemax.
+ *Contiene le informazioni relative alla data, all'orario, al film
+ *proiettato e al costo del biglietto.
+ */
 public class Proiezione {
 
-    /**
-     * Rappresenta una proiezione cinematografica nel sistema Cinemax.
-     * Contiene le informazioni relative alla data, all'orario, al film
-     * proiettato e al costo del biglietto.
+    /*
      * La classe fornisce i metodi getter e setter per accedere e modificare
      * i dati della proiezione.
      */
