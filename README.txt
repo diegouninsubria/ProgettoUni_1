@@ -30,6 +30,13 @@ Permette di compilare ogni file con estensione .java presente nel package
 5)Fatto ciò si creeranno i file con estensione.class e per eseguire il codice completo bisognerà eseguire la classe main cioè Cinemax:
 java cinemax.Cinemax
 Tale linea di codice dovrà essere eseguita sempre all'interno della cartella src
+Oppure visto che nella cartella bin è già presente l'archivio jar digitare la seguente linea di codice nel cmd:
+java -jar bin/ProgettoUni_1.jar
+
+IMPORTANTE:
+java deve essere installato correttamente
+per eseguire il jar bisgona essere nella cartella principale del progetto
+
 
 Note:
 -Assicurarsi che prima di eseguire le linee di codice nel terminale si è posizionati nella corretta directory
