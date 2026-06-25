@@ -31,7 +31,7 @@ Permette di compilare ogni file con estensione .java presente nel package
 java cinemax.Cinemax
 Tale linea di codice dovrà essere eseguita sempre all'interno della cartella src
 Oppure visto che nella cartella bin è già presente l'archivio jar digitare la seguente linea di codice nel cmd:
-java -jar bin/ProgettoUni_1.jar
+java -jar bin\ProgettoUni_1.jar
 
 IMPORTANTE:
 java deve essere installato correttamente
