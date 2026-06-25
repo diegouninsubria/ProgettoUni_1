@@ -131,7 +131,7 @@ public class Guest extends Utente{
 
         String file = "data/Utenti.txt";
 
-        try(BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/data/Utenti.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader(file))){
 
             br.readLine();
             String riga;
